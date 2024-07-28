@@ -79,7 +79,6 @@
 				"isTown": false,
 				"isFortification": false,
 				"neighbours": [
-					"cccdcb",
 					"010066",
 					"0000cc"
 				]
@@ -96,8 +95,7 @@
 					"01019f",
 					"0000cc",
 					"ffd2d2",
-					"aaadab",
-					"cccdcb"
+					"aaadab"
 				]
 			},
 			{
@@ -537,8 +535,7 @@
 					"01a334",
 					"0000fe",
 					"01cc01",
-					"01329b",
-					"f00c8b"
+					"01329b"
 				]
 			},
 			{
@@ -729,7 +726,7 @@
 				"isTown": false,
 				"isFortification": false,
 				"neighbours": [
-					"ffff01"
+					"ccff00"
 				]
 			}
 		]
@@ -864,8 +861,6 @@
 				"isTown": false,
 				"isFortification": false,
 				"neighbours": [
-					"01019f",
-					"010066",
 					"aaadab"
 				]
 			},
@@ -982,7 +977,6 @@
 					"0000cc",
 					"000032",
 					"ff0de7",
-					"98989a",
 					"aaadab",
 					"010066"
 				]
@@ -997,7 +991,6 @@
 				"isFortification": false,
 				"neighbours": [
 					"aaadab",
-					"ffd2d2",
 					"ff0de7"
 				]
 			},
