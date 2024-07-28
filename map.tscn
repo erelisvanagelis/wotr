@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://csmytryt1j8kv"]
 
-[ext_resource type="PackedScene" uid="uid://bcjh21adtd58x" path="res://map/map.blend" id="1_3swp4"]
+[ext_resource type="PackedScene" uid="uid://3ou5m67050oc" path="res://map/map.blend" id="1_3swp4"]
 [ext_resource type="Script" path="res://map.gd" id="2_5mtu5"]
 [ext_resource type="Texture2D" uid="uid://n8ev8dkb63de" path="res://map/board.jpg" id="2_j6ig4"]
 
