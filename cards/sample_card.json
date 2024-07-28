@@ -1,0 +1,31 @@
+{
+    "name": "Celeborn’s Galadhrim",
+    "type": "Muster",
+    "description": "Recruit one Elven unit (Regular or Elite) in Lórien. Then, draw one Strategy Event card.",
+    "number": "S15",
+    "requirements": [],
+    "actions": [
+        {
+            "type": "recruit",
+            "nation_id": 1,
+            "options": [
+                {
+                    "type": "regular",
+                    "ammount": 1
+                },
+                {
+                    "type": "elite",
+                    "ammount": 1
+                }
+            ],
+            "target": "01a29d"
+        },
+        {
+            "type": "draw",
+            "deck": "strategy",
+            "ammount": 1
+        }
+    ],
+    "discard": [],
+    "faction": "Free People"
+}

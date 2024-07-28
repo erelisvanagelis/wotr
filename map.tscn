@@ -1,0 +1,250 @@
+[gd_scene load_steps=4 format=3 uid="uid://csmytryt1j8kv"]
+
+[ext_resource type="PackedScene" uid="uid://bpeb7a0vgiwsx" path="res://map/map.blend" id="1_3swp4"]
+[ext_resource type="Script" path="res://map.gd" id="2_5mtu5"]
+[ext_resource type="Texture2D" uid="uid://n8ev8dkb63de" path="res://map/board.jpg" id="2_j6ig4"]
+
+[node name="Map" instance=ExtResource("1_3swp4")]
+script = ExtResource("2_5mtu5")
+
+[node name="Background" type="Sprite3D" parent="." index="0"]
+transform = Transform3D(0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0, -0.001, 0)
+visible = false
+texture = ExtResource("2_j6ig4")
+
+[node name="Camera" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.75, 0)
+current = true
+fov = 52.6
+
+[node name="province" parent="." index="2" groups=["provinces"]]
+
+[node name="Sun" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 1, 3.22, 1)
+light_energy = 0.7
+sky_mode = 1
+
+[node name="province_001" parent="." index="5" groups=["provinces"]]
+
+[node name="province_002" parent="." index="6" groups=["provinces"]]
+
+[node name="province_003" parent="." index="7" groups=["provinces"]]
+
+[node name="province_004" parent="." index="8" groups=["provinces"]]
+
+[node name="province_005" parent="." index="9" groups=["provinces"]]
+
+[node name="province_006" parent="." index="10" groups=["provinces"]]
+
+[node name="province_007" parent="." index="11" groups=["provinces"]]
+
+[node name="province_008" parent="." index="12" groups=["provinces"]]
+
+[node name="province_009" parent="." index="13" groups=["provinces"]]
+
+[node name="province_010" parent="." index="14" groups=["provinces"]]
+
+[node name="province_011" parent="." index="15" groups=["provinces"]]
+
+[node name="province_012" parent="." index="16" groups=["provinces"]]
+
+[node name="province_013" parent="." index="17" groups=["provinces"]]
+
+[node name="province_014" parent="." index="18" groups=["provinces"]]
+
+[node name="province_015" parent="." index="19" groups=["provinces"]]
+
+[node name="province_016" parent="." index="20" groups=["provinces"]]
+
+[node name="province_017" parent="." index="21" groups=["provinces"]]
+
+[node name="province_018" parent="." index="22" groups=["provinces"]]
+
+[node name="province_019" parent="." index="23" groups=["provinces"]]
+
+[node name="province_020" parent="." index="24" groups=["provinces"]]
+
+[node name="province_021" parent="." index="25" groups=["provinces"]]
+
+[node name="province_022" parent="." index="26" groups=["provinces"]]
+
+[node name="province_023" parent="." index="27" groups=["provinces"]]
+
+[node name="province_024" parent="." index="28" groups=["provinces"]]
+
+[node name="province_025" parent="." index="29" groups=["provinces"]]
+
+[node name="province_026" parent="." index="30" groups=["provinces"]]
+
+[node name="province_027" parent="." index="31" groups=["provinces"]]
+
+[node name="province_028" parent="." index="32" groups=["provinces"]]
+
+[node name="province_029" parent="." index="33" groups=["provinces"]]
+
+[node name="province_030" parent="." index="34" groups=["provinces"]]
+
+[node name="province_031" parent="." index="35" groups=["provinces"]]
+
+[node name="province_032" parent="." index="36" groups=["provinces"]]
+
+[node name="province_033" parent="." index="37" groups=["provinces"]]
+
+[node name="province_034" parent="." index="38" groups=["provinces"]]
+
+[node name="province_035" parent="." index="39" groups=["provinces"]]
+
+[node name="province_036" parent="." index="40" groups=["provinces"]]
+
+[node name="province_037" parent="." index="41" groups=["provinces"]]
+
+[node name="province_038" parent="." index="42" groups=["provinces"]]
+
+[node name="province_039" parent="." index="43" groups=["provinces"]]
+
+[node name="province_040" parent="." index="44" groups=["provinces"]]
+
+[node name="province_041" parent="." index="45" groups=["provinces"]]
+
+[node name="province_042" parent="." index="46" groups=["provinces"]]
+
+[node name="province_043" parent="." index="47" groups=["provinces"]]
+
+[node name="province_044" parent="." index="48" groups=["provinces"]]
+
+[node name="province_045" parent="." index="49" groups=["provinces"]]
+
+[node name="province_046" parent="." index="50" groups=["provinces"]]
+
+[node name="province_047" parent="." index="51" groups=["provinces"]]
+
+[node name="province_048" parent="." index="52" groups=["provinces"]]
+
+[node name="province_049" parent="." index="53" groups=["provinces"]]
+
+[node name="province_050" parent="." index="54" groups=["provinces"]]
+
+[node name="province_051" parent="." index="55" groups=["provinces"]]
+
+[node name="province_052" parent="." index="56" groups=["provinces"]]
+
+[node name="province_053" parent="." index="57" groups=["provinces"]]
+
+[node name="province_054" parent="." index="58" groups=["provinces"]]
+
+[node name="province_055" parent="." index="59" groups=["provinces"]]
+
+[node name="province_056" parent="." index="60" groups=["provinces"]]
+
+[node name="province_057" parent="." index="61" groups=["provinces"]]
+
+[node name="province_058" parent="." index="62" groups=["provinces"]]
+
+[node name="province_059" parent="." index="63" groups=["provinces"]]
+
+[node name="province_060" parent="." index="64" groups=["provinces"]]
+
+[node name="province_061" parent="." index="65" groups=["provinces"]]
+
+[node name="province_062" parent="." index="66" groups=["provinces"]]
+
+[node name="province_063" parent="." index="67" groups=["provinces"]]
+
+[node name="province_064" parent="." index="68" groups=["provinces"]]
+
+[node name="province_065" parent="." index="69" groups=["provinces"]]
+
+[node name="province_066" parent="." index="70" groups=["provinces"]]
+
+[node name="province_067" parent="." index="71" groups=["provinces"]]
+
+[node name="province_068" parent="." index="72" groups=["provinces"]]
+
+[node name="province_069" parent="." index="73" groups=["provinces"]]
+
+[node name="province_070" parent="." index="74" groups=["provinces"]]
+
+[node name="province_071" parent="." index="75" groups=["provinces"]]
+
+[node name="province_072" parent="." index="76" groups=["provinces"]]
+
+[node name="province_073" parent="." index="77" groups=["provinces"]]
+
+[node name="province_074" parent="." index="78" groups=["provinces"]]
+
+[node name="province_075" parent="." index="79" groups=["provinces"]]
+
+[node name="province_076" parent="." index="80" groups=["provinces"]]
+
+[node name="province_077" parent="." index="81" groups=["provinces"]]
+
+[node name="province_078" parent="." index="82" groups=["provinces"]]
+
+[node name="province_079" parent="." index="83" groups=["provinces"]]
+
+[node name="province_080" parent="." index="84" groups=["provinces"]]
+
+[node name="province_081" parent="." index="85" groups=["provinces"]]
+
+[node name="province_082" parent="." index="86" groups=["provinces"]]
+
+[node name="province_083" parent="." index="87" groups=["provinces"]]
+
+[node name="province_084" parent="." index="88" groups=["provinces"]]
+
+[node name="province_085" parent="." index="89" groups=["provinces"]]
+
+[node name="province_086" parent="." index="90" groups=["provinces"]]
+
+[node name="province_087" parent="." index="91" groups=["provinces"]]
+
+[node name="province_088" parent="." index="92" groups=["provinces"]]
+
+[node name="province_089" parent="." index="93" groups=["provinces"]]
+
+[node name="province_090" parent="." index="94" groups=["provinces"]]
+
+[node name="province_091" parent="." index="95" groups=["provinces"]]
+
+[node name="province_092" parent="." index="96" groups=["provinces"]]
+
+[node name="province_093" parent="." index="97" groups=["provinces"]]
+
+[node name="province_094" parent="." index="98" groups=["provinces"]]
+
+[node name="province_095" parent="." index="99" groups=["provinces"]]
+
+[node name="province_096" parent="." index="100" groups=["provinces"]]
+
+[node name="province_097" parent="." index="101" groups=["provinces"]]
+
+[node name="province_098" parent="." index="102" groups=["provinces"]]
+
+[node name="province_099" parent="." index="103" groups=["provinces"]]
+
+[node name="province_100" parent="." index="104" groups=["provinces"]]
+
+[node name="province_101" parent="." index="105" groups=["provinces"]]
+
+[node name="province_102" parent="." index="106" groups=["provinces"]]
+
+[node name="province_103" parent="." index="107" groups=["provinces"]]
+
+[node name="province_104" parent="." index="108" groups=["provinces"]]
+
+[node name="province_105" parent="." index="109" groups=["provinces"]]
+
+[node name="province_106" parent="." index="110" groups=["provinces"]]
+
+[node name="province_107" parent="." index="111" groups=["provinces"]]
+
+[node name="province_108" parent="." index="112" groups=["provinces"]]
+
+[node name="province_109" parent="." index="113" groups=["provinces"]]
+
+[node name="province_110" parent="." index="114" groups=["provinces"]]
+
+[node name="province_111" parent="." index="115" groups=["provinces"]]
+
+[node name="Bounds" parent="." index="116"]
+visible = false

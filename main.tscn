@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba8os7b4jivs1"]
+
+[ext_resource type="PackedScene" uid="uid://csmytryt1j8kv" path="res://map.tscn" id="1_4i6gv"]
+[ext_resource type="PackedScene" uid="uid://df2lq0k5vwt5e" path="res://army.tscn" id="2_v8i6n"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Map" parent="." node_paths=PackedStringArray("cyl") instance=ExtResource("1_4i6gv")]
+cyl = NodePath("../Army")
+
+[node name="ArmyManager" type="Node3D" parent="."]
+
+[node name="Army" parent="." instance=ExtResource("2_v8i6n")]
