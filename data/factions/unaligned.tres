@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Faction" load_steps=2 format=3 uid="uid://nw2egkm4l4e"]
+
+[ext_resource type="Script" path="res://custom_resources/faction.gd" id="1_rrwii"]
+
+[resource]
+script = ExtResource("1_rrwii")
+title = &"Unaligned"

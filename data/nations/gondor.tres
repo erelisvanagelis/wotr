@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Nation" load_steps=3 format=3 uid="uid://q4q0exwtly7u"]
+
+[ext_resource type="Script" path="res://custom_resources/nation.gd" id="1_4sx08"]
+[ext_resource type="Resource" uid="uid://y40yynjwjo7p" path="res://data/factions/free_people.tres" id="1_pgjly"]
+
+[resource]
+script = ExtResource("1_4sx08")
+id = &"43426c"
+title = &"Gondor"
+faction = ExtResource("1_pgjly")
+active = false
+readyness = 2
+at_war = false
+regulars = 0
+elites = 0
+leaders = 0

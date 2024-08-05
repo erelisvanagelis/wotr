@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Nation" load_steps=3 format=3 uid="uid://ceu4f23rdpkhi"]
+
+[ext_resource type="Resource" uid="uid://y40yynjwjo7p" path="res://data/factions/free_people.tres" id="1_wiguc"]
+[ext_resource type="Script" path="res://custom_resources/nation.gd" id="2_3j5ad"]
+
+[resource]
+script = ExtResource("2_3j5ad")
+id = &"048f1a"
+title = &"Elves"
+faction = ExtResource("1_wiguc")
+active = true
+war_readyness = 3
+at_war = false
+regulars = 0
+elites = 0
+leaders = 0

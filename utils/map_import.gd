@@ -1,22 +1,26 @@
 @tool # Needed so it runs in editor.
 extends EditorScenePostImport
 
-const region_DATA_PATH: String = "res://map/regions.json";
+const region_DATA_PATH: String = "res://import_data/map/regions.json";
 const MAP_DATA = Constants.MAP_DATA
 
 # Called right after the scene is imported and gets the root node.
 func _post_import(scene: Node) -> Object:
-	var color_map: Image = Image.load_from_file("res://map/map_mask.png")
-
+	var color_map: Image = Image.load_from_file("res://import_data/map/map_mask.png")
+	
+	print("bef")
+	var nations_map := get_nation_map()
+	print("af")
+	print(nations_map)
 	var factions_data := get_faction_data(region_DATA_PATH)
-	var regions_data := get_regions_data_from_factions_data(factions_data)
+	var regions_data := get_region_data(region_DATA_PATH)
 	var bounds := get_offset_bounds(scene)
 
 	var regions := get_regions(scene)
 	for region: Region in regions:
 		region.add_to_group(Constants.GROUP.REGIONS, true)
 		region.id = find_region_id(color_map, region.position, bounds[1], bounds[2])
-		region = apply_region_data(region, regions_data, factions_data)
+		region = apply_region_data(region, regions_data, nations_map, scene)
 
 	var region_map := {}
 	for region: Region in regions:
@@ -25,14 +29,22 @@ func _post_import(scene: Node) -> Object:
 	for region: Region in regions:
 		if !regions_data.has(region.id):
 			continue
-
 		var bours: Array[Region] = []
 		for neighbour: String in regions_data[region.id][MAP_DATA.NEIGHBOURS]:
 			bours.append(region_map[neighbour])
 
 		region.neighbours = bours
-
+	
 	return scene
+
+
+func get_nation_map() -> Dictionary:
+	var nations_map := {}
+	for nation: Nation in Nation.get_all_nations():
+		print(nation)
+		nations_map[nation.id] = nation
+
+	return nations_map
 
 func get_faction_data(path: String) -> Dictionary:
 	var factions_json: Array = JSON.parse_string(FileAccess.open(path, FileAccess.READ).get_as_text())
@@ -42,6 +54,7 @@ func get_faction_data(path: String) -> Dictionary:
 
 	return factions
 
+
 func get_regions_data_from_factions_data(factions: Dictionary) -> Dictionary:
 	var regions: Dictionary = {}
 	for faction: Dictionary in factions.values():
@@ -49,6 +62,16 @@ func get_regions_data_from_factions_data(factions: Dictionary) -> Dictionary:
 			regions[region[MAP_DATA.ID]] = region
 
 	return regions
+
+
+func get_region_data(path: String) -> Dictionary:
+	var regions_json: Array = JSON.parse_string(FileAccess.open(path, FileAccess.READ).get_as_text())
+	var regions: Dictionary = {}
+	for region: Dictionary in regions_json:
+		regions[region[MAP_DATA.ID]] = region
+
+	return regions
+
 
 func get_offset_bounds(scene: Node) -> Array[Vector2]:
 	var bounds := (scene.get_node(MAP_DATA.BOUNDS) as MeshInstance3D).get_aabb();
@@ -59,6 +82,7 @@ func get_offset_bounds(scene: Node) -> Array[Vector2]:
 	max_bound = max_bound + offset
 
 	return [min_bound, max_bound, offset]
+
 
 func get_regions(scene: Node) -> Array[Region]:
 	var region_script: Resource = load("res://region.gd")
@@ -72,8 +96,10 @@ func get_regions(scene: Node) -> Array[Region]:
 
 	return regions
 
+
 func region_filter(node: Node) -> bool:
 	return node.name.begins_with(MAP_DATA.REGION) && node is MeshInstance3D
+
 
 func find_region_id(color_map: Image, position: Vector3, max_bound: Vector2, offset: Vector2) -> StringName:
 	@warning_ignore("narrowing_conversion")
@@ -83,24 +109,22 @@ func find_region_id(color_map: Image, position: Vector3, max_bound: Vector2, off
 
 	return color_map.get_pixel(x, y).to_html(false)
 
-func apply_region_data(region: Region, regions_data: Dictionary, factions_data: Dictionary) -> Region:
+
+func apply_region_data(region: Region, regions_data: Dictionary, nations_data: Dictionary, scene: Node) -> Region:
 	if !regions_data.has(region.id):
 		print("Region has no data - ", region.id)
 		return region
 
 	var region_data: Dictionary = regions_data[region.id]
-	var nation: Dictionary = factions_data[region_data[MAP_DATA.PARENT_ID]]
+	var nation: Nation = nations_data[region_data[MAP_DATA.PARENT_ID]]
 
-	region.title = regions_data[region.id][MAP_DATA.NAME]
-	region.nation = nation[MAP_DATA.NAME]
-	if nation[MAP_DATA.IS_SHADOW]:
-		region.faction = Constants.FACTION.SHADOW
-	else:
-		region.faction = Constants.FACTION.FREE_PEOPLE
+	region.title = region_data[MAP_DATA.NAME]
+	region.nation = nation
+	print(nation)
 
 	var material: StandardMaterial3D = StandardMaterial3D.new()
-	material.albedo_color = Color.from_string(nation[MAP_DATA.COLOR], "ffffff")
+	material.albedo_color = Color.from_string(nation.id, "ffffff")
 	region.default_material_test = material
 	region.set_surface_override_material(0, region.default_material_test)
-	return region
 
+	return region

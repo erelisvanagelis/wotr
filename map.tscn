@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://csmytryt1j8kv"]
+[gd_scene load_steps=16 format=3 uid="uid://csmytryt1j8kv"]
 
-[ext_resource type="PackedScene" uid="uid://3ou5m67050oc" path="res://map/map.blend" id="1_3swp4"]
+[ext_resource type="PackedScene" uid="uid://3ou5m67050oc" path="res://import_data/map/map.blend" id="1_3swp4"]
 [ext_resource type="Script" path="res://map.gd" id="2_5mtu5"]
-[ext_resource type="Texture2D" uid="uid://n8ev8dkb63de" path="res://map/board.jpg" id="2_j6ig4"]
+[ext_resource type="Texture2D" uid="uid://n8ev8dkb63de" path="res://import_data/map/board.jpg" id="2_j6ig4"]
+[ext_resource type="PackedScene" uid="uid://df2lq0k5vwt5e" path="res://army.tscn" id="4_ifpgu"]
+[ext_resource type="Resource" uid="uid://y40yynjwjo7p" path="res://data/factions/free_people.tres" id="6_3ghvw"]
+[ext_resource type="PackedScene" uid="uid://ugsyu71egayj" path="res://unit.tscn" id="7_s6gx2"]
+[ext_resource type="Resource" uid="uid://8roir1ghffmp" path="res://data/factions/shadow.tres" id="8_s7ege"]
+[ext_resource type="Resource" uid="uid://chf0dnbqrdoyk" path="res://data/nations/dwarves.tres" id="9_h0dqb"]
+[ext_resource type="Resource" uid="uid://ceu4f23rdpkhi" path="res://data/nations/elves.tres" id="10_ly7x6"]
+[ext_resource type="Resource" uid="uid://q4q0exwtly7u" path="res://data/nations/gondor.tres" id="11_5sjmk"]
+[ext_resource type="Resource" uid="uid://ds3awlm7wi41d" path="res://data/nations/the_north.tres" id="12_r11ey"]
+[ext_resource type="Resource" uid="uid://c1gwhnbfqyxgo" path="res://data/nations/rohan.tres" id="13_h2hnd"]
+[ext_resource type="Resource" uid="uid://corojpbmffdv6" path="res://data/nations/isengard.tres" id="15_0a5o2"]
+[ext_resource type="Resource" uid="uid://da7d4rvptqxba" path="res://data/nations/sauron.tres" id="16_8rgow"]
+[ext_resource type="Resource" uid="uid://cqgh21ns78f2h" path="res://data/nations/southrons_easterlings.tres" id="17_fur07"]
 
 [node name="Map" instance=ExtResource("1_3swp4")]
 script = ExtResource("2_5mtu5")
@@ -22,5 +34,649 @@ transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 1, 3.22, 1)
 light_energy = 0.7
 sky_mode = 1
 
+[node name="province_001" parent="." index="5" node_paths=PackedStringArray("army")]
+army = NodePath("../Army32")
+
+[node name="province_002" parent="." index="6" node_paths=PackedStringArray("army")]
+army = NodePath("../Army31")
+
+[node name="province_006" parent="." index="10" node_paths=PackedStringArray("army")]
+army = NodePath("../Army9")
+
+[node name="province_007" parent="." index="11" node_paths=PackedStringArray("army")]
+army = NodePath("../Army11")
+
+[node name="province_011" parent="." index="15" node_paths=PackedStringArray("army")]
+army = NodePath("../Army29")
+
+[node name="province_013" parent="." index="17" node_paths=PackedStringArray("army")]
+army = NodePath("../Army10")
+
+[node name="province_014" parent="." index="18" node_paths=PackedStringArray("army")]
+army = NodePath("../Army25")
+
+[node name="province_019" parent="." index="23" node_paths=PackedStringArray("army")]
+army = NodePath("../Army8")
+
+[node name="province_020" parent="." index="24" node_paths=PackedStringArray("army")]
+army = NodePath("../Army26")
+
+[node name="province_029" parent="." index="33" node_paths=PackedStringArray("army")]
+army = NodePath("../Army19")
+
+[node name="province_030" parent="." index="34" node_paths=PackedStringArray("army")]
+army = NodePath("../Army17")
+
+[node name="province_031" parent="." index="35" node_paths=PackedStringArray("army")]
+army = NodePath("../Army30")
+
+[node name="province_032" parent="." index="36" node_paths=PackedStringArray("army")]
+army = NodePath("../Army23")
+
+[node name="province_033" parent="." index="37" node_paths=PackedStringArray("army")]
+army = NodePath("../Army18")
+
+[node name="province_041" parent="." index="45" node_paths=PackedStringArray("army")]
+army = NodePath("../Army20")
+
+[node name="province_042" parent="." index="46" node_paths=PackedStringArray("army")]
+army = NodePath("../Army34")
+
+[node name="province_047" parent="." index="51" node_paths=PackedStringArray("army")]
+army = NodePath("../Army22")
+
+[node name="province_055" parent="." index="59" node_paths=PackedStringArray("army")]
+army = NodePath("../Army21")
+
+[node name="province_058" parent="." index="62" node_paths=PackedStringArray("army")]
+army = NodePath("../Army24")
+
+[node name="province_061" parent="." index="65" node_paths=PackedStringArray("army")]
+army = NodePath("../Army7")
+
+[node name="province_069" parent="." index="73" node_paths=PackedStringArray("army")]
+army = NodePath("../Army27")
+
+[node name="province_071" parent="." index="75" node_paths=PackedStringArray("army")]
+army = NodePath("../Army33")
+
+[node name="province_073" parent="." index="77" node_paths=PackedStringArray("army")]
+army = NodePath("../Army4")
+
+[node name="province_082" parent="." index="86" node_paths=PackedStringArray("army")]
+army = NodePath("../Army16")
+
+[node name="province_090" parent="." index="94" node_paths=PackedStringArray("army")]
+army = NodePath("../Army14")
+
+[node name="province_093" parent="." index="97" node_paths=PackedStringArray("army")]
+army = NodePath("../Army12")
+
+[node name="province_094" parent="." index="98" node_paths=PackedStringArray("army")]
+army = NodePath("../Army6")
+
+[node name="province_095" parent="." index="99" node_paths=PackedStringArray("army")]
+army = NodePath("../Army13")
+
+[node name="province_096" parent="." index="100" node_paths=PackedStringArray("army")]
+army = NodePath("../Army2")
+
+[node name="province_097" parent="." index="101" node_paths=PackedStringArray("army")]
+army = NodePath("../Army5")
+
+[node name="province_100" parent="." index="104" node_paths=PackedStringArray("army")]
+army = NodePath("../Army3")
+
+[node name="province_101" parent="." index="105" node_paths=PackedStringArray("army")]
+army = NodePath("../Army")
+
+[node name="province_103" parent="." index="107" node_paths=PackedStringArray("army")]
+army = NodePath("../Army15")
+
+[node name="province_109" parent="." index="113" node_paths=PackedStringArray("army")]
+army = NodePath("../Army28")
+
 [node name="Bounds" parent="." index="116"]
 visible = false
+
+[node name="Army" parent="." index="117" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.241325, 0.05, -0.290453)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3"), NodePath("Unit4")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("9_h0dqb")
+
+[node name="Unit2" parent="Army" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("9_h0dqb")
+
+[node name="Unit3" parent="Army" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("9_h0dqb")
+
+[node name="Unit4" parent="Army" index="5" instance=ExtResource("7_s6gx2")]
+type = &"Leader"
+nation = ExtResource("9_h0dqb")
+
+[node name="Army2" parent="." index="118" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, -0.268296, 0.05, -0.232218)
+units = [NodePath("Unit")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army2" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("9_h0dqb")
+
+[node name="Army3" parent="." index="119" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.291665, 0.05, -0.263429)
+units = [NodePath("Unit")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army3" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("9_h0dqb")
+
+[node name="Army4" parent="." index="120" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, -0.276622, 0.05, -0.159058)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army4" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("10_ly7x6")
+
+[node name="Unit2" parent="Army4" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("10_ly7x6")
+
+[node name="Unit3" parent="Army4" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Leader"
+nation = ExtResource("10_ly7x6")
+
+[node name="Army5" parent="." index="121" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.0125393, 0.05, -0.245951)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army5" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("10_ly7x6")
+
+[node name="Unit2" parent="Army5" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("10_ly7x6")
+
+[node name="Unit3" parent="Army5" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Leader"
+nation = ExtResource("10_ly7x6")
+
+[node name="Army6" parent="." index="122" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.18979, 0.05, -0.223413)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army6" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("10_ly7x6")
+
+[node name="Unit2" parent="Army6" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("10_ly7x6")
+
+[node name="Unit3" parent="Army6" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Leader"
+nation = ExtResource("10_ly7x6")
+
+[node name="Army7" parent="." index="123" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.0536047, 0.05, -0.098262)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3"), NodePath("Unit4")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army7" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("10_ly7x6")
+
+[node name="Unit2" parent="Army7" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("10_ly7x6")
+
+[node name="Unit3" parent="Army7" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("10_ly7x6")
+
+[node name="Unit4" parent="Army7" index="5" instance=ExtResource("7_s6gx2")]
+type = &"Leader"
+nation = ExtResource("10_ly7x6")
+
+[node name="Army8" parent="." index="124" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.169355, 0.05, 0.137789)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3"), NodePath("Unit4"), NodePath("Unit5")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army8" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("11_5sjmk")
+
+[node name="Unit2" parent="Army8" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("11_5sjmk")
+
+[node name="Unit3" parent="Army8" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("11_5sjmk")
+
+[node name="Unit4" parent="Army8" index="5" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("11_5sjmk")
+
+[node name="Unit5" parent="Army8" index="6" instance=ExtResource("7_s6gx2")]
+type = &"Leader"
+nation = ExtResource("11_5sjmk")
+
+[node name="Army9" parent="." index="125" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.0417797, 0.05, 0.200913)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army9" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("11_5sjmk")
+
+[node name="Unit2" parent="Army9" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("11_5sjmk")
+
+[node name="Unit3" parent="Army9" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("11_5sjmk")
+
+[node name="Army10" parent="." index="126" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.203925, 0.05, 0.150627)
+units = [NodePath("Unit"), NodePath("Unit2")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army10" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("11_5sjmk")
+
+[node name="Unit2" parent="Army10" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("11_5sjmk")
+
+[node name="Army11" parent="." index="127" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.125091, 0.05, 0.218511)
+units = [NodePath("Unit")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army11" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("11_5sjmk")
+
+[node name="Army12" parent="." index="128" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, -0.109584, 0.05, -0.227672)
+units = [NodePath("Unit")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army12" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("12_r11ey")
+
+[node name="Army13" parent="." index="129" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.104558, 0.05, -0.261187)
+units = [NodePath("Unit")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army13" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("12_r11ey")
+
+[node name="Army14" parent="." index="130" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.246907, 0.05, -0.21164)
+units = [NodePath("Unit"), NodePath("Unit2")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army14" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("12_r11ey")
+
+[node name="Unit2" parent="Army14" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Leader"
+nation = ExtResource("12_r11ey")
+
+[node name="Army15" parent="." index="131" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, -0.132857, 0.05, -0.259363)
+units = [NodePath("Unit")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army15" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("12_r11ey")
+
+[node name="Army16" parent="." index="132" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, -0.191583, 0.05, -0.191561)
+units = [NodePath("Unit")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army16" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("12_r11ey")
+
+[node name="Army17" parent="." index="133" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.0816215, 0.05, 0.0877479)
+units = [NodePath("Unit"), NodePath("Unit2")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army17" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("13_h2hnd")
+
+[node name="Unit2" parent="Army17" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("13_h2hnd")
+
+[node name="Army18" parent="." index="134" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, -0.0108086, 0.05, 0.0520279)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army18" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("13_h2hnd")
+
+[node name="Unit2" parent="Army18" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("13_h2hnd")
+
+[node name="Unit3" parent="Army18" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Leader"
+nation = ExtResource("13_h2hnd")
+
+[node name="Army19" parent="." index="135" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.00863354, 0.05, 0.0847721)
+units = [NodePath("Unit")]
+faction = ExtResource("6_3ghvw")
+
+[node name="Unit" parent="Army19" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("13_h2hnd")
+
+[node name="Army20" parent="." index="136" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, -0.0165053, 0.05, 0.0159426)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3"), NodePath("Unit4"), NodePath("Unit5")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army20" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("15_0a5o2")
+
+[node name="Unit2" parent="Army20" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("15_0a5o2")
+
+[node name="Unit3" parent="Army20" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("15_0a5o2")
+
+[node name="Unit4" parent="Army20" index="5" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("15_0a5o2")
+
+[node name="Unit5" parent="Army20" index="6" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("15_0a5o2")
+
+[node name="Army21" parent="." index="137" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, -0.0334132, 0.05, -0.0839257)
+units = [NodePath("Unit")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army21" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("15_0a5o2")
+
+[node name="Army22" parent="." index="138" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, -0.0506934, 0.05, -0.0253003)
+units = [NodePath("Unit")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army22" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("15_0a5o2")
+
+[node name="Army23" parent="." index="139" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.371267, 0.05, 0.0763038)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3"), NodePath("Unit4"), NodePath("Unit5")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army23" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit2" parent="Army23" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit3" parent="Army23" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit4" parent="Army23" index="5" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit5" parent="Army23" index="6" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("16_8rgow")
+
+[node name="Army24" parent="." index="140" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.160484, 0.05, -0.0891359)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3"), NodePath("Unit4"), NodePath("Unit5"), NodePath("Unit6")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army24" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit2" parent="Army24" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit3" parent="Army24" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit4" parent="Army24" index="5" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit5" parent="Army24" index="6" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit6" parent="Army24" index="7" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("16_8rgow")
+
+[node name="Army25" parent="." index="141" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.321238, 0.05, 0.163041)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army25" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit2" parent="Army25" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit3" parent="Army25" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Army26" parent="." index="142" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.279875, 0.05, 0.139087)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3"), NodePath("Unit4"), NodePath("Unit5")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army26" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit2" parent="Army26" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit3" parent="Army26" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit4" parent="Army26" index="5" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit5" parent="Army26" index="6" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Army27" parent="." index="143" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.0288095, 0.05, -0.148907)
+units = [NodePath("Unit"), NodePath("Unit2")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army27" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit2" parent="Army27" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Army28" parent="." index="144" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.0790996, 0.05, -0.321173)
+units = [NodePath("Unit"), NodePath("Unit2")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army28" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit2" parent="Army28" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Army29" parent="." index="145" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.326309, 0.05, 0.211123)
+units = [NodePath("Unit"), NodePath("Unit2")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army29" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit2" parent="Army29" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Army30" parent="." index="146" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.294548, 0.05, 0.0732576)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3"), NodePath("Unit4"), NodePath("Unit5")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army30" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit2" parent="Army30" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit3" parent="Army30" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit4" parent="Army30" index="5" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Unit5" parent="Army30" index="6" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("16_8rgow")
+
+[node name="Army31" parent="." index="147" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.300195, 0.05, 0.286926)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3"), NodePath("Unit4")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army31" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("17_fur07")
+
+[node name="Unit2" parent="Army31" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("17_fur07")
+
+[node name="Unit3" parent="Army31" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("17_fur07")
+
+[node name="Unit4" parent="Army31" index="5" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("17_fur07")
+
+[node name="Army32" parent="." index="148" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.237163, 0.05, 0.298787)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3"), NodePath("Unit4")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army32" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("17_fur07")
+
+[node name="Unit2" parent="Army32" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("17_fur07")
+
+[node name="Unit3" parent="Army32" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("17_fur07")
+
+[node name="Unit4" parent="Army32" index="5" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("17_fur07")
+
+[node name="Army33" parent="." index="149" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.361168, 0.05, -0.154356)
+units = [NodePath("Unit"), NodePath("Unit2")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army33" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("17_fur07")
+
+[node name="Unit2" parent="Army33" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("17_fur07")
+
+[node name="Army34" parent="." index="150" node_paths=PackedStringArray("units") groups=["armies"] instance=ExtResource("4_ifpgu")]
+transform = Transform3D(0.024, 0, 0, 0, 0.024, 0, 0, 0, 0.024, 0.431263, 0.05, -0.0225603)
+units = [NodePath("Unit"), NodePath("Unit2"), NodePath("Unit3"), NodePath("Unit4")]
+faction = ExtResource("8_s7ege")
+
+[node name="Unit" parent="Army34" index="2" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("17_fur07")
+
+[node name="Unit2" parent="Army34" index="3" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("17_fur07")
+
+[node name="Unit3" parent="Army34" index="4" instance=ExtResource("7_s6gx2")]
+type = &"Regular"
+nation = ExtResource("17_fur07")
+
+[node name="Unit4" parent="Army34" index="5" instance=ExtResource("7_s6gx2")]
+type = &"Elite"
+nation = ExtResource("17_fur07")

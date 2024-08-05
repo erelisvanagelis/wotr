@@ -1,0 +1,240 @@
+[
+	{
+		"region_id": "99ab01",
+		"Regular": 1,
+		"Elite": 2,
+		"Leader": 1,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "010066",
+		"Regular": 1,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "aaff01",
+		"Regular": 1,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "aaadab",
+		"Regular": 1,
+		"Elite": 1,
+		"Leader": 1,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "0033a9",
+		"Regular": 0,
+		"Elite": 2,
+		"Leader": 1,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "669f00",
+		"Regular": 1,
+		"Elite": 1,
+		"Leader": 1,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "01a29d",
+		"Regular": 1,
+		"Elite": 2,
+		"Leader": 1,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "332819",
+		"Regular": 3,
+		"Elite": 1,
+		"Leader": 1,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "0066a0",
+		"Regular": 3,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "02feea",
+		"Regular": 2,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "00a2ff",
+		"Regular": 1,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "d406ff",
+		"Regular": 1,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "00ccfd",
+		"Regular": 1,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "fda401",
+		"Regular": 1,
+		"Elite": 0,
+		"Leader": 1,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "01a101",
+		"Regular": 0,
+		"Elite": 1,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "000032",
+		"Regular": 1,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "c007ff",
+		"Regular": 1,
+		"Elite": 1,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "02fe33",
+		"Regular": 2,
+		"Elite": 0,
+		"Leader": 1,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "0265fe",
+		"Regular": 1,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "006766",
+		"Regular": 4,
+		"Elite": 1,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "01329b",
+		"Regular": 1,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "006634",
+		"Regular": 1,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "ffff01",
+		"Regular": 4,
+		"Elite": 1,
+		"Leader": 0,
+		"Nazgûl": 1
+	},
+	{
+		"region_id": "6d0000",
+		"Regular": 5,
+		"Elite": 1,
+		"Leader": 0,
+		"Nazgûl": 1
+	},
+	{
+		"region_id": "ccff00",
+		"Regular": 3,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "cc9900",
+		"Regular": 5,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 1
+	},
+	{
+		"region_id": "00cd35",
+		"Regular": 2,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "0067cc",
+		"Regular": 2,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "abaa00",
+		"Regular": 2,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "ccaa00",
+		"Regular": 5,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 1
+	},
+	{
+		"region_id": "aa9901",
+		"Regular": 3,
+		"Elite": 1,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "329900",
+		"Regular": 3,
+		"Elite": 1,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "330099",
+		"Regular": 2,
+		"Elite": 0,
+		"Leader": 0,
+		"Nazgûl": 0
+	},
+	{
+		"region_id": "330065",
+		"Regular": 3,
+		"Elite": 1,
+		"Leader": 0,
+		"Nazgûl": 0
+	}
+]

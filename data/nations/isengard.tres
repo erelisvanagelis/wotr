@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Nation" load_steps=3 format=3 uid="uid://corojpbmffdv6"]
+
+[ext_resource type="Resource" uid="uid://8roir1ghffmp" path="res://data/factions/shadow.tres" id="1_hm21f"]
+[ext_resource type="Script" path="res://custom_resources/nation.gd" id="1_m71r7"]
+
+[resource]
+script = ExtResource("1_m71r7")
+id = &"ded800"
+title = &"Isengard"
+faction = ExtResource("1_hm21f")
+active = true
+readyness = 1
+at_war = false
+regulars = 0
+elites = 0
+leaders = 0
