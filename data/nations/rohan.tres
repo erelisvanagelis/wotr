@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Nation" load_steps=3 format=3 uid="uid://c1gwhnbfqyxgo"]
 
-[ext_resource type="Script" path="res://custom_resources/nation.gd" id="1_apot3"]
+[ext_resource type="Script" path="res://data/nation.gd" id="1_apot3"]
 [ext_resource type="Resource" uid="uid://y40yynjwjo7p" path="res://data/factions/free_people.tres" id="1_bgvw3"]
 
 [resource]

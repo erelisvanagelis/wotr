@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Unit" load_steps=5 format=3 uid="uid://c0wai0bpc5cjj"]
+
+[ext_resource type="Resource" uid="uid://chf0dnbqrdoyk" path="res://data/nations/dwarves.tres" id="1_mqli7"]
+[ext_resource type="Script" path="res://data/unit_data.gd" id="2_my6yu"]
+[ext_resource type="Texture2D" uid="uid://dkuus50vm76pr" path="res://images/units/DwarvenElite.png" id="3_jdiov"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://unit_card.tscn" id="4_pn0o4"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_my6yu")
+type = &"Elite"
+nation = ExtResource("1_mqli7")
+region_range = 1
+health = 1
+texture = ExtResource("3_jdiov")
+unit_card = ExtResource("4_pn0o4")

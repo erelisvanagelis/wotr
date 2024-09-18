@@ -1,10 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx2odvhc7n356"]
+[gd_scene load_steps=5 format=3 uid="uid://dx2odvhc7n356"]
 
 [ext_resource type="PackedScene" uid="uid://csmytryt1j8kv" path="res://map.tscn" id="1_eqpss"]
 [ext_resource type="PackedScene" uid="uid://calltnxtcy4wq" path="res://political_track.tscn" id="2_4tnlu"]
+[ext_resource type="PackedScene" uid="uid://cjkgaxb0r3x07" path="res://army_selector.tscn" id="3_38146"]
+[ext_resource type="PackedScene" uid="uid://cjpfgeg13pch2" path="res://army_manager.tscn" id="5_sjse1"]
 
 [node name="Game" type="Node"]
 
-[node name="Map" parent="." instance=ExtResource("1_eqpss")]
+[node name="Map" parent="." node_paths=PackedStringArray("army_manager") instance=ExtResource("1_eqpss")]
+army_manager = NodePath("../ArmyManager")
 
 [node name="PoliticalTrack" parent="." instance=ExtResource("2_4tnlu")]
+anchors_preset = 9
+anchor_right = 0.0
+offset_right = 0.0
+grow_horizontal = 1
+size_flags_horizontal = 0
+
+[node name="ArmySelector" parent="." node_paths=PackedStringArray("army_manager") instance=ExtResource("3_38146")]
+offset_left = 284.0
+offset_right = -9.0
+army_manager = NodePath("../ArmyManager")
+
+[node name="ArmyManager" parent="." instance=ExtResource("5_sjse1")]

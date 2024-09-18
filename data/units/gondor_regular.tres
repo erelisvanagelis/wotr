@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://b0y6h7lnsj3vg"]
+
+[ext_resource type="Resource" uid="uid://q4q0exwtly7u" path="res://data/nations/gondor.tres" id="1_xmbso"]
+[ext_resource type="Script" path="res://data/unit_data.gd" id="2_crxqn"]
+[ext_resource type="Texture2D" uid="uid://cbb3p6k87hg2w" path="res://images/units/GondorRegular.png" id="3_7phil"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://unit_card.tscn" id="4_0dbpb"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_crxqn")
+type = &"Regular"
+nation = ExtResource("1_xmbso")
+region_range = 1
+health = 1
+texture = ExtResource("3_7phil")
+unit_card = ExtResource("4_0dbpb")

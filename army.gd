@@ -1,36 +1,15 @@
 class_name Army
 extends CharacterBody3D
 
-signal army_selected()
+signal selected(army: Army)
+signal deselected()
 
 @export var speed: int = 10
-@export var units: Array[Unit]
+var units: Array[Unit]
 @export var faction: Faction
+@export var region: Region
 
 var target_position: Vector3
-
-static func new_army(nation: Nation, regular: int, elite: int, leader: int) -> Army:
-	var army: Army = load("res://army.tscn").instantiate()
-	army.faction = nation.faction
-	var new_units: Array[Unit] = []
-	for _i in regular:
-		var unit: Unit = load("res://unit.tscn").instantiate()
-		unit.type = Constants.UNIT_TYPE.REGULAR
-		unit.nation = nation
-		new_units.append(unit)
-	for _i in elite:
-		var unit: Unit = load("res://unit.tscn").instantiate()
-		unit.type = Constants.UNIT_TYPE.ELITE
-		unit.nation = nation
-		new_units.append(unit)
-	for _i in leader:
-		var unit: Unit = load("res://unit.tscn").instantiate()
-		unit.type = Constants.UNIT_TYPE.LEADER
-		unit.nation = nation
-		new_units.append(unit)
-	army.units = new_units
-
-	return army
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -49,5 +28,45 @@ func _on_input_event(_camera: Node, _event: InputEvent, _position: Vector3, _nor
 	var event := _event as InputEventMouseButton
 	match event.button_index:
 		MOUSE_BUTTON_LEFT:
-			army_selected.emit()
+			for unit: Unit in units:
+				unit.selected = true
+			print("Army clicked")
+			selected.emit(self)
 
+
+func deselect() -> void:
+	deselected.emit()
+
+func get_selected_units() -> Array[Unit]:
+	#for unit in units:
+		#print("type %s, selected %s" % [unit.type, unit.selected])
+#
+	#for unit in units:
+		#if unit.type == Constants.UNIT_TYPE.ELITE:
+			#unit.selected = false
+			#break
+	#for unit in units:
+		#print("type %s, selected %s" % [unit.type, unit.selected])
+	var units_diff:Array[Unit] = units.filter(func(unit: Unit) -> bool: return unit.selected)
+	var empty: Array[Unit] = []
+	return units_diff if units_diff else empty
+
+func are_units_selected() -> bool:
+	return get_selected_units().size() > 0
+
+func split_off_selected_units() -> Army:
+	return split_army(get_selected_units())
+
+func split_army(split_off_units: Array[Unit]) -> Army:
+	var army: Army = load("res://army.tscn").instantiate()
+	army.faction = self.faction
+	army.units = split_off_units
+	var position:= Vector3(self.position)
+	army.position = position
+	army.position.x = position.x + 0.05
+
+	for unit in split_off_units:
+		self.units.erase(unit)
+		unit.selected = false
+
+	return army

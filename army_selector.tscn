@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cjkgaxb0r3x07"]
+
+[ext_resource type="Script" path="res://army_selector.gd" id="1_ynf6e"]
+[ext_resource type="Script" path="res://data/unit_data.gd" id="2_iba45"]
+[ext_resource type="Resource" uid="uid://chf0dnbqrdoyk" path="res://data/nations/dwarves.tres" id="3_qpyiu"]
+[ext_resource type="Texture2D" uid="uid://dkuus50vm76pr" path="res://images/units/DwarvenElite.png" id="4_ljtkn"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://unit_card.tscn" id="5_vj6id"]
+
+[sub_resource type="Resource" id="Resource_r7k8o"]
+resource_local_to_scene = true
+script = ExtResource("2_iba45")
+type = &"Elite"
+nation = ExtResource("3_qpyiu")
+region_range = 1
+health = 1
+texture = ExtResource("4_ljtkn")
+unit_card = ExtResource("5_vj6id")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ld3q8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ojeq3"]
+texture = SubResource("CanvasTexture_ld3q8")
+modulate_color = Color(0.596012, 0.564918, 0.564457, 1)
+
+[node name="ArmySelector" type="Control" node_paths=PackedStringArray("container")]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+script = ExtResource("1_ynf6e")
+container = NodePath("Panel/HBoxContainer")
+units = Array[ExtResource("2_iba45")]([SubResource("Resource_r7k8o")])
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ojeq3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -14,7 +14,7 @@ func _ready() -> void:
 	var tree: Tree = get_node("Tree")
 	root = tree.create_item()
 	tree.hide_root = true
-	
+
 	ready_3 = tree.create_item(root)
 	ready_3.set_text(0, 'III')
 	ready_2 = tree.create_item(root)
@@ -23,7 +23,7 @@ func _ready() -> void:
 	ready_1.set_text(0, 'I')
 	ready_0 = tree.create_item(root)
 	ready_0.set_text(0, "At War")
-	
+
 	nation_item_map = {}
 	for nation: Nation in Nation.get_valid_nations():
 		nation.readyness_changed.connect(readyness_changed)
@@ -39,7 +39,7 @@ func _ready() -> void:
 		nation_item_map[nation.id] = child
 
 
-func _on_button_clicked(item: TreeItem, column: int, id: int, mouse_button_index: int) -> void:
+func _on_button_clicked(item: TreeItem, _column: int, _id: int, mouse_button_index: int) -> void:
 	print((item.get_metadata(0) as Nation).title)
 	var nation: Nation = item.get_metadata(0)
 	if mouse_button_index == MOUSE_BUTTON_LEFT:
@@ -60,15 +60,15 @@ func get_branch_by_readyness(readynes: int) -> TreeItem:
 			branch = ready_0
 		_:
 			push_error("dont got that")
-	
+
 	return branch
 
-func color_item_text(item: TreeItem, nation: Nation) -> TreeItem: 
+func color_item_text(item: TreeItem, nation: Nation) -> TreeItem:
 	if nation.active && nation.faction == free_people:
 		item.set_custom_color(0, Color.LIGHT_BLUE)
 	elif nation.active && nation.faction == shadow:
 		item.set_custom_color(0, Color.LIGHT_CORAL)
-	
+
 	return item
 
 

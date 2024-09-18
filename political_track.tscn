@@ -7,14 +7,16 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -978.0
+offset_right = -866.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7n2gj")
 
 [node name="Tree" type="Tree" parent="."]
-layout_mode = 0
-offset_right = 172.0
-offset_bottom = 642.0
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 278.0
+grow_vertical = 2
 
 [connection signal="button_clicked" from="Tree" to="." method="_on_button_clicked"]

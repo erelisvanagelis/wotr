@@ -1,8 +1,7 @@
 class_name Map
 extends Node3D
 
-@export
-var cyl: CharacterBody3D
+@export var army_manager: ArmyManager
 
 var selected_neigboars: Array[Region] = []
 var selected_region: Region
@@ -16,14 +15,12 @@ func _ready() -> void:
 	for region: Region in get_tree().get_nodes_in_group(Constants.GROUP.REGIONS):
 		region.region_selected.connect(on_region_selected)
 		region.region_targeted.connect(_on_region_targeted)
-		region.army_selected.connect(_on_army_selected)
+		#region.army_selected.connect(_on_army_selected)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
+	army_manager.army_selected.connect(_on_army_selected)
+
 
 func on_region_selected(region: Region) -> void:
-	#print("Faction: %s, Nation: %s, region: %s, ID: %s" % [region.faction, region.nation, region.title, region.region_id])
 	clear_selections()
 
 	selected_region = region
@@ -39,29 +36,43 @@ func highlight_neighbours(region: Region, army: Army) -> void:
 func clear_selections() -> void:
 	for _region in selected_neigboars:
 		_region.reset_material()
-	if selected_region != null:
+	if selected_region:
 		selected_region.reset_material()
+	if selected_army:
+		selected_army.deselect()
 
 	selected_neigboars.clear()
 	selected_region = null
 	selected_army = null
 
 func _on_region_targeted(target_region: Region) -> void:
+	if !selected_army:
+		return
+	if selected_army.are_units_selected():
+		print("units are selected")
+		selected_army = army_manager.split_army_by_selected_units(selected_army)
+		#self.add_child(selected_army)
+	else:
+		selected_region.army = null
+
 	if !selected_neigboars.has(target_region):
 		print("not a neighbour")
 		return
-	if selected_army == null:
+	elif selected_army == null:
 		print("no army selected")
 		return
-	if !target_region.can_army_enter(selected_army):
+	elif !target_region.can_army_enter(selected_army):
 		print("not valid region")
 		return
-	
-	selected_region.army = null
+
+
+	#selected_region.army = null
 	target_region.army = selected_army
+	selected_army.region = target_region
 	clear_selections()
 
-func _on_army_selected(region: Region, army: Army) -> void:
-	on_region_selected(region)
-	highlight_neighbours(region, army)
+func _on_army_selected(army: Army) -> void:
+	print("army selected in map")
+	on_region_selected(army.region)
 	selected_army = army
+	highlight_neighbours(selected_region, army)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Unit" load_steps=5 format=3 uid="uid://cfopqaeub3g2q"]
+
+[ext_resource type="Resource" uid="uid://cqgh21ns78f2h" path="res://data/nations/southrons_easterlings.tres" id="1_df8j5"]
+[ext_resource type="Script" path="res://data/unit_data.gd" id="2_qgh7b"]
+[ext_resource type="Texture2D" uid="uid://dtgtsk0vqio7v" path="res://images/units/SauronElite.png" id="3_eg1sd"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://unit_card.tscn" id="4_1x3si"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_qgh7b")
+type = &"Elite"
+nation = ExtResource("1_df8j5")
+region_range = 1
+health = 1
+texture = ExtResource("3_eg1sd")
+unit_card = ExtResource("4_1x3si")

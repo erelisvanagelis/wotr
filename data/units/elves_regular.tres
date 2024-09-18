@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://gjw17tiuf11i"]
+
+[ext_resource type="Resource" uid="uid://ceu4f23rdpkhi" path="res://data/nations/elves.tres" id="1_h5dj8"]
+[ext_resource type="Script" path="res://data/unit_data.gd" id="2_06kfc"]
+[ext_resource type="Texture2D" uid="uid://dpjomc0sde5ar" path="res://images/units/ElvenRegular.png" id="3_2mu6g"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://unit_card.tscn" id="4_ilnym"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_06kfc")
+type = &"Regular"
+nation = ExtResource("1_h5dj8")
+region_range = 1
+health = 1
+texture = ExtResource("3_2mu6g")
+unit_card = ExtResource("4_ilnym")

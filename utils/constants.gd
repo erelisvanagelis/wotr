@@ -18,7 +18,8 @@ const MAP_DATA := {
 
 const GROUP := {
 	REGIONS = 'regions',
-	ARMIES = 'armies'
+	ARMIES = 'armies',
+	UNITS = 'units'
 }
 
 const UNIT_TYPE := {
@@ -43,14 +44,3 @@ const NATION_NAMES := {
 }
 
 enum NATIONS_ENUM {ELVES, DWARVES, GONDOR, THE_NORTH, ROHAN, ISENGARD, SAURON, SOUTHRONS, EASTERLINGS, REGIONES_LIBRES}
-#
-#const NATION_DATA := {
-	#NATIONS_ENUM.ELVES = {
-		#ID = 1,
-		#NAME = NATION_NAMES.ELVES,
-		#FACTION = FACTION.FREE_PEOPLE,
-		#COLOR = '048f1a'
-	#}
-#}
-
-#const

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://b44whyts5jgad"]
+
+[ext_resource type="Resource" uid="uid://corojpbmffdv6" path="res://data/nations/isengard.tres" id="1_bde43"]
+[ext_resource type="Script" path="res://data/unit_data.gd" id="2_5xctr"]
+[ext_resource type="Texture2D" uid="uid://cyoh5lqjkq4s7" path="res://images/units/IsengardRegular.png" id="3_0um5c"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://unit_card.tscn" id="4_hriaj"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_5xctr")
+type = &"Regular"
+nation = ExtResource("1_bde43")
+region_range = 1
+health = 1
+texture = ExtResource("3_0um5c")
+unit_card = ExtResource("4_hriaj")

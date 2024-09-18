@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Unit" load_steps=5 format=3 uid="uid://cds7rqvjw7ao"]
+
+[ext_resource type="Resource" uid="uid://chf0dnbqrdoyk" path="res://data/nations/dwarves.tres" id="1_kg52q"]
+[ext_resource type="Script" path="res://data/unit_data.gd" id="2_uf4wv"]
+[ext_resource type="Texture2D" uid="uid://4cu1ueyndiq8" path="res://images/units/DwarvenLeader.png" id="3_tpmp1"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://unit_card.tscn" id="4_ghpfr"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_uf4wv")
+type = &"Leader"
+nation = ExtResource("1_kg52q")
+region_range = 1
+health = 1
+texture = ExtResource("3_tpmp1")
+unit_card = ExtResource("4_ghpfr")

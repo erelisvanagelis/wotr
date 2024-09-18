@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://c8500idcd0flg"]
+
+[ext_resource type="Resource" uid="uid://ceu4f23rdpkhi" path="res://data/nations/elves.tres" id="1_v6bgt"]
+[ext_resource type="Script" path="res://data/unit_data.gd" id="2_bj8p0"]
+[ext_resource type="Texture2D" uid="uid://c6ip1u8ixwrjk" path="res://images/units/ElvenLeader.png" id="3_npqs1"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://unit_card.tscn" id="4_6bm71"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_bj8p0")
+type = &"Leader"
+nation = ExtResource("1_v6bgt")
+region_range = 1
+health = 1
+texture = ExtResource("3_npqs1")
+unit_card = ExtResource("4_6bm71")
