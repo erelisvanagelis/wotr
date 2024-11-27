@@ -2,12 +2,14 @@ class_name Map
 extends Node3D
 
 @export var army_manager: ArmyManager
+@export var army_selector: ArmySelector
 
 var selected_neigboars: Array[Region] = []
 var selected_region: Region
 var selected_region_material := StandardMaterial3D.new()
 var selected_neigbour_material := StandardMaterial3D.new()
 var selected_army: Army
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	selected_region_material.albedo_color = Color.from_string("FF3131", "ffffff")
@@ -15,9 +17,17 @@ func _ready() -> void:
 	for region: Region in get_tree().get_nodes_in_group(Constants.GROUP.REGIONS):
 		region.region_selected.connect(on_region_selected)
 		region.region_targeted.connect(_on_region_targeted)
-		#region.army_selected.connect(_on_army_selected)
 
 	army_manager.army_selected.connect(_on_army_selected)
+	army_selector.unit_selection_changed.connect(on_unit_selected)
+
+
+func on_unit_selected() -> void:
+	if !selected_region || !selected_army:
+		return
+
+	selected_region.reset_neigbour_materials()
+	highlight_neighbours(selected_region, selected_army)
 
 
 func on_region_selected(region: Region) -> void:
@@ -28,6 +38,9 @@ func on_region_selected(region: Region) -> void:
 	region.set_surface_override_material(0, selected_region_material)
 
 func highlight_neighbours(region: Region, army: Army) -> void:
+	if !region || !army:
+		return
+
 	selected_neigboars.append_array(region.neighbours)
 	for neighbour in region.neighbours:
 		if neighbour.can_army_enter(army):
@@ -48,10 +61,10 @@ func clear_selections() -> void:
 func _on_region_targeted(target_region: Region) -> void:
 	if !selected_army:
 		return
+
 	if selected_army.are_units_selected():
 		print("units are selected")
 		selected_army = army_manager.split_army_by_selected_units(selected_army)
-		#self.add_child(selected_army)
 	else:
 		selected_region.army = null
 
@@ -66,7 +79,7 @@ func _on_region_targeted(target_region: Region) -> void:
 		return
 
 
-	#selected_region.army = null
+	selected_region.army = null
 	target_region.army = selected_army
 	selected_army.region = target_region
 	clear_selections()

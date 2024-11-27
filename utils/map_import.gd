@@ -1,18 +1,18 @@
-@tool # Needed so it runs in editor.
+@tool  # Needed so it runs in editor.
 extends EditorScenePostImport
 
-const region_DATA_PATH: String = "res://import_data/map/regions.json";
+const region_DATA_PATH: String = "res://import_data/map/regions.json"
 const MAP_DATA = Constants.MAP_DATA
+
 
 # Called right after the scene is imported and gets the root node.
 func _post_import(scene: Node) -> Object:
 	var color_map: Image = Image.load_from_file("res://import_data/map/map_mask.png")
-	
+
 	print("bef")
 	var nations_map := get_nation_map()
 	print("af")
 	print(nations_map)
-	var factions_data := get_faction_data(region_DATA_PATH)
 	var regions_data := get_region_data(region_DATA_PATH)
 	var bounds := get_offset_bounds(scene)
 
@@ -20,7 +20,7 @@ func _post_import(scene: Node) -> Object:
 	for region: Region in regions:
 		region.add_to_group(Constants.GROUP.REGIONS, true)
 		region.id = find_region_id(color_map, region.position, bounds[1], bounds[2])
-		region = apply_region_data(region, regions_data, nations_map, scene)
+		region = apply_region_data(region, regions_data, nations_map)
 
 	var region_map := {}
 	for region: Region in regions:
@@ -34,7 +34,7 @@ func _post_import(scene: Node) -> Object:
 			bours.append(region_map[neighbour])
 
 		region.neighbours = bours
-	
+
 	return scene
 
 
@@ -45,6 +45,7 @@ func get_nation_map() -> Dictionary:
 		nations_map[nation.id] = nation
 
 	return nations_map
+
 
 func get_faction_data(path: String) -> Dictionary:
 	var factions_json: Array = JSON.parse_string(FileAccess.open(path, FileAccess.READ).get_as_text())
@@ -74,9 +75,9 @@ func get_region_data(path: String) -> Dictionary:
 
 
 func get_offset_bounds(scene: Node) -> Array[Vector2]:
-	var bounds := (scene.get_node(MAP_DATA.BOUNDS) as MeshInstance3D).get_aabb();
-	var min_bound: Vector2 = Vector2(bounds.position.x, bounds.end.z);
-	var max_bound: Vector2 = Vector2(bounds.end.x, bounds.end.z);
+	var bounds := (scene.get_node(MAP_DATA.BOUNDS) as MeshInstance3D).get_aabb()
+	var min_bound: Vector2 = Vector2(bounds.position.x, bounds.end.z)
+	var max_bound: Vector2 = Vector2(bounds.end.x, bounds.end.z)
 	var offset := Vector2(abs(0 - min_bound.x), abs(0 - min_bound.y))
 	min_bound = min_bound + offset
 	max_bound = max_bound + offset
@@ -103,14 +104,14 @@ func region_filter(node: Node) -> bool:
 
 func find_region_id(color_map: Image, position: Vector3, max_bound: Vector2, offset: Vector2) -> StringName:
 	@warning_ignore("narrowing_conversion")
-	var x : int = (position.x + offset.x) * color_map.get_size().x / max_bound.x
+	var x: int = (position.x + offset.x) * color_map.get_size().x / max_bound.x
 	@warning_ignore("narrowing_conversion")
-	var y : int = (position.z + offset.y) * color_map.get_size().y / max_bound.y
+	var y: int = (position.z + offset.y) * color_map.get_size().y / max_bound.y
 
 	return color_map.get_pixel(x, y).to_html(false)
 
 
-func apply_region_data(region: Region, regions_data: Dictionary, nations_data: Dictionary, scene: Node) -> Region:
+func apply_region_data(region: Region, regions_data: Dictionary, nations_data: Dictionary) -> Region:
 	if !regions_data.has(region.id):
 		print("Region has no data - ", region.id)
 		return region
@@ -124,7 +125,7 @@ func apply_region_data(region: Region, regions_data: Dictionary, nations_data: D
 
 	var material: StandardMaterial3D = StandardMaterial3D.new()
 	material.albedo_color = Color.from_string(nation.id, "ffffff")
-	region.default_material_test = material
-	region.set_surface_override_material(0, region.default_material_test)
+	region.default_material = material
+	region.set_surface_override_material(0, region.default_material)
 
 	return region

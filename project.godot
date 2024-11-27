@@ -33,10 +33,20 @@ Constants="*res://utils/constants.gd"
 
 gdscript/warnings/untyped_declaration=2
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AI-Context-Generator/plugin.cfg", "res://addons/gdscript_formatter/plugin.cfg")
 
 [global_group]
 

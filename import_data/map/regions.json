@@ -485,7 +485,6 @@
 		"isTown": true,
 		"isFortification": false,
 		"neighbours": [
-			"006766",
 			"01a334",
 			"0000fe",
 			"01cc01",

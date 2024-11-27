@@ -38,17 +38,9 @@ func deselect() -> void:
 	deselected.emit()
 
 func get_selected_units() -> Array[Unit]:
-	#for unit in units:
-		#print("type %s, selected %s" % [unit.type, unit.selected])
-#
-	#for unit in units:
-		#if unit.type == Constants.UNIT_TYPE.ELITE:
-			#unit.selected = false
-			#break
-	#for unit in units:
-		#print("type %s, selected %s" % [unit.type, unit.selected])
 	var units_diff:Array[Unit] = units.filter(func(unit: Unit) -> bool: return unit.selected)
 	var empty: Array[Unit] = []
+
 	return units_diff if units_diff else empty
 
 func are_units_selected() -> bool:

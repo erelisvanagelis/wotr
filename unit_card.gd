@@ -28,10 +28,10 @@ func _on_gui_input(event: InputEvent) -> void:
 func on_select() -> void:
 	color_rect.color = select_color
 	unit.selected = true;
-	#selected.emit(self)
+	selected.emit(self)
 
 
 func on_deselect() -> void:
 	color_rect.color = basic_color
 	unit.selected = false;
-	#deselected.emit(self)
+	deselected.emit(self)

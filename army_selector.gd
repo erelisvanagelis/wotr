@@ -1,14 +1,20 @@
+class_name ArmySelector
 extends Control
+
+signal unit_selection_changed()
 
 @export var container: HBoxContainer
 @export var army_manager: ArmyManager
+
 var units: Array[Unit]:
 	set(value):
 		for unit in units:
 			unit.selected = false
+
 		selected_units = []
 		units = value
 		update_ui(value)
+
 
 @onready var selected_units: Array[UnitCard] = []
 
@@ -28,7 +34,6 @@ func army_selected(army: Army) -> void:
 
 func army_deselected() -> void:
 	print("deselected")
-	#for unit: Unit in units
 	units = []
 
 
@@ -46,6 +51,8 @@ func update_ui(selected_units: Array[Unit]) -> void:
 
 		var unit_card: UnitCard = unit.instantiate_unit_card()
 		unit_card.on_select()
+		unit_card.selected.connect(on_unit_selected_deselected)
+		unit_card.deselected.connect(on_unit_selected_deselected)
 
 		container.add_child(unit_card)
 
@@ -53,4 +60,6 @@ func update_ui(selected_units: Array[Unit]) -> void:
 	visible = !selected_units.is_empty()
 	print(visible)
 
-#var selected
+
+func on_unit_selected_deselected(_unit_card: UnitCard) -> void:
+	unit_selection_changed.emit()

@@ -7,43 +7,42 @@ signal army_deselected()
 @onready var army_scene: PackedScene = preload("res://army.tscn")
 const UNIT_TYPE := Constants.UNIT_TYPE
 
-func create_army(nation: Nation, regular: int, elite: int, leader: int) -> Army:
+func create_army(nation: Nation, regular: int, elite: int, leader: int, nazgul: int) -> Army:
 	var army: Army = load("res://army.tscn").instantiate()
 	army.faction = nation.faction
 	var new_units: Array[Unit] = []
 	for _i in regular:
 		var unit: Unit = Unit.select_unit(nation, Constants.UNIT_TYPE.REGULAR)
-		#unit.type = Constants.UNIT_TYPE.REGULAR
-		#unit.nation = nation
 		new_units.append(unit)
 	for _i in elite:
 		var unit: Unit = Unit.select_unit(nation, Constants.UNIT_TYPE.ELITE)
-		#unit.type = Constants.UNIT_TYPE.ELITE
-		#unit.nation = nation
 		new_units.append(unit)
 	for _i in leader:
 		var unit: Unit = Unit.select_unit(nation, Constants.UNIT_TYPE.LEADER)
-		#unit.type = Constants.UNIT_TYPE.LEADER
-		#unit.nation = nation
+		new_units.append(unit)
+	for _i in nazgul:
+		var unit: Unit = Unit.select_unit(nation, Constants.UNIT_TYPE.LEADER)
 		new_units.append(unit)
 	army.units = new_units
 
-	army.selected.connect(func(army: Army) -> void: army_selected.emit(army))
+	army.selected.connect(func(selected_army: Army) -> void: army_selected.emit(selected_army))
 	army.deselected.connect(func() -> void: army_deselected.emit())
 	add_child(army)
-	#army.owner = self
 
 	return army
 
 
 func split_army_by_selected_units(selected_army: Army) -> Army:
-	var new_army: Army = load("res://army.tscn").instantiate()
 	var split_off_units: Array[Unit] = selected_army.get_selected_units()
+	if split_off_units == selected_army.units:
+		return selected_army
+
+	var new_army: Army = load("res://army.tscn").instantiate()
 	new_army.faction = selected_army.faction
 	new_army.units = split_off_units
-	var position:= Vector3(selected_army.position)
-	new_army.position = position
-	new_army.position.x = position.x + 0.05
+	var offset_position:= Vector3(selected_army.position)
+	new_army.position = offset_position
+	new_army.position.x = offset_position.x + 0.05
 
 	for unit in split_off_units:
 		selected_army.units.erase(unit)
@@ -57,8 +56,6 @@ func split_army_by_selected_units(selected_army: Army) -> Army:
 
 # Called when the script is executed (using File -> Run in Script Editor).
 func _ready() -> void:
-	pass # Replace with function body.
-
 	get_tree().call_group(Constants.GROUP.ARMIES, "queue_free")
 	get_tree().call_group(Constants.GROUP.UNITS, "queue_free")
 	var region_map: Dictionary = {}
@@ -71,7 +68,7 @@ func _ready() -> void:
 		if army_data['region_id'] == "02feea":
 			nation = load("res://data/nations/gondor.tres") as Nation
 
-		var army := create_army(nation, army_data[UNIT_TYPE.REGULAR], army_data[UNIT_TYPE.ELITE], army_data[UNIT_TYPE.LEADER])
+		var army := create_army(nation, army_data[UNIT_TYPE.REGULAR], army_data[UNIT_TYPE.ELITE], army_data[UNIT_TYPE.LEADER], army_data[UNIT_TYPE.NAZGUL])
 		print("manager called")
 		army.position = region.position
 		army.position.y = army.position.y + 0.05

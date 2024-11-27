@@ -18,7 +18,7 @@ static func select_unit(unit_nation: Nation, unit_type: String) -> Unit:
 	if unit_nation.faction.title == 'Free People':
 		unit.data = load("res://data/units/free_unit.tres")
 	else:
-		unit.data =  load("res://data/units/shadow_unit.tres")
+		unit.data = load("res://data/units/shadow_unit.tres")
 
 	return unit
 
