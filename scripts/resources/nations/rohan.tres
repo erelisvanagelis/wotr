@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Nation" load_steps=3 format=3 uid="uid://c1gwhnbfqyxgo"]
+
+[ext_resource type="Script" path="res://scripts/resources/nation.gd" id="1_apot3"]
+[ext_resource type="Resource" uid="uid://y40yynjwjo7p" path="res://scripts/resources/factions/free_people.tres" id="1_bgvw3"]
+
+[resource]
+script = ExtResource("1_apot3")
+id = &"046b26"
+title = &"Rohan"
+faction = ExtResource("1_bgvw3")
+regulars = 0
+elites = 0
+leaders = 0

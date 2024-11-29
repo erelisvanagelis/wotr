@@ -1,4 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
-cards/images/
-images/
+assets/images/components/
+assets/map/backup/

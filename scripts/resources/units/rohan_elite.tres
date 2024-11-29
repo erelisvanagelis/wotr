@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://niq4hcf3pm6g"]
+
+[ext_resource type="Resource" uid="uid://c1gwhnbfqyxgo" path="res://scripts/resources/nations/rohan.tres" id="1_c865d"]
+[ext_resource type="Script" path="res://scripts/resources/unit_data.gd" id="2_tgwkq"]
+[ext_resource type="Texture2D" uid="uid://bkt5ibw1577ox" path="res://assets/images/units/RohanElite.png" id="3_jp8q0"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://scenes/ui/unit_card/unit_card.tscn" id="4_mpy7a"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_tgwkq")
+type = &"Elite"
+nation = ExtResource("1_c865d")
+region_range = 1
+health = 1
+texture = ExtResource("3_jp8q0")
+unit_card = ExtResource("4_mpy7a")

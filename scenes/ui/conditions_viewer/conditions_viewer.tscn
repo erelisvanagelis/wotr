@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxj5rw56jmf76"]
+
+[ext_resource type="Script" path="res://scenes/ui/conditions_viewer/conditions_viewer.gd" id="1_bhl4g"]
+
+[node name="Control" type="Control" node_paths=PackedStringArray("tree")]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -555.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 10
+size_flags_vertical = 10
+script = ExtResource("1_bhl4g")
+tree = NodePath("Tree")
+
+[node name="Tree" type="Tree" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

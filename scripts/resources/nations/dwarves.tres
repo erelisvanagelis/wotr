@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Nation" load_steps=3 format=3 uid="uid://chf0dnbqrdoyk"]
+
+[ext_resource type="Resource" uid="uid://y40yynjwjo7p" path="res://scripts/resources/factions/free_people.tres" id="1_ys4cj"]
+[ext_resource type="Script" path="res://scripts/resources/nation.gd" id="2_i410d"]
+
+[resource]
+script = ExtResource("2_i410d")
+id = &"501b13"
+title = &"Dwarves"
+faction = ExtResource("1_ys4cj")
+active = false
+readyness = 3
+at_war = false
+regulars = 2
+elites = 0
+leaders = 3

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://dqhv4o8r613xt"]
+
+[ext_resource type="Resource" uid="uid://da7d4rvptqxba" path="res://scripts/resources/nations/sauron.tres" id="1_77a5o"]
+[ext_resource type="Script" path="res://scripts/resources/unit_data.gd" id="2_51wkm"]
+[ext_resource type="Texture2D" uid="uid://dtgtsk0vqio7v" path="res://assets/images/units/SauronElite.png" id="3_phijt"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://scenes/ui/unit_card/unit_card.tscn" id="4_lcik0"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_51wkm")
+type = &"Elite"
+nation = ExtResource("1_77a5o")
+region_range = 1
+health = 1
+texture = ExtResource("3_phijt")
+unit_card = ExtResource("4_lcik0")

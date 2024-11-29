@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://cua32xbvvpv0o"]
+
+[ext_resource type="Resource" uid="uid://da7d4rvptqxba" path="res://scripts/resources/nations/sauron.tres" id="1_nioxb"]
+[ext_resource type="Script" path="res://scripts/resources/unit_data.gd" id="2_l1sbs"]
+[ext_resource type="Texture2D" uid="uid://bw2phm2fkemob" path="res://assets/images/units/SauronRegular.png" id="3_yc8o2"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://scenes/ui/unit_card/unit_card.tscn" id="4_gaxbl"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_l1sbs")
+type = &"Regular"
+nation = ExtResource("1_nioxb")
+region_range = 1
+health = 1
+texture = ExtResource("3_yc8o2")
+unit_card = ExtResource("4_gaxbl")

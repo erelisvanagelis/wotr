@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://cgblpi8y8ne2v"]
+
+[ext_resource type="Resource" uid="uid://ds3awlm7wi41d" path="res://scripts/resources/nations/the_north.tres" id="1_so2ks"]
+[ext_resource type="Script" path="res://scripts/resources/unit_data.gd" id="2_2ndy4"]
+[ext_resource type="Texture2D" uid="uid://y7mal5gn6h4n" path="res://assets/images/units/NorthElite.png" id="3_xbwwo"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://scenes/ui/unit_card/unit_card.tscn" id="4_w3x0a"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_2ndy4")
+type = &"Elite"
+nation = ExtResource("1_so2ks")
+region_range = 1
+health = 1
+texture = ExtResource("3_xbwwo")
+unit_card = ExtResource("4_w3x0a")

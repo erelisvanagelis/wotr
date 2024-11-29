@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Nation" load_steps=3 format=3 uid="uid://ds3awlm7wi41d"]
+
+[ext_resource type="Script" path="res://scripts/resources/nation.gd" id="1_dcu05"]
+[ext_resource type="Resource" uid="uid://y40yynjwjo7p" path="res://scripts/resources/factions/free_people.tres" id="1_nqehi"]
+
+[resource]
+script = ExtResource("1_dcu05")
+id = &"0c8ab3"
+title = &"The North"
+faction = ExtResource("1_nqehi")

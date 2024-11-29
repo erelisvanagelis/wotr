@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=5 format=3 uid="uid://c2r5v6xvcugtt"]
+
+[ext_resource type="Resource" uid="uid://cqgh21ns78f2h" path="res://scripts/resources/nations/southrons_easterlings.tres" id="1_j8bcu"]
+[ext_resource type="Script" path="res://scripts/resources/unit_data.gd" id="2_xrhpy"]
+[ext_resource type="Texture2D" uid="uid://ccavqj61mq1u1" path="res://assets/images/units/SouthronElite.png" id="3_umxl0"]
+[ext_resource type="PackedScene" uid="uid://cju0wg5t0e5q6" path="res://scenes/ui/unit_card/unit_card.tscn" id="4_xlw2v"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_xrhpy")
+type = &"Elite"
+nation = ExtResource("1_j8bcu")
+region_range = 1
+health = 1
+texture = ExtResource("3_umxl0")
+unit_card = ExtResource("4_xlw2v")

@@ -1,0 +1,1870 @@
+[
+	{
+		"name": "Grey Havens",
+		"id": "aaadab",
+		"parentId": "048f1a",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"cccdcb",
+			"010066",
+			"ffd2d2",
+			"98989a"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Rivendell",
+		"id": "0033a9",
+		"parentId": "048f1a",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"013334",
+			"362000"
+		],
+		"unreachable_neighbours": [
+			"0067cc",
+			"00fd9b",
+			"01cb66",
+			"01a1cb",
+			"00cccb"
+		]
+	},
+	{
+		"name": "Lórien",
+		"id": "01a29d",
+		"parentId": "048f1a",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"ff6d84",
+			"03fc6c"
+		],
+		"unreachable_neighbours": [
+			"00cd35",
+			"01329b"
+		]
+	},
+	{
+		"name": "Woodland Realm",
+		"id": "669f00",
+		"parentId": "048f1a",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"33aa03",
+			"cc6601",
+			"fda401",
+			"fe3200",
+			"663202"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "North Ered Luin",
+		"id": "01019f",
+		"parentId": "501b13",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"010066",
+			"0000cc"
+		],
+		"unreachable_neighbours": [
+			"cccdcb"
+		]
+	},
+	{
+		"name": "Ered Luin",
+		"id": "010066",
+		"parentId": "501b13",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"01019f",
+			"0000cc",
+			"ffd2d2",
+			"aaadab"
+		],
+		"unreachable_neighbours": [
+			"cccdcb"
+		]
+	},
+	{
+		"name": "Erebor",
+		"id": "99ab01",
+		"parentId": "501b13",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"cc6601",
+			"fda401",
+			"aaff01"
+		],
+		"unreachable_neighbours": [
+			"0067cc"
+		]
+	},
+	{
+		"name": "Iron Hills",
+		"id": "aaff01",
+		"parentId": "501b13",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"99ab01",
+			"fda401",
+			"320033",
+			"cc0033"
+		],
+		"unreachable_neighbours": [
+			"0067cc"
+		]
+	},
+	{
+		"name": "Anfalas",
+		"id": "003466",
+		"parentId": "43426c",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"fe0000",
+			"0231fd",
+			"0066a0"
+		],
+		"unreachable_neighbours": [
+			"2e4800",
+			"02fe33",
+			"0265fe"
+		]
+	},
+	{
+		"name": "Erech",
+		"id": "0231fd",
+		"parentId": "43426c",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"003466",
+			"009866",
+			"0066a0"
+		],
+		"unreachable_neighbours": [
+			"0265fe",
+			"02a964",
+			"c007ff"
+		]
+	},
+	{
+		"name": "Dol Amroth",
+		"id": "0066a0",
+		"parentId": "43426c",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"003466",
+			"0231fd",
+			"009866"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Lamedon",
+		"id": "009866",
+		"parentId": "43426c",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"0066a0",
+			"0231fd",
+			"00a2ff"
+		],
+		"unreachable_neighbours": [
+			"c007ff",
+			"00cca5",
+			"a608ff",
+			"332819",
+			"887788"
+		]
+	},
+	{
+		"name": "Pelargir",
+		"id": "00a2ff",
+		"parentId": "43426c",
+		"isStronghold": false,
+		"isCity": true,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"009866",
+			"a608ff",
+			"02feea",
+			"ff1a8f"
+		],
+		"unreachable_neighbours": [
+			"009866"
+		]
+	},
+	{
+		"name": "Lossarnach",
+		"id": "a608ff",
+		"parentId": "43426c",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"00a2ff",
+			"02feea",
+			"332819"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Minas Tirith",
+		"id": "332819",
+		"parentId": "43426c",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"a608ff",
+			"02feea",
+			"887788"
+		],
+		"unreachable_neighbours": [
+			"009866"
+		]
+	},
+	{
+		"name": "Bosque de Drúadan",
+		"id": "887788",
+		"parentId": "43426c",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"332819",
+			"02feea",
+			"ff7788",
+			"31cc02",
+			"ff136e",
+			"00cca5"
+		],
+		"unreachable_neighbours": [
+			"009866"
+		]
+	},
+	{
+		"name": "The Shire",
+		"id": "000032",
+		"parentId": "0c8ab3",
+		"isStronghold": false,
+		"isCity": true,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"0000cc",
+			"016601",
+			"663c00",
+			"ff0de7",
+			"ffd2d2"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Buckland",
+		"id": "016601",
+		"parentId": "0c8ab3",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"0000cc",
+			"01a101",
+			"d406ff",
+			"cb0101",
+			"656566",
+			"663c00",
+			"000032"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Bree",
+		"id": "d406ff",
+		"parentId": "0c8ab3",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"01a101",
+			"a70000",
+			"cb0101",
+			"016601"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "North Downs",
+		"id": "01a101",
+		"parentId": "0c8ab3",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"013300",
+			"00ff01",
+			"a70000",
+			"d406ff",
+			"016601",
+			"0000cc"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Carrock",
+		"id": "00ccfd",
+		"parentId": "0c8ab3",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"00fd9b",
+			"00cccb",
+			"356407",
+			"fe3200",
+			"663202",
+			"33aa03"
+		],
+		"unreachable_neighbours": [
+			"0067cc"
+		]
+	},
+	{
+		"name": "Rhosgobel",
+		"id": "356407",
+		"parentId": "0c8ab3",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"66ce00",
+			"4efe02",
+			"01fdb0",
+			"00cccb",
+			"00ccfd",
+			"fe3200"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Old Forest Road",
+		"id": "fe3200",
+		"parentId": "0c8ab3",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"9d6402",
+			"66ce00",
+			"356407",
+			"00ccfd",
+			"663202",
+			"669f00",
+			"fda401",
+			"a3cb01"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Dale",
+		"id": "fda401",
+		"parentId": "0c8ab3",
+		"isStronghold": false,
+		"isCity": true,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"cc6601",
+			"99ab01",
+			"aaff01",
+			"320033",
+			"a3cb01",
+			"fe3200",
+			"669f00"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Fords of Isen",
+		"id": "02fe33",
+		"parentId": "046b26",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": true,
+		"neighbours": [
+			"f00c8b",
+			"02a964",
+			"0265fe",
+			"2e4800",
+			"01a334",
+			"006766"
+		],
+		"unreachable_neighbours": [
+			"003466"
+		]
+	},
+	{
+		"name": "Helm's deep",
+		"id": "0265fe",
+		"parentId": "046b26",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"02a964",
+			"02fe33"
+		],
+		"unreachable_neighbours": [
+			"003466",
+			"0231fd"
+		]
+	},
+	{
+		"name": "Westemnet",
+		"id": "02a964",
+		"parentId": "046b26",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"f00c8b",
+			"ff136e",
+			"00cca5",
+			"c007ff",
+			"0265fe",
+			"02fe33"
+		],
+		"unreachable_neighbours": [
+			"0231fd"
+		]
+	},
+	{
+		"name": "Edoras",
+		"id": "c007ff",
+		"parentId": "046b26",
+		"isStronghold": false,
+		"isCity": true,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"00cca5",
+			"02a964"
+		],
+		"unreachable_neighbours": [
+			"0231fd",
+			"009866"
+		]
+	},
+	{
+		"name": "Eastemnet",
+		"id": "ff136e",
+		"parentId": "046b26",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"f00c8b",
+			"03fc6c",
+			"a33400",
+			"31cc02",
+			"887788",
+			"00cca5",
+			"02a964"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Folde",
+		"id": "00cca5",
+		"parentId": "046b26",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"887788",
+			"ff136e",
+			"02a964",
+			"c007ff"
+		],
+		"unreachable_neighbours": [
+			"009866"
+		]
+	},
+	{
+		"name": "North Dunland",
+		"id": "01329b",
+		"parentId": "ded800",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"cb0101",
+			"0033cc",
+			"00cd35",
+			"006634",
+			"01cc01",
+			"656566"
+		],
+		"unreachable_neighbours": [
+			"01a29d",
+			"03fc6c",
+			"f00c8b"
+		]
+	},
+	{
+		"name": "South Dunland",
+		"id": "006634",
+		"parentId": "ded800",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"01a334",
+			"0000fe",
+			"01cc01",
+			"01329b"
+		],
+		"unreachable_neighbours": [
+			"f00c8b",
+			"006766"
+		]
+	},
+	{
+		"name": "Gap of Rohan",
+		"id": "01a334",
+		"parentId": "ded800",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"006634",
+			"006766",
+			"02fe33",
+			"2e4800",
+			"0000fe"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Orthanc",
+		"id": "006766",
+		"parentId": "ded800",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"02fe33",
+			"01a334"
+		],
+		"unreachable_neighbours": [
+			"006634",
+			"f00c8b"
+		]
+	},
+	{
+		"name": "Angmar",
+		"id": "dbbb66",
+		"parentId": "a93f2f",
+		"isStronghold": false,
+		"isCity": true,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"013300",
+			"00ff01",
+			"66011b"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Mount Gram",
+		"id": "66011b",
+		"parentId": "a93f2f",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"dbbb66",
+			"00ff01",
+			"0067cc"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Mount Gundabad",
+		"id": "0067cc",
+		"parentId": "a93f2f",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"66011b",
+			"00fd9b"
+		],
+		"unreachable_neighbours": [
+			"013334",
+			"0033a9",
+			"00ccfd",
+			"33aa03",
+			"cc6601",
+			"99ab01",
+			"aaff01"
+		]
+	},
+	{
+		"name": "Moria",
+		"id": "00cd35",
+		"parentId": "a93f2f",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"0033cc",
+			"ff6d84"
+		],
+		"unreachable_neighbours": [
+			"362000",
+			"01cb66",
+			"01a1cb",
+			"00cccb",
+			"01fdb0",
+			"01a29d"
+		]
+	},
+	{
+		"name": "Dol Guldur",
+		"id": "6d0000",
+		"parentId": "a93f2f",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"a33400",
+			"ce3202",
+			"4efe02",
+			"66ce00",
+			"9d6402",
+			"ff6600",
+			"ff09b3"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Southern Mirkwood",
+		"id": "ff6600",
+		"parentId": "a93f2f",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"a3cb01",
+			"915a13",
+			"ff09b3",
+			"6d0000",
+			"9d6402"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Morannon",
+		"id": "ccaa00",
+		"parentId": "a93f2f",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"cbce00",
+			"ccff00"
+		],
+		"unreachable_neighbours": [
+			"da5a20",
+			"999900",
+			"cc9900",
+			"ffff01"
+		]
+	},
+	{
+		"name": "Minas Morgul",
+		"id": "cc9900",
+		"parentId": "a93f2f",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"676501",
+			"ccff00",
+			"999900"
+		],
+		"unreachable_neighbours": [
+			"ccaa00"
+		]
+	},
+	{
+		"name": "Nurn",
+		"id": "abaa00",
+		"parentId": "a93f2f",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"ccff00"
+		],
+		"unreachable_neighbours": [
+			"676501",
+			"5b006d",
+			"fecc00"
+		]
+	},
+	{
+		"name": "Gorgoroth",
+		"id": "ccff00",
+		"parentId": "a93f2f",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"abaa00",
+			"ffff01",
+			"ccaa00",
+			"cc9900"
+		],
+		"unreachable_neighbours": [
+			"fecc00",
+			"676501",
+			"330065"
+		]
+	},
+	{
+		"name": "Barad-Dûr",
+		"id": "ffff01",
+		"parentId": "a93f2f",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"ccff00"
+		],
+		"unreachable_neighbours": [
+			"330065",
+			"da5a20",
+			"ccaa00"
+		]
+	},
+	{
+		"name": "Umbar",
+		"id": "d204ff",
+		"parentId": "d38a33",
+		"isStronghold": true,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"ff1a8f",
+			"329900"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Near Harad",
+		"id": "329900",
+		"parentId": "d38a33",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"ff1a8f",
+			"d204ff",
+			"5b006d",
+			"fecc00",
+			"aa9901"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Far Harad",
+		"id": "aa9901",
+		"parentId": "d38a33",
+		"isStronghold": false,
+		"isCity": true,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"329900",
+			"fecc00"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Khand",
+		"id": "fecc00",
+		"parentId": "d38a33",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"aa9901",
+			"329900"
+		],
+		"unreachable_neighbours": [
+			"ccff00",
+			"abaa00"
+		]
+	},
+	{
+		"name": "North Rhûn",
+		"id": "330099",
+		"parentId": "d38a33",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"970235",
+			"320033",
+			"cc0033",
+			"fd0032"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "South Rhûn",
+		"id": "330065",
+		"parentId": "d38a33",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": true,
+		"isFortification": false,
+		"neighbours": [
+			"cc0033",
+			"ab0034",
+			"da5a20"
+		],
+		"unreachable_neighbours": [
+			"ccff00",
+			"ffff01"
+		]
+	},
+	{
+		"name": "East Rhûn",
+		"id": "cc0033",
+		"parentId": "d38a33",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"aaff01",
+			"320033",
+			"330099",
+			"330065"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Forlindon",
+		"id": "cccdcb",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"aaadab"
+		],
+		"unreachable_neighbours": [
+			"cccdcb",
+			"01019f"
+		]
+	},
+	{
+		"name": "Evendim",
+		"id": "0000cc",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"01019f",
+			"010066",
+			"ffd2d2",
+			"000032",
+			"016601",
+			"01a101",
+			"013300"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Arnor",
+		"id": "013300",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"0000cc",
+			"01a101",
+			"00ff01",
+			"dbbb66"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Ettenmoors",
+		"id": "00ff01",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"dbbb66",
+			"66011b",
+			"013334",
+			"a70000",
+			"01a101",
+			"013300"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Weather Hills",
+		"id": "a70000",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"01a101",
+			"00ff01",
+			"013334",
+			"cb0101",
+			"d406ff"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Trollshaws",
+		"id": "013334",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"0033a9",
+			"362000",
+			"0033cc",
+			"cb0101",
+			"a70000",
+			"00ff01"
+		],
+		"unreachable_neighbours": [
+			"0067cc"
+		]
+	},
+	{
+		"name": "South Downs",
+		"id": "cb0101",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"01329b",
+			"656566",
+			"016601",
+			"d406ff",
+			"a70000",
+			"013334",
+			"0033cc"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Tower Hills",
+		"id": "ffd2d2",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"0000cc",
+			"000032",
+			"ff0de7",
+			"aaadab",
+			"010066"
+		],
+		"unreachable_neighbours": [
+			"98989a"
+		]
+	},
+	{
+		"name": "Harlindon",
+		"id": "98989a",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"aaadab",
+			"ff0de7"
+		],
+		"unreachable_neighbours": [
+			"ffd2d2"
+		]
+	},
+	{
+		"name": "South Ered Luin",
+		"id": "ff0de7",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"000000",
+			"98989a",
+			"ffd2d2",
+			"000032",
+			"663c00",
+			"656566"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Old Forest",
+		"id": "663c00",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"ff0de7",
+			"000032",
+			"016601",
+			"656566"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Cardolan",
+		"id": "656566",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"01329b",
+			"01cc01",
+			"000000",
+			"ff0de7",
+			"663c00",
+			"cb0101"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Minhiriath",
+		"id": "000000",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"ff0de7",
+			"656566",
+			"01cc01",
+			"0000fe"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Tharbad",
+		"id": "01cc01",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"656566",
+			"01329b",
+			"006634",
+			"0000fe",
+			"000000"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Enedwaith",
+		"id": "0000fe",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"000000",
+			"01cc01",
+			"006634",
+			"01a334",
+			"2e4800"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Drúwaith Iaur",
+		"id": "2e4800",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"0000fe",
+			"01a334",
+			"02fe33",
+			"fe0000"
+		],
+		"unreachable_neighbours": [
+			"003466"
+		]
+	},
+	{
+		"name": "Andrast",
+		"id": "fe0000",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"2e4800",
+			"003466"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Hollin",
+		"id": "0033cc",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"01329b",
+			"cb0101",
+			"013334",
+			"362000",
+			"00cd35"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Fords of Bruinen",
+		"id": "362000",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"01cb66",
+			"0033cc",
+			"013334"
+		],
+		"unreachable_neighbours": [
+			"00cd35"
+		]
+	},
+	{
+		"name": "Eagles' Eyrie",
+		"id": "00fd9b",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"0067cc",
+			"00ccfd",
+			"00cccb"
+		],
+		"unreachable_neighbours": [
+			"0033a9"
+		]
+	},
+	{
+		"name": "Old Ford",
+		"id": "00cccb",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"00fd9b",
+			"00ccfd",
+			"356407",
+			"01fdb0",
+			"01a1cb"
+		],
+		"unreachable_neighbours": [
+			"0033a9",
+			"00cd35"
+		]
+	},
+	{
+		"name": "Goblin's Gate",
+		"id": "01a1cb",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"00cccb",
+			"01cb66"
+		],
+		"unreachable_neighbours": [
+			"0033a9",
+			"00cd35"
+		]
+	},
+	{
+		"name": "High Pass",
+		"id": "01cb66",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"362000",
+			"01a1cb"
+		],
+		"unreachable_neighbours": [
+			"0033a9",
+			"00cd35"
+		]
+	},
+	{
+		"name": "Gladden Fields",
+		"id": "01fdb0",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"00cccb",
+			"356407",
+			"4efe02",
+			"ff6d84"
+		],
+		"unreachable_neighbours": [
+			"00cd35"
+		]
+	},
+	{
+		"name": "Dimrill Dale",
+		"id": "ff6d84",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"00cd35",
+			"01fdb0",
+			"4efe02",
+			"ce3202",
+			"03fc6c",
+			"01a29d"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Fangorn",
+		"id": "f00c8b",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"ff136e",
+			"02a964",
+			"02fe33",
+			"03fc6c"
+		],
+		"unreachable_neighbours": [
+			"01329b",
+			"006634",
+			"006766"
+		]
+	},
+	{
+		"name": "Parth Celebrant",
+		"id": "03fc6c",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"a33400",
+			"ff136e",
+			"f00c8b",
+			"01a29d",
+			"ff6d84",
+			"ce3202"
+		],
+		"unreachable_neighbours": [
+			"01329b"
+		]
+	},
+	{
+		"name": "Northern Mirkwood",
+		"id": "33aa03",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"00ccfd",
+			"663202",
+			"669f00",
+			"cc6601"
+		],
+		"unreachable_neighbours": [
+			"0067cc"
+		]
+	},
+	{
+		"name": "Withered Heath",
+		"id": "cc6601",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"33aa03",
+			"669f00",
+			"fda401",
+			"99ab01"
+		],
+		"unreachable_neighbours": [
+			"0067cc"
+		]
+	},
+	{
+		"name": "Western Mirkwood",
+		"id": "663202",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"00ccfd",
+			"33aa03",
+			"669f00",
+			"fe3200"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Narrows of the Forest",
+		"id": "66ce00",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"356407",
+			"fe3200",
+			"9d6402",
+			"6d0000",
+			"4efe02"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Eastern Mirkwood",
+		"id": "9d6402",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"fe3200",
+			"a3cb01",
+			"ff6600",
+			"6d0000",
+			"66ce00"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "North Anduin Vale",
+		"id": "4efe02",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"01fdb0",
+			"356407",
+			"66ce00",
+			"6d0000",
+			"ce3202",
+			"ff6d84"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "South Anduin Vale",
+		"id": "ce3202",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"a33400",
+			"03fc6c",
+			"ff6d84",
+			"4efe02",
+			"6d0000"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Western Brown Lands",
+		"id": "a33400",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"03fc6c",
+			"ce3202",
+			"6d0000",
+			"ff09b3",
+			"31cc02",
+			"ff136e"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Eastern Brown Lands",
+		"id": "ff09b3",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"99fe00",
+			"31cc02",
+			"a33400",
+			"6d0000",
+			"ff6600",
+			"915a13",
+			"00482e"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Western Emyn Muil",
+		"id": "31cc02",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"ff09b3",
+			"99fe00",
+			"ff7788",
+			"887788",
+			"ff136e",
+			"a33400"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Eastern Emyn Muil",
+		"id": "99fe00",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"ff09b3",
+			"00482e",
+			"cbce00",
+			"999900",
+			"ff7788",
+			"31cc02"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Dead Marshes",
+		"id": "ff7788",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"02feea",
+			"887788",
+			"31cc02",
+			"99fe00",
+			"999900"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Osgilath",
+		"id": "02feea",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": true,
+		"neighbours": [
+			"332819",
+			"a608ff",
+			"00a2ff",
+			"ff1a8f",
+			"676501",
+			"999900",
+			"ff7788",
+			"887788"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "West Harondor",
+		"id": "ff1a8f",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"00a2ff",
+			"02feea",
+			"676501",
+			"5b006d",
+			"329900",
+			"d204ff"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "East Harondor",
+		"id": "5b006d",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"329900",
+			"ff1a8f",
+			"676501"
+		],
+		"unreachable_neighbours": [
+			"abaa00"
+		]
+	},
+	{
+		"name": "North Ithilien",
+		"id": "999900",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"cc9900",
+			"676501",
+			"02feea",
+			"ff7788",
+			"99fe00",
+			"cbce00"
+		],
+		"unreachable_neighbours": [
+			"ccaa00"
+		]
+	},
+	{
+		"name": "South Ithilien",
+		"id": "676501",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"5b006d",
+			"ff1a8f",
+			"02feea",
+			"999900",
+			"cc9900"
+		],
+		"unreachable_neighbours": [
+			"ccff00",
+			"abaa00"
+		]
+	},
+	{
+		"name": "Northern Rhovanion",
+		"id": "a3cb01",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"915a13",
+			"ff6600",
+			"9d6402",
+			"fe3200",
+			"fda401",
+			"320033",
+			"970235"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Vale of the  Carnen",
+		"id": "320033",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"aaff01",
+			"cc0033",
+			"330099",
+			"970235",
+			"a3cb01",
+			"fda401"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Vale of the Celduin",
+		"id": "970235",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"fd0032",
+			"915a13",
+			"a3cb01",
+			"320033",
+			"330099"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Southern Rhovanion",
+		"id": "915a13",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"a3cb01",
+			"970235",
+			"fd0032",
+			"ab0034",
+			"00482e",
+			"ff09b3",
+			"ff6600"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Northern Dorwinion",
+		"id": "fd0032",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"970235",
+			"330099",
+			"ab0034",
+			"915a13"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Southern Dorwinion",
+		"id": "ab0034",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"fd0032",
+			"915a13",
+			"00482e",
+			"da5a20",
+			"330065"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Noman-Lands",
+		"id": "00482e",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"da5a20",
+			"cbce00",
+			"99fe00",
+			"ff09b3",
+			"915a13",
+			"ab0034"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Dagorlad",
+		"id": "cbce00",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"ccaa00",
+			"da5a20",
+			"00482e",
+			"99fe00",
+			"999900"
+		],
+		"unreachable_neighbours": []
+	},
+	{
+		"name": "Ash Mountains",
+		"id": "da5a20",
+		"parentId": "A9A9A9",
+		"isStronghold": false,
+		"isCity": false,
+		"isTown": false,
+		"isFortification": false,
+		"neighbours": [
+			"330065",
+			"ab0034",
+			"00482e",
+			"cbce00"
+		],
+		"unreachable_neighbours": [
+			"ffff01",
+			"ccaa00"
+		]
+	}
+]

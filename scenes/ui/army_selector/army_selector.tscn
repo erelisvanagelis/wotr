@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjkgaxb0r3x07"]
+
+[ext_resource type="Script" path="res://scenes/ui/army_selector/army_selector.gd" id="1_ynf6e"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ld3q8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ojeq3"]
+texture = SubResource("CanvasTexture_ld3q8")
+modulate_color = Color(0.596012, 0.564918, 0.564457, 1)
+
+[node name="ArmySelector" type="Control" node_paths=PackedStringArray("container")]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+script = ExtResource("1_ynf6e")
+container = NodePath("Panel/HBoxContainer")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ojeq3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

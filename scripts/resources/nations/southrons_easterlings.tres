@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Nation" load_steps=3 format=3 uid="uid://cqgh21ns78f2h"]
+
+[ext_resource type="Script" path="res://scripts/resources/nation.gd" id="1_cq0w5"]
+[ext_resource type="Resource" uid="uid://8roir1ghffmp" path="res://scripts/resources/factions/shadow.tres" id="1_kujcf"]
+
+[resource]
+script = ExtResource("1_cq0w5")
+id = &"d38a33"
+title = &"Southrons & Easterlings"
+faction = ExtResource("1_kujcf")
+active = true
+readyness = 2
+at_war = false
+regulars = 0
+elites = 0
+leaders = 0

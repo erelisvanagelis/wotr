@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bhsvxula5id8j"
+path="res://.godot/imported/map_trace.obj-6516e390d2ceb535df5232c1f65f0f4d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/map_trace.obj-6516e390d2ceb535df5232c1f65f0f4d.mesh"]
+
+source_file="res://assets/map/map_trace.obj"
+dest_files=["res://.godot/imported/map_trace.obj-6516e390d2ceb535df5232c1f65f0f4d.mesh", "res://.godot/imported/map_trace.obj-6516e390d2ceb535df5232c1f65f0f4d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

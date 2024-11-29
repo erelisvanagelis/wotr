@@ -14,7 +14,7 @@ events = [SubResource("InputEventKey_myrgc")]
 [resource]
 script = ExtResource("1_0vsia")
 line_length = 175
-format_on_save = true
+format_on_save = false
 shortcut = SubResource("Shortcut_x68qq")
 fast_but_unsafe = false
 gdformat_command = "gdformat"
