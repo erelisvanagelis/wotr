@@ -14,7 +14,11 @@ const MAP_DATA := {
 	REGULAR = "regular",
 	ELITE = "elite",
 	LEADER = "leader",
-	UNREACHABLE_NEIGHBOURS = "unreachable_neighbours"
+	UNREACHABLE_NEIGHBOURS = "unreachable_neighbours",
+	FORTIFICATION = "isFortification",
+	CITY = "isCity",
+	TOWN = "isTown",
+	STRONGHOLD = "isStronghold",
 }
 
 const GROUP := {REGIONS = "regions", ARMIES = "armies", UNITS = "units"}

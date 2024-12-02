@@ -9,11 +9,10 @@ var ready_1: TreeItem
 var ready_0: TreeItem
 var nation_item_map: Dictionary
 
+@onready var tree := %Tree
 
 func _ready() -> void:
-	var tree: Tree = get_node("Tree")
 	root = tree.create_item()
-	tree.hide_root = false
 
 	ready_3 = tree.create_item(root)
 	ready_3.set_text(0, 'III')
@@ -37,6 +36,8 @@ func _ready() -> void:
 		var a_texture: Texture = load("res://assets/images/placeholders/icon32.svg")
 		child.add_button(0, a_texture, -1, false, "more ready");
 		nation_item_map[nation.id] = child
+
+	TreeItemUtils.adjust_container_size(self, root)
 
 
 func _on_button_clicked(item: TreeItem, _column: int, _id: int, mouse_button_index: int) -> void:
@@ -81,3 +82,7 @@ func readyness_changed(nation: Nation, readyness: int)-> void:
 
 func activated(nation: Nation) -> void:
 	color_item_text(nation_item_map[nation.id] as TreeItem, nation)
+
+
+func _on_tree_item_collapsed(_item: TreeItem) -> void:
+	TreeItemUtils.adjust_container_size(self, root)

@@ -13,7 +13,7 @@ visible = false
 texture = ExtResource("2_j6ig4")
 
 [node name="Camera" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.16, 0.695, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.28, 0.695, 0)
 fov = 52.6
 
 [node name="Sun" parent="." index="3"]

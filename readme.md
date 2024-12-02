@@ -6,7 +6,7 @@ Inspirations for map generation:
 
 Asset sources:
 - @SirMartin - https://github.com/SirMartin/WarOfRingMap - region data
-- War of the Ring Java cleint - https://boardgamegeek.com/guild/1733 - map and unit images
+- War of the Ring Java client - https://boardgamegeek.com/guild/1733 - map and unit images
 - @Tsugo - https://boardgamegeek.com/filepage/53743/war-of-the-ring-ce-card-summary - card data
 
 Goals:

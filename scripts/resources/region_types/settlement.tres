@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RegionType" load_steps=2 format=3 uid="uid://rth8kdkgq7jq"]
+
+[ext_resource type="Script" path="res://scripts/resources/region_type.gd" id="1_1f680"]
+
+[resource]
+script = ExtResource("1_1f680")
+title = &"Settlement"
+victory_points = 0
+defensive_bonus = 0
+allows_recruitment = false

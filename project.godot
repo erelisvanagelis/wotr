@@ -44,10 +44,6 @@ window/size/mode=2
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/AI-Context-Generator/plugin.cfg", "res://addons/gdLinter/plugin.cfg", "res://addons/gdscript_formatter/plugin.cfg")
-
 [global_group]
 
 army=""

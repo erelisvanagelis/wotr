@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Legend" load_steps=2 format=3 uid="uid://bs4v7r4exmtv1"]
+
+[ext_resource type="Script" path="res://scripts/resources/legend.gd" id="1_8qgvw"]
+
+[resource]
+script = ExtResource("1_8qgvw")
+title = "Inactive"
+color = Color(0.745098, 0.745098, 0.745098, 1)

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Legend" load_steps=2 format=3 uid="uid://d17eb2dhsstxm"]
+
+[ext_resource type="Script" path="res://scripts/resources/legend.gd" id="1_a6cn2"]
+
+[resource]
+script = ExtResource("1_a6cn2")
+title = "Shadow active"
+color = Color(0.941176, 0.501961, 0.501961, 1)

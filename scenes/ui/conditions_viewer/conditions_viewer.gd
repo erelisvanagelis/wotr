@@ -1,10 +1,10 @@
 class_name ConditionsViewer
 extends Control
 
-@export var tree: Tree
 
 var root: TreeItem
 
+@onready var tree: Tree = %Tree
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +22,7 @@ func on_region_hovered(region: Region) -> void:
 		condition = region.entry_conditions
 
 	root = generate_tree(condition, null)
+	TreeItemUtils.adjust_container_size(self, root)
 
 
 func generate_tree(condition: ConditionComponent, parent: TreeItem) -> TreeItem:
@@ -48,3 +49,7 @@ func condition_to_tree_item(condition: ConditionComponent, parent: TreeItem) -> 
 		new_item.set_custom_color(0, Color.RED)
 
 	return new_item
+
+
+func _on_tree_item_collapsed(_item: TreeItem) -> void:
+	TreeItemUtils.adjust_container_size(self, root)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://diulbg4ol7res"]
+
+[ext_resource type="Script" path="res://scenes/ui/legend_container/legend_container.gd" id="1_p7k7v"]
+[ext_resource type="Script" path="res://scripts/resources/legend.gd" id="2_fykn3"]
+[ext_resource type="Resource" uid="uid://yf1s10a1k882" path="res://scripts/resources/legend/condition_met.tres" id="3_tcwsb"]
+[ext_resource type="Resource" uid="uid://diw1xg1sby342" path="res://scripts/resources/legend/condition_not_met.tres" id="4_uwjhw"]
+
+[node name="LegendContainer" type="HFlowContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p7k7v")
+legend_entries = Array[ExtResource("2_fykn3")]([ExtResource("3_tcwsb"), ExtResource("4_uwjhw")])

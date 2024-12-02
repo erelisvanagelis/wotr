@@ -3,7 +3,7 @@ extends Control
 
 signal unit_selection_changed
 
-@export var container: HBoxContainer
+@export var container: Container
 @export var army_manager: ArmyManager
 
 
@@ -57,7 +57,7 @@ func update_ui(p_units: Array[Unit]) -> void:
 		container.add_child(unit_card)
 
 	print("Selected Units Count: ", selected_units.size())
-	visible = !selected_units.is_empty()
+	#visible = !selected_units.is_empty()
 	print(visible)
 
 

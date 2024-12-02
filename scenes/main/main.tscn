@@ -1,32 +1,94 @@
-[gd_scene load_steps=6 format=3 uid="uid://dx2odvhc7n356"]
+[gd_scene load_steps=13 format=3 uid="uid://dx2odvhc7n356"]
 
 [ext_resource type="PackedScene" uid="uid://csmytryt1j8kv" path="res://scenes/map/map.tscn" id="1_kfiqy"]
 [ext_resource type="PackedScene" uid="uid://calltnxtcy4wq" path="res://scenes/ui/political_track/political_track.tscn" id="2_t8xwi"]
 [ext_resource type="PackedScene" uid="uid://cjkgaxb0r3x07" path="res://scenes/ui/army_selector/army_selector.tscn" id="3_nj5v3"]
+[ext_resource type="PackedScene" uid="uid://3bgraje62f1o" path="res://scenes/ui/collapsible_control/collapsible_control.tscn" id="3_trukk"]
+[ext_resource type="PackedScene" uid="uid://diulbg4ol7res" path="res://scenes/ui/legend_container/legend_container.tscn" id="4_8hgb6"]
 [ext_resource type="PackedScene" uid="uid://cjpfgeg13pch2" path="res://scenes/army_manager/army_manager.tscn" id="4_v0rq6"]
 [ext_resource type="PackedScene" uid="uid://dxj5rw56jmf76" path="res://scenes/ui/conditions_viewer/conditions_viewer.tscn" id="5_qtnsr"]
+[ext_resource type="Script" path="res://scripts/resources/legend.gd" id="5_yhsto"]
+[ext_resource type="Resource" uid="uid://bs4v7r4exmtv1" path="res://scripts/resources/legend/incative.tres" id="6_t1psj"]
+[ext_resource type="Resource" uid="uid://wv4cvid7o60q" path="res://scripts/resources/legend/free_people_active.tres" id="7_62x7v"]
+[ext_resource type="Resource" uid="uid://d17eb2dhsstxm" path="res://scripts/resources/legend/shadow_active.tres" id="8_jrtt5"]
+[ext_resource type="PackedScene" uid="uid://cofscfaehy0oc" path="res://scenes/ui/region_detais/region_details.tscn" id="12_t4ski"]
 
 [node name="Main" type="Node"]
 
 [node name="Map" parent="." node_paths=PackedStringArray("army_manager", "army_selector") instance=ExtResource("1_kfiqy")]
 army_manager = NodePath("../ArmyManager")
-army_selector = NodePath("../ArmySelector")
+army_selector = NodePath("../UI/ScrollContainer/Sidebar/CollapsibleControl4/ArmySelector")
 
 [node name="ArmyManager" parent="." instance=ExtResource("4_v0rq6")]
 
-[node name="PoliticalTrack" parent="." instance=ExtResource("2_t8xwi")]
-anchors_preset = 9
-anchor_right = 0.0
-offset_right = 0.0
-grow_horizontal = 1
-size_flags_horizontal = 0
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
 
-[node name="ArmySelector" parent="." node_paths=PackedStringArray("army_manager") instance=ExtResource("3_nj5v3")]
-offset_left = 284.0
-offset_right = -9.0
-army_manager = NodePath("../ArmyManager")
+[node name="ScrollContainer" type="ScrollContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -636.0
+grow_horizontal = 0
+grow_vertical = 2
 
-[node name="ConditionViewer" parent="." instance=ExtResource("5_qtnsr")]
-offset_left = -454.0
-offset_bottom = -157.0
-size_flags_vertical = 6
+[node name="Sidebar" type="VBoxContainer" parent="UI/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+
+[node name="CollapsibleControl" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+title = "Political Track ±"
+
+[node name="LegendContainer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl" instance=ExtResource("4_8hgb6")]
+layout_mode = 2
+legend_entries = Array[ExtResource("5_yhsto")]([ExtResource("6_t1psj"), ExtResource("7_62x7v"), ExtResource("8_jrtt5")])
+
+[node name="PoliticalTrack" parent="UI/ScrollContainer/Sidebar/CollapsibleControl" instance=ExtResource("2_t8xwi")]
+layout_mode = 2
+
+[node name="CollapsibleControl3" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
+layout_mode = 2
+size_flags_vertical = 3
+title = "Region Details ±"
+
+[node name="RegionDetails" parent="UI/ScrollContainer/Sidebar/CollapsibleControl3" node_paths=PackedStringArray("army_manager") instance=ExtResource("12_t4ski")]
+layout_mode = 2
+army_manager = NodePath("../../../../../ArmyManager")
+
+[node name="CollapsibleControl4" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+title = "Army Units ±"
+
+[node name="ArmySelector" parent="UI/ScrollContainer/Sidebar/CollapsibleControl4" node_paths=PackedStringArray("army_manager") instance=ExtResource("3_nj5v3")]
+layout_mode = 2
+size_flags_horizontal = 3
+army_manager = NodePath("../../../../../ArmyManager")
+
+[node name="CollapsibleControl2" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
+layout_mode = 2
+size_flags_vertical = 3
+title = "Movevement Conditions ±"
+
+[node name="LegendContainer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl2" instance=ExtResource("4_8hgb6")]
+layout_mode = 2
+
+[node name="ConditionViewer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl2" instance=ExtResource("5_qtnsr")]
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 0

@@ -9,6 +9,7 @@ signal region_unhovered(emmiter: Region)
 @export var id: String
 @export var title: String
 @export var nation: Nation
+@export var type: RegionType
 @export var reachable_neighbours: Array[Region] = []
 @export var unreachable_neighbours: Array[Region] = []
 @export var default_material: StandardMaterial3D = null
@@ -104,13 +105,13 @@ func reset_neigbour_materials() -> void:
 func can_army_enter(incoming_army: Army) -> bool:
 	if entry_conditions == null:
 		entry_conditions = CompositeCondition.all(
-			"Movement coditions to be met",
+			"All need to be met:",
 			[
 				SingleCondition.new("Passable border", func() -> bool: return reachable_neighbours.has(incoming_army.region)),
 				SingleCondition.new("Not attacking another army", func() -> bool: return !army || army.faction == incoming_army.faction),
 				SingleCondition.new("Number of army units <= 10 after the merge", func() -> bool: return can_units_fit(incoming_army.get_selected_units())),
 				CompositeCondition.any(
-					"Any of these conditions met",
+					"Any need to be met:",
 					[
 						SingleCondition.new("Units belong to the target region nation", func() -> bool: return are_units_from_the_same_nation(incoming_army.units, nation)),
 						SingleCondition.new("Units are at war", func() -> bool: return are_units_at_war(incoming_army.units)),

@@ -121,9 +121,24 @@ func apply_region_data(region: Region, regions_data: Dictionary, nations_data: D
 	var region_data: Dictionary = regions_data[region.id]
 	var nation: Nation = nations_data[region_data[MAP_DATA.PARENT_ID]]
 
+	var city := load("res://scripts/resources/region_types/city.tres")
+	var fortification := load("res://scripts/resources/region_types/fortification.tres")
+	var stronghold := load("res://scripts/resources/region_types/stronghold.tres")
+	var town := load("res://scripts/resources/region_types/town.tres")
+	var settlement := load("res://scripts/resources/region_types/settlement.tres")
+
 	region.title = region_data[MAP_DATA.NAME]
 	region.nation = nation
-	print(nation)
+	if region_data[MAP_DATA.FORTIFICATION]:
+		region.type = fortification
+	elif region_data[MAP_DATA.CITY]:
+		region.type = city
+	elif region_data[MAP_DATA.TOWN]:
+		region.type = town
+	elif region_data[MAP_DATA.STRONGHOLD]:
+		region.type = stronghold
+	else:
+		region.type = settlement
 
 	var material: StandardMaterial3D = StandardMaterial3D.new()
 	material.albedo_color = Color.from_string(nation.id, "ffffff")

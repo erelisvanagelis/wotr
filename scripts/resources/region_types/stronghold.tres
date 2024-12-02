@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RegionType" load_steps=2 format=3 uid="uid://cu4fw6u5mdo17"]
+
+[ext_resource type="Script" path="res://scripts/resources/region_type.gd" id="1_pgbje"]
+
+[resource]
+script = ExtResource("1_pgbje")
+title = &"Stronghold"
+victory_points = 2
+defensive_bonus = 2
+allows_recruitment = true
