@@ -11,19 +11,21 @@ var nation_item_map: Dictionary
 
 @onready var tree := %Tree
 
+
 func _ready() -> void:
 	root = tree.create_item()
 
 	ready_3 = tree.create_item(root)
-	ready_3.set_text(0, 'III')
+	ready_3.set_text(0, "III")
 	ready_2 = tree.create_item(root)
-	ready_2.set_text(0, 'II')
+	ready_2.set_text(0, "II")
 	ready_1 = tree.create_item(root)
-	ready_1.set_text(0, 'I')
+	ready_1.set_text(0, "I")
 	ready_0 = tree.create_item(root)
 	ready_0.set_text(0, "At War")
 
 	nation_item_map = {}
+	var nationssss := Nation.get_valid_nations()
 	for nation: Nation in Nation.get_valid_nations():
 		nation.readyness_changed.connect(readyness_changed)
 		nation.activated.connect(activated)
@@ -34,7 +36,7 @@ func _ready() -> void:
 		color_item_text(child, nation)
 
 		var a_texture: Texture = load("res://assets/images/placeholders/icon32.svg")
-		child.add_button(0, a_texture, -1, false, "more ready");
+		child.add_button(0, a_texture, -1, false, "more ready")
 		nation_item_map[nation.id] = child
 
 	TreeItemUtils.adjust_container_size(self, root)
@@ -47,6 +49,7 @@ func _on_button_clicked(item: TreeItem, _column: int, _id: int, mouse_button_ind
 		nation.closer_to_war()
 	elif mouse_button_index == MOUSE_BUTTON_RIGHT:
 		nation.active = true
+
 
 func get_branch_by_readyness(readynes: int) -> TreeItem:
 	var branch: TreeItem
@@ -64,6 +67,7 @@ func get_branch_by_readyness(readynes: int) -> TreeItem:
 
 	return branch
 
+
 func color_item_text(item: TreeItem, nation: Nation) -> TreeItem:
 	if nation.active && nation.faction == free_people:
 		item.set_custom_color(0, Color.LIGHT_BLUE)
@@ -73,7 +77,7 @@ func color_item_text(item: TreeItem, nation: Nation) -> TreeItem:
 	return item
 
 
-func readyness_changed(nation: Nation, readyness: int)-> void:
+func readyness_changed(nation: Nation, readyness: int) -> void:
 	var item: TreeItem = nation_item_map[nation.id]
 	item.get_parent().remove_child(item)
 	var branch := get_branch_by_readyness(nation.readyness)

@@ -3,6 +3,8 @@ extends CharacterBody3D
 
 signal selected(army: Army)
 signal deselected
+signal hovered(emmiter: Army)
+signal unhovered(emmiter: Army)
 
 @export var speed: int = 10
 @export var faction: Faction
@@ -10,13 +12,13 @@ signal deselected
 
 var units: Array[Unit]
 var target_position: Vector3
-var _army_scene: PackedScene = preload("res://scenes/army/army.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	velocity.x = (target_position.x - position.x) * speed
 	velocity.z = (target_position.z - position.z) * speed
+	velocity.y = (target_position.y - position.y) * speed
 	move_and_slide()
 
 
@@ -42,30 +44,16 @@ func deselect() -> void:
 
 
 func get_selected_units() -> Array[Unit]:
-	var units_diff: Array[Unit] = units.filter(func(unit: Unit) -> bool: return unit.selected)
-	var empty: Array[Unit] = []
-
-	return units_diff if units_diff else empty
+	return units.filter(func(unit: Unit) -> bool: return unit.selected)
 
 
 func are_units_selected() -> bool:
 	return get_selected_units().size() > 0
 
 
-func split_off_selected_units() -> Army:
-	return split_army(get_selected_units())
+func _on_mouse_entered() -> void:
+	hovered.emit(self)
 
 
-func split_army(split_off_units: Array[Unit]) -> Army:
-	var army: Army = _army_scene.instantiate()
-	army.faction = self.faction
-	army.units = split_off_units
-	var offset_position := Vector3(self.position)
-	army.position = offset_position
-	army.position.x = offset_position.x + 0.05
-
-	for unit in split_off_units:
-		self.units.erase(unit)
-		unit.selected = false
-
-	return army
+func _on_mouse_exited() -> void:
+	unhovered.emit(self)

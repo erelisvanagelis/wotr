@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cju0wg5t0e5q6"]
 
 [ext_resource type="Script" path="res://scenes/ui/unit_card/unit_card.gd" id="1_napsn"]
-[ext_resource type="Texture2D" uid="uid://c8r36gylmmskq" path="res://assets/images/units/GondorElite.png" id="2_1470d"]
+[ext_resource type="Texture2D" uid="uid://b7tbeltkpq2qe" path="res://assets/images/units/Nazgul.png" id="2_5v0o4"]
 
 [node name="UnitCard" type="Control" node_paths=PackedStringArray("unit_image", "nation_label", "type_label", "color_rect")]
 custom_minimum_size = Vector2(80, 100)
@@ -10,7 +10,7 @@ anchors_preset = 0
 offset_right = 80.0
 offset_bottom = 120.0
 script = ExtResource("1_napsn")
-unit_image = NodePath("PanelContainer/ColorRect/MarginContainer/ColorRect/TextureRect")
+unit_image = NodePath("PanelContainer/ColorRect/MarginContainer/ColorRect/AspectRatioContainer/TextureRect")
 nation_label = NodePath("PanelContainer/ColorRect/MarginContainer/ColorRect/Nation")
 type_label = NodePath("PanelContainer/ColorRect/MarginContainer/ColorRect/Type")
 color_rect = NodePath("PanelContainer/ColorRect")
@@ -46,32 +46,37 @@ theme_override_constants/margin_right = 6
 theme_override_constants/margin_bottom = 6
 
 [node name="ColorRect" type="ColorRect" parent="PanelContainer/ColorRect/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
 color = Color(0.344076, 0.344076, 0.344076, 1)
 
-[node name="Type" type="Label" parent="PanelContainer/ColorRect/MarginContainer/ColorRect"]
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="PanelContainer/ColorRect/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/ColorRect/MarginContainer/ColorRect/AspectRatioContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_5v0o4")
+stretch_mode = 5
+
+[node name="Nation" type="Label" parent="PanelContainer/ColorRect/MarginContainer/ColorRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "Elite"
+text = "Gondor"
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/ColorRect/MarginContainer/ColorRect"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_1470d")
-expand_mode = 5
-
-[node name="Nation" type="Label" parent="PanelContainer/ColorRect/MarginContainer/ColorRect"]
+[node name="Type" type="Label" parent="PanelContainer/ColorRect/MarginContainer/ColorRect"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -80,8 +85,9 @@ anchor_bottom = 1.0
 offset_top = -23.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Gondor"
+text = "Elite"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

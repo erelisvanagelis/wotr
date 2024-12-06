@@ -7,4 +7,11 @@
 script = ExtResource("1_b1l0s")
 id = &"A9A9A9"
 title = &"Unaligned"
+title_short = &"Unaligned"
 faction = ExtResource("1_8iy86")
+active = false
+readyness = 3
+at_war = false
+regulars = 0
+elites = 0
+leaders = 0

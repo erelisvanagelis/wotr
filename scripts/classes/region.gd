@@ -6,8 +6,8 @@ signal region_targeted(emmiter: Region)
 signal region_hovered(emmiter: Region)
 signal region_unhovered(emmiter: Region)
 
-@export var id: String
-@export var title: String
+@export var id: StringName
+@export var title: StringName
 @export var nation: Nation
 @export var type: RegionType
 @export var reachable_neighbours: Array[Region] = []
@@ -25,10 +25,12 @@ signal region_unhovered(emmiter: Region)
 		if !army:
 			return
 
+		if army.region != null:
+			army.region.army = null
+		army.region = self
 		army.move_to_parent_center(position)
 
 var free_regions: Nation = load("res://scripts/resources/nations/unaligned.tres")
-var entry_conditions: CompositeCondition = null
 var neighbours: Array[Region] = []
 
 
@@ -41,11 +43,6 @@ func _ready() -> void:
 	body.input_event.connect(_on_static_body_3d_input_event)
 	body.mouse_entered.connect(_on_mouse_entered)
 	body.mouse_exited.connect(_on_mouse_exited)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 
 
 func _on_static_body_3d_input_event(_camera: Node, _event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
@@ -86,15 +83,8 @@ func _on_mouse_exited() -> void:
 	region_unhovered.emit(self)
 
 
-func on_army_selected(_selected_army: Army) -> void:
-	pass
-	#army_selected.emit(self, army)
-	#print("Army selected")
-
-
 func reset_material() -> void:
 	self.set_surface_override_material(0, default_material)
-	entry_conditions = null
 
 
 func reset_neigbour_materials() -> void:
@@ -103,32 +93,37 @@ func reset_neigbour_materials() -> void:
 
 
 func can_army_enter(incoming_army: Army) -> bool:
-	if entry_conditions == null:
-		entry_conditions = CompositeCondition.all(
-			"All need to be met:",
-			[
-				SingleCondition.new("Passable border", func() -> bool: return reachable_neighbours.has(incoming_army.region)),
-				SingleCondition.new("Not attacking another army", func() -> bool: return !army || army.faction == incoming_army.faction),
-				SingleCondition.new("Number of army units <= 10 after the merge", func() -> bool: return can_units_fit(incoming_army.get_selected_units())),
-				CompositeCondition.any(
-					"Any need to be met:",
-					[
-						SingleCondition.new("Units belong to the target region nation", func() -> bool: return are_units_from_the_same_nation(incoming_army.units, nation)),
-						SingleCondition.new("Units are at war", func() -> bool: return are_units_at_war(incoming_army.units)),
-						SingleCondition.new("Target region is a free region", func() -> bool: return nation == free_regions)
-					]
-				)
-			]
-		)
+	return army_entry_conditions(incoming_army).is_satisfied()
 
-	return entry_conditions.is_satisfied()
+
+func army_entry_conditions(incoming_army: Army) -> CompositeCondition:
+	return CompositeCondition.all(
+		"All need to be met:",
+		[
+			SingleCondition.new("Not a mountainous border", func() -> bool: return reachable_neighbours.has(incoming_army.region)),
+			SingleCondition.new("Not attacking another army", func() -> bool: return !army || army.faction == incoming_army.faction),
+			SingleCondition.new("Number of army units <= 10 after the merge", func() -> bool: return can_units_fit(incoming_army.get_selected_units())),
+			CompositeCondition.any(
+				"Any need to be met:",
+				[
+					SingleCondition.new("Units belong to the target region nation", func() -> bool: return are_units_from_the_same_nation(incoming_army.units, nation)),
+					SingleCondition.new("Units are at war", func() -> bool: return are_units_at_war(incoming_army.units)),
+					SingleCondition.new("Target region is a free region", func() -> bool: return nation == free_regions)
+				]
+			)
+		]
+	)
 
 
 func can_units_fit(units: Array[Unit]) -> bool:
 	if army == null:
 		return true
 
-	return units.size() + army.units.size() <= 10
+	return army_size(units) + army_size(army.units) <= 10
+
+
+func army_size(units: Array[Unit]) -> int:
+	return units.reduce(func(accum: int, unit: Unit) -> int: return accum + unit.data.weight, 0)
 
 
 func are_units_at_war(units: Array[Unit]) -> bool:

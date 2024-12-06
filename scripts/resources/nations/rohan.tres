@@ -7,6 +7,7 @@
 script = ExtResource("1_apot3")
 id = &"046b26"
 title = &"Rohan"
+title_short = &"Rohan"
 faction = ExtResource("1_bgvw3")
 active = false
 readyness = 3

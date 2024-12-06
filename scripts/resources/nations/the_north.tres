@@ -7,6 +7,7 @@
 script = ExtResource("1_dcu05")
 id = &"0c8ab3"
 title = &"The North"
+title_short = &"North"
 faction = ExtResource("1_nqehi")
 active = false
 readyness = 3

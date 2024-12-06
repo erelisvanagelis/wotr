@@ -6,6 +6,7 @@ signal activated(nation: Nation)
 
 @export var id: StringName
 @export var title: StringName
+@export var title_short: StringName
 @export var faction: Faction
 @export_category("Politics")
 @export var active: bool = false:
@@ -35,7 +36,7 @@ static func get_valid_nations() -> Array[Nation]:
 		load("res://scripts/resources/nations/isengard.tres"),
 		load("res://scripts/resources/nations/rohan.tres"),
 		load("res://scripts/resources/nations/sauron.tres"),
-		load("res://scripts/resources/nations/southrons_easterlings.tres"),
+		load("res://scripts/resources/nations/southrons_&_easterlings.tres"),
 		load("res://scripts/resources/nations/the_north.tres")
 	]
 

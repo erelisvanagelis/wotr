@@ -1,92 +1,101 @@
 class_name Map
 extends Node3D
 
+signal selected_region_changed(emmiter: Region)
+signal targeted_region_changed(emmiter: Region)
+signal hovered_region_changed(emmiter: Region)
+signal focused_region_changed(emmiter: Region)
+
 @export var army_manager: ArmyManager
 @export var army_selector: ArmySelector
 
-var selected_neigboars: Array[Region] = []
-var selected_region: Region
 var selected_region_material := StandardMaterial3D.new()
 var selected_neigbour_material := StandardMaterial3D.new()
-var selected_army: Army
+var title_to_region_map: Dictionary = {}
+var hovered_region: Region:
+	set(value):
+		if hovered_region == value:
+			hovered_region = null
+		else:
+			hovered_region = value
+
+		hovered_region_changed.emit(hovered_region)
+var selected_region: Region:
+	set(value):
+		var old_value := selected_region
+		selected_region = value
+
+		if old_value != value:
+			selected_region_changed.emit(value)
+var targeted_region: Region:
+	set(value):
+		targeted_region_changed.emit(value)
+		targeted_region = value
+var focused_region: Region:
+	set(value):
+		if focused_region != value:
+			focused_region_changed.emit(value)
+		focused_region = value
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for region: Region in get_tree().get_nodes_in_group(Constants.GROUP.REGIONS):
+		title_to_region_map[region.title] = region
+		region.region_selected.connect(func(value: Region) -> void: selected_region = value)
+		region.region_targeted.connect(func(value: Region) -> void: targeted_region = value)
+		region.region_hovered.connect(func(value: Region) -> void: hovered_region = value)
+		region.region_unhovered.connect(func(value: Region) -> void: hovered_region = value)
+
+	title_to_region_map.make_read_only()
+
+	selected_region_changed.connect(_on_region_selected)
+	targeted_region_changed.connect(_on_region_targeted)
+	hovered_region_changed.connect(_on_focus_regions_changed)
+	selected_region_changed.connect(_on_focus_regions_changed)
+
 	selected_region_material.albedo_color = Color.from_string("FF3131", "ffffff")
 	selected_neigbour_material.albedo_color = Color.from_string("fe019a", "ffffff")
-	for region: Region in get_tree().get_nodes_in_group(Constants.GROUP.REGIONS):
-		region.region_selected.connect(on_region_selected)
-		region.region_targeted.connect(_on_region_targeted)
-
-	army_manager.army_selected.connect(_on_army_selected)
-	army_selector.unit_selection_changed.connect(on_unit_selected)
-	print("nonsence")
 
 
-func on_unit_selected() -> void:
-	if !selected_region || !selected_army:
+func _on_region_selected(region: Region) -> void:
+	clear_selections()
+	if region == null:
 		return
 
-	selected_region.reset_neigbour_materials()
-	highlight_neighbours(selected_region, selected_army)
-
-
-func on_region_selected(region: Region) -> void:
-	clear_selections()
-
-	selected_region = region
-
 	region.set_surface_override_material(0, selected_region_material)
+
+
+func _on_region_targeted(target_region: Region) -> void:
+	var selected_army := army_manager.selected_army
+	if !selected_army:
+		return
+
+	if selected_army.are_units_selected():
+		selected_army = army_manager.split_army_by_selected_units(selected_army)
+
+	if target_region.can_army_enter(selected_army):
+		target_region.army = selected_army
+		army_manager.selected_army = target_region.army
+
+
+func _on_focus_regions_changed(_region: Region) -> void:
+	focused_region = selected_region if hovered_region == null else hovered_region
+
 
 func highlight_neighbours(region: Region, army: Army) -> void:
 	if !region || !army:
 		return
 
-	selected_neigboars.append_array(region.neighbours)
 	for neighbour in region.neighbours:
 		if neighbour.can_army_enter(army):
 			neighbour.set_surface_override_material(0, selected_neigbour_material)
 
+
 func clear_selections() -> void:
-	for _region in selected_neigboars:
-		_region.reset_material()
-	if selected_region:
-		selected_region.reset_material()
-	if selected_army:
-		selected_army.deselect()
-
-	selected_neigboars.clear()
-	selected_region = null
-	selected_army = null
-
-func _on_region_targeted(target_region: Region) -> void:
-	if !selected_army:
-		return
-
-	if selected_army.are_units_selected():
-		print("units are selected")
-		selected_army = army_manager.split_army_by_selected_units(selected_army)
-	else:
-		selected_region.army = null
-
-	if !selected_neigboars.has(target_region):
-		print("not a neighbour")
-		return
-	elif selected_army == null:
-		print("no army selected")
-		return
-	elif !target_region.can_army_enter(selected_army):
-		print("not valid region")
-		return
+	get_tree().call_group(Constants.GROUP.REGIONS, "reset_material")
 
 
-	selected_region.army = null
-	target_region.army = selected_army
-	selected_army.region = target_region
-	clear_selections()
-
-func _on_army_selected(army: Army) -> void:
-	print("army selected in map")
-	on_region_selected(army.region)
-	selected_army = army
-	highlight_neighbours(selected_region, army)
+func _on_army_manager_selected_army_changed(army: Army) -> void:
+	selected_region = army.region
+	highlight_neighbours(army.region, army)

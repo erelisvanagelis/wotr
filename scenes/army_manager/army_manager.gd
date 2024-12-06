@@ -1,63 +1,38 @@
 class_name ArmyManager
 extends Node3D
 
-signal army_selected(army: Army)
-signal army_deselected
+signal selected_army_changed(emmiter: Army)
+signal hovered_army_changed(emmiter: Army)
+signal focused_army_changed(emmiter: Army)
 
 const UNIT_TYPE := Constants.UNIT_TYPE
 
+var selected_army: Army:
+	set(value):
+		selected_army = value
+		selected_army_changed.emit(value)
+var hovered_army: Army:
+	set(value):
+		if hovered_army == value:
+			hovered_army = null
+		else:
+			hovered_army = value
 
-func create_army(nation: Nation, regular: int, elite: int, leader: int, nazgul: int) -> Army:
-	var army: Army = load("res://scenes/army/army.tscn").instantiate()
-	army.faction = nation.faction
-	var new_units: Array[Unit] = []
-	for _i in regular:
-		var unit: Unit = Unit.select_unit(nation, Constants.UNIT_TYPE.REGULAR)
-		new_units.append(unit)
-	for _i in elite:
-		var unit: Unit = Unit.select_unit(nation, Constants.UNIT_TYPE.ELITE)
-		new_units.append(unit)
-	for _i in leader:
-		var unit: Unit = Unit.select_unit(nation, Constants.UNIT_TYPE.LEADER)
-		new_units.append(unit)
-	for _i in nazgul:
-		var unit: Unit = Unit.select_unit(nation, Constants.UNIT_TYPE.LEADER)
-		new_units.append(unit)
-	army.units = new_units
-
-	army.selected.connect(func(selected_army: Army) -> void: army_selected.emit(selected_army))
-	army.deselected.connect(func() -> void: army_deselected.emit())
-	add_child(army)
-
-	return army
-
-
-func split_army_by_selected_units(selected_army: Army) -> Army:
-	var split_off_units: Array[Unit] = selected_army.get_selected_units()
-	if split_off_units == selected_army.units:
-		return selected_army
-
-	var new_army: Army = load("res://scenes/army/army.tscn").instantiate()
-	new_army.faction = selected_army.faction
-	new_army.units = split_off_units
-	var offset_position := Vector3(selected_army.position)
-	new_army.position = offset_position
-	new_army.position.x = offset_position.x + 0.05
-
-	for unit in split_off_units:
-		selected_army.units.erase(unit)
-		unit.selected = false
-
-	new_army.selected.connect(func(army: Army) -> void: army_selected.emit(army))
-	new_army.deselected.connect(func() -> void: army_deselected.emit())
-	add_child(new_army)
-	return new_army
+		hovered_army_changed.emit(hovered_army)
+var focused_army: Army:
+	set(value):
+		focused_army_changed.emit(value)
+		focused_army = value
 
 
 # Called when the script is executed (using File -> Run in Script Editor).
 func _ready() -> void:
+	hovered_army_changed.connect(_on_focus_armies_changed)
+	selected_army_changed.connect(_on_focus_armies_changed)
+
 	get_tree().call_group(Constants.GROUP.ARMIES, "queue_free")
 	get_tree().call_group(Constants.GROUP.UNITS, "queue_free")
+
 	var region_map: Dictionary = {}
 	for region: Region in get_tree().get_nodes_in_group(Constants.GROUP.REGIONS):
 		region_map[region.id] = region
@@ -67,13 +42,27 @@ func _ready() -> void:
 		var region: Region = region_map[army_data["region_id"]]
 		var nation := region.nation
 		if army_data["region_id"] == "02feea":
-			nation = load("res://scripts/resources/nations/gondor.tres") as Nation
+			nation = load("res://scripts/resources/nations/gondor.tres")
 
-		var army := create_army(nation, army_data[UNIT_TYPE.REGULAR], army_data[UNIT_TYPE.ELITE], army_data[UNIT_TYPE.LEADER], army_data[UNIT_TYPE.NAZGUL])
-		army.position = region.position
-		army.position.y = army.position.y + 0.05
-		region.army = army
-		army.region = region
+		army_data.erase("region_id")
+		new_army_builder().region(region).nation(nation).units(army_data).build_and_assign_to_region()
+
+
+func split_army_by_selected_units(army: Army) -> Army:
+	var selected_units: Array[Unit] = army.get_selected_units()
+	if selected_units == army.units:
+		return army
+
+	for unit in selected_units:
+		army.units.erase(unit)
+		unit.selected = false
+
+	var new_army: Army = new_army_builder().nation(army.region.nation).build()
+	new_army.units = selected_units
+	new_army.position = army.position + Vector3(0.05, 0, 0)
+	new_army.region = army.region
+
+	return new_army
 
 
 func get_army_data(path: String) -> Dictionary:
@@ -83,3 +72,11 @@ func get_army_data(path: String) -> Dictionary:
 		armies[army["region_id"]] = army
 
 	return armies
+
+
+func new_army_builder() -> ArmyBuilder:
+	return ArmyBuilder.new(self)
+
+
+func _on_focus_armies_changed(_army: Army) -> void:
+	focused_army = selected_army if hovered_army == null else hovered_army

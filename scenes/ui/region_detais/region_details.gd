@@ -1,7 +1,7 @@
 extends GridContainer
 
 @export var army_manager: ArmyManager
-@export var region: Region
+@export var map: Map
 
 @onready var region_label := %region
 @onready var nation_label := %nation
@@ -14,24 +14,23 @@ extends GridContainer
 @onready var elite_count_label := %elite_count
 @onready var regular_count_label := %regular_count
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	for region: Region in get_tree().get_nodes_in_group(Constants.GROUP.REGIONS):
-		region.region_hovered.connect(on_region_hovered)
 
+func _on_map_focused_region_changed(focused_hovered: Region) -> void:
+	if focused_hovered == null:
+		visible = false
+		return
 
-func on_region_hovered(region_hovered: Region) -> void:
-	region = region_hovered
-	region_label.text = region.title
+	visible = true
 
-	var type := region.type
+	region_label.text = focused_hovered.title
+	var type := focused_hovered.type
 	if type:
 		type_label.text = type.title
 		capture_points_label.text = str(type.victory_points)
 		defensive_bonus_label.text = str(type.defensive_bonus)
 		allows_recruitment_label.text = str(type.allows_recruitment)
 
-	var nation := region.nation
+	var nation := focused_hovered.nation
 	nation_label.text = nation.title
 	leader_count_label.text = str(nation.leaders)
 	elite_count_label.text = str(nation.elites)
@@ -41,6 +40,4 @@ func on_region_hovered(region_hovered: Region) -> void:
 
 
 func _on_leader_recruit_pressed() -> void:
-	var army := army_manager.create_army(region.nation, 0, 0, 1, 0)
-	army.region = region
-	region.army = army
+	army_manager.new_army_builder().region(map.focused_region).leader(1).build_and_assign_to_region()

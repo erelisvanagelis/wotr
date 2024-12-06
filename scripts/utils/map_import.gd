@@ -37,6 +37,9 @@ func _post_import(scene: Node) -> Object:
 		region.reachable_neighbours = bours
 		region.unreachable_neighbours = unreachable_neighbours
 
+	color_mountains(scene)
+
+	print("before return")
 	return scene
 
 
@@ -102,6 +105,17 @@ func get_regions(scene: Node) -> Array[Region]:
 
 func region_filter(node: Node) -> bool:
 	return node.name.begins_with(MAP_DATA.REGION) && node is MeshInstance3D
+
+
+func color_mountains(scene: Node) -> void:
+	for node: Node in scene.get_children().filter(mountain_filter):
+		var mesh: MeshInstance3D = node
+		var material: StandardMaterial3D = StandardMaterial3D.new()
+		material.albedo_color = Color.DIM_GRAY
+		mesh.set_surface_override_material(0, material)
+
+func mountain_filter(node: Node) -> bool:
+	return node.name.begins_with(MAP_DATA.MOUNTAIN) && node is MeshInstance3D
 
 
 func find_region_id(color_map: Image, position: Vector3, max_bound: Vector2, offset: Vector2) -> StringName:

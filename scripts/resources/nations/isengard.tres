@@ -7,6 +7,7 @@
 script = ExtResource("1_m71r7")
 id = &"ded800"
 title = &"Isengard"
+title_short = &"Isengard"
 faction = ExtResource("1_hm21f")
 active = true
 readyness = 1

@@ -6,7 +6,7 @@ signal unit_selection_changed
 @export var container: Container
 @export var army_manager: ArmyManager
 
-
+var selected_units: Array[UnitCard] = []
 var units: Array[Unit]:
 	set(value):
 		for unit in units:
@@ -16,25 +16,15 @@ var units: Array[Unit]:
 		units = value
 		update_ui(value)
 
-@onready var selected_units: Array[UnitCard] = []
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	units = units
-	army_manager.army_selected.connect(army_selected)
-	army_manager.army_deselected.connect(army_deselected)
 
 
-func army_selected(army: Army) -> void:
-	print("army_selected")
-	print(army.units.size())
-	units = army.units
-
-
-func army_deselected() -> void:
-	print("deselected")
-	units = []
+func _on_army_manager_focused_army_changed(army: Army) -> void:
+	var test: Array[Unit] = []
+	units = army.units if army else test
 
 
 func update_ui(p_units: Array[Unit]) -> void:

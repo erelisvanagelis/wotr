@@ -1,26 +1,19 @@
 class_name ConditionsViewer
 extends Control
 
-
+@export var army_manager: ArmyManager
 var root: TreeItem
-
 @onready var tree: Tree = %Tree
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	for region: Region in get_tree().get_nodes_in_group(Constants.GROUP.REGIONS):
-		region.region_hovered.connect(on_region_hovered)
 
+func _on_map_focused_region_changed(region: Region) -> void:
+	if !army_manager.selected_army || !region:
+		visible = false
+		return
 
-func on_region_hovered(region: Region) -> void:
+	visible = true
 	tree.clear()
-	var condition: ConditionComponent = SingleCondition.new("Region is a not a neighbour", func() -> bool: return false)
-	#if region == null || region.entry_conditions == null:
-	#root = generate_tree([SingleCondition.new("Region is a neighbour", func() -> bool: return false)], null)
-	#return
-	if region && region.entry_conditions:
-		condition = region.entry_conditions
-
+	var condition: ConditionComponent = region.army_entry_conditions(army_manager.selected_army)
 	root = generate_tree(condition, null)
 	TreeItemUtils.adjust_container_size(self, root)
 

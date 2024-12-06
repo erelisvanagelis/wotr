@@ -7,6 +7,7 @@
 script = ExtResource("2_3j5ad")
 id = &"048f1a"
 title = &"Elves"
+title_short = &"Elves"
 faction = ExtResource("1_wiguc")
 active = true
 readyness = 3

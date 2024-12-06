@@ -31,7 +31,34 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path="res://scripts/utils/map_import.gd"
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:mountain": {
+"import/skip_import": true
+},
+"PATH:mountain_002": {
+"import/skip_import": true
+},
+"PATH:mountain_003": {
+"import/skip_import": true
+},
+"PATH:mountain_004": {
+"import/skip_import": true
+},
+"PATH:mountain_005": {
+"import/skip_import": true
+},
+"PATH:mountain_006": {
+"import/skip_import": true
+},
+"PATH:mountain_007": {
+"import/skip_import": true
+},
+"PATH:mountain_008": {
+"import/skip_import": true
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

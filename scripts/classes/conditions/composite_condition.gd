@@ -15,7 +15,6 @@ func _init(description: String, match_type: MatchType, conditions: Array[Conditi
 	_conditions = conditions
 
 
-# Static constructors
 static func any(description: String, conditions: Array[ConditionComponent]) -> CompositeCondition:
 	return CompositeCondition.new(description, MatchType.ANY, conditions)
 
@@ -28,6 +27,7 @@ func is_satisfied() -> bool:
 	var check: Callable = func(condition: ConditionComponent) -> bool: return condition.is_satisfied()
 
 	return _conditions.all(check) if _match_type == MatchType.ALL else _conditions.any(check)
+
 
 func get_description() -> String:
 	return _description

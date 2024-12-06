@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=4 format=3 uid="uid://cscv30lvrf2d1"]
+
+[ext_resource type="Resource" uid="uid://da7d4rvptqxba" path="res://scripts/resources/nations/sauron.tres" id="1_x2477"]
+[ext_resource type="Script" path="res://scripts/resources/unit_data.gd" id="2_psm4p"]
+[ext_resource type="Texture2D" uid="uid://b7tbeltkpq2qe" path="res://assets/images/units/Nazgul.png" id="3_sjldr"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_psm4p")
+type = &"Nazgûl"
+nation = ExtResource("1_x2477")
+region_range = 1
+health = 1
+texture = ExtResource("3_sjldr")
+weight = 0
