@@ -9,9 +9,6 @@ signal unit_selection_changed
 var selected_units: Array[UnitCard] = []
 var units: Array[Unit]:
 	set(value):
-		#for unit in units:
-		#unit.selected = false
-
 		selected_units = []
 		units = value
 		update_ui(value)
