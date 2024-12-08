@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0mepbo80e3x3"]
+
+[ext_resource type="Script" path="res://scenes/ui/recruitment_pool/recruitement_pool.gd" id="1_euuln"]
+[ext_resource type="PackedScene" uid="uid://dxj5rw56jmf76" path="res://scenes/ui/conditions_viewer/conditions_viewer.tscn" id="2_loyun"]
+
+[node name="RecruitementPool" type="MarginContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_euuln")
+
+[node name="HSplitContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ConditionsViewer" parent="HSplitContainer" instance=ExtResource("2_loyun")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VSeparator" type="VSeparator" parent="HSplitContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ConditionsNotMet" type="CenterContainer" parent="HSplitContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HSplitContainer/ConditionsNotMet"]
+layout_mode = 2
+text = "Conditions not met"

@@ -25,7 +25,6 @@ func _ready() -> void:
 	ready_0.set_text(0, "At War")
 
 	nation_item_map = {}
-	var nationssss := Nation.get_valid_nations()
 	for nation: Nation in Nation.get_valid_nations():
 		nation.readyness_changed.connect(readyness_changed)
 		nation.activated.connect(activated)
@@ -43,7 +42,6 @@ func _ready() -> void:
 
 
 func _on_button_clicked(item: TreeItem, _column: int, _id: int, mouse_button_index: int) -> void:
-	print((item.get_metadata(0) as Nation).title)
 	var nation: Nation = item.get_metadata(0)
 	if mouse_button_index == MOUSE_BUTTON_LEFT:
 		nation.closer_to_war()

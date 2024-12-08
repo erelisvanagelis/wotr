@@ -13,13 +13,13 @@ signal region_unhovered(emmiter: Region)
 @export var reachable_neighbours: Array[Region] = []
 @export var unreachable_neighbours: Array[Region] = []
 @export var default_material: StandardMaterial3D = null
+#FIXME army split removes ownership
 @export var army: Army:
 	set(new_army):
 		if army && new_army && army.faction == new_army.faction:
-			new_army.units.append_array(army.units)
-			army.queue_free()
+			new_army.merge_armies(army)
 		elif (army && new_army) && army != new_army:
-			army.queue_free()
+			army.remove_self()
 
 		army = new_army
 		if !army:
@@ -45,7 +45,9 @@ func _ready() -> void:
 	body.mouse_exited.connect(_on_mouse_exited)
 
 
-func _on_static_body_3d_input_event(_camera: Node, _event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int) -> void:
+func _on_static_body_3d_input_event(
+	_camera: Node, _event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int
+) -> void:
 	if !(_event is InputEventMouseButton) || !_event.is_pressed():
 		return
 
@@ -100,14 +102,26 @@ func army_entry_conditions(incoming_army: Army) -> CompositeCondition:
 	return CompositeCondition.all(
 		"All need to be met:",
 		[
-			SingleCondition.new("Not a mountainous border", func() -> bool: return reachable_neighbours.has(incoming_army.region)),
-			SingleCondition.new("Not attacking another army", func() -> bool: return !army || army.faction == incoming_army.faction),
-			SingleCondition.new("Number of army units <= 10 after the merge", func() -> bool: return can_units_fit(incoming_army.get_selected_units())),
+			SingleCondition.new(
+				"Not a mountainous border", func() -> bool: return reachable_neighbours.has(incoming_army.region)
+			),
+			SingleCondition.new(
+				"Not attacking another army", func() -> bool: return !army || army.faction == incoming_army.faction
+			),
+			SingleCondition.new(
+				"Number of army units <= 10 after the merge",
+				func() -> bool: return can_units_fit(incoming_army.get_selected_units())
+			),
 			CompositeCondition.any(
 				"Any need to be met:",
 				[
-					SingleCondition.new("Units belong to the target region nation", func() -> bool: return are_units_from_the_same_nation(incoming_army.units, nation)),
-					SingleCondition.new("Units are at war", func() -> bool: return are_units_at_war(incoming_army.units)),
+					SingleCondition.new(
+						"Units belong to the target region nation",
+						func() -> bool: return are_units_from_the_same_nation(incoming_army.units, nation)
+					),
+					SingleCondition.new(
+						"Units are at war", func() -> bool: return are_units_at_war(incoming_army.units)
+					),
 					SingleCondition.new("Target region is a free region", func() -> bool: return nation == free_regions)
 				]
 			)

@@ -19,6 +19,8 @@ signal activated(nation: Nation)
 @export var regulars: int
 @export var elites: int
 @export var leaders: int
+@export var nazguls: int
+#@export var available_units: Array[UnitData]
 
 
 static func get_all_nations() -> Array[Nation]:

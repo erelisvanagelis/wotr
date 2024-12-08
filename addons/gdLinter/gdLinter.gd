@@ -42,7 +42,6 @@ func _enter_tree() -> void:
 	get_gdlint_version()
 	prints("Loading GDLint Plugin success")
 
-# TODO: Reenable again?
 # Dunno how highlighting lines in Godot works, since it get removed after a second or so
 # So I use this evil workaround straight from hell:
 #func _process(_delta: float) -> void:

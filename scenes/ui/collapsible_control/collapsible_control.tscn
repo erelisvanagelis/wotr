@@ -1,32 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://3bgraje62f1o"]
+[gd_scene load_steps=3 format=3 uid="uid://3bgraje62f1o"]
 
 [ext_resource type="Script" path="res://scenes/ui/collapsible_control/collapsible_control.gd" id="1_lq100"]
 
-[node name="CollapsibleControl" type="MarginContainer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1pe2d"]
+bg_color = Color(0.411765, 0.411765, 0.411765, 1)
+border_width_left = 1
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 2
+
+[node name="CollapsibleControl" type="PanelContainer"]
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 35.0
 grow_horizontal = 2
 size_flags_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1pe2d")
 script = ExtResource("1_lq100")
+collapse_char = &"▼"
+expand_char = &"▶"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "
+mouse_filter = 1
+text = "Default Title
 "
 
-[node name="Collapsible" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Collapsible" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

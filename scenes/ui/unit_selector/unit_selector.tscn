@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjkgaxb0r3x07"]
+
+[ext_resource type="Script" path="res://scenes/ui/unit_selector/unit_selector.gd" id="1_ynf6e"]
+
+[node name="UnitSelector" type="BoxContainer" node_paths=PackedStringArray("container")]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 10
+size_flags_vertical = 6
+script = ExtResource("1_ynf6e")
+container = NodePath("MarginContainer/HBoxContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HFlowContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 3

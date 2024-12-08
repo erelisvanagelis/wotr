@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxglh3llkix8l"]
+
+[ext_resource type="Script" path="res://scenes/ui/recruitment_unit_card/rectuitment_unit_card.gd" id="1_lqj73"]
+
+[node name="RectuitmentUnitCard" type="VBoxContainer"]
+offset_right = 80.0
+offset_bottom = 127.0
+script = ExtResource("1_lqj73")
+
+[node name="Reserve" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Number of units in reserve"
+mouse_filter = 0
+text = "6"
+horizontal_alignment = 1

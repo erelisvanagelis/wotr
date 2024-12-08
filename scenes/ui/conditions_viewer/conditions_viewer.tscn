@@ -2,13 +2,14 @@
 
 [ext_resource type="Script" path="res://scenes/ui/conditions_viewer/conditions_viewer.gd" id="1_bhl4g"]
 
-[node name="Control" type="Control"]
+[node name="ConditionsViewer" type="Control"]
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 grow_horizontal = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
+mouse_filter = 1
 script = ExtResource("1_bhl4g")
 
 [node name="Tree" type="Tree" parent="."]
@@ -20,5 +21,7 @@ anchor_bottom = 1.0
 offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
 
 [connection signal="item_collapsed" from="Tree" to="." method="_on_tree_item_collapsed"]

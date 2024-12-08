@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends MarginContainer
 
 @export var _map: Map
 
@@ -14,11 +14,12 @@ func _ready() -> void:
 	for title: StringName in _map.title_to_region_map.keys():
 		all_regions.append(title)
 
+	all_regions.sort_custom(func(a: StringName, b: StringName) -> bool: return String(a) < String(b))
 	filtered_regions = all_regions
 	update_region_list(filtered_regions)
 
 
-func _on_search_field_text_changed(query: String) -> void:
+func _on_search_line_edit_text_changed(query: String) -> void:
 	if !query:
 		filtered_regions = all_regions
 	else:
@@ -27,11 +28,14 @@ func _on_search_field_text_changed(query: String) -> void:
 	update_region_list(filtered_regions)
 
 
-func _on_item_list_item_selected(index: int) -> void:
+func _on_region_list_item_selected(index: int) -> void:
 	_map.selected_region = _map.title_to_region_map[filtered_regions[index]]
 
 
 func update_region_list(titles: Array[StringName]) -> void:
 	region_list.clear()
-	for title: StringName in titles:
+	for index: int in range(0, titles.size()):
+		var title: StringName = titles[index]
 		region_list.add_item(title)
+		var region := _map.title_to_region_map[title] as Region
+		region_list.set_item_custom_fg_color(index, Color.from_string(region.nation.id, Color.GRAY))

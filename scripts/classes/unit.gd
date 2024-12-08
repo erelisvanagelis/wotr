@@ -31,8 +31,8 @@ static func select_unit_by_string(unit_nation_title: String, unit_type: String) 
 
 func instantiate_unit_card() -> UnitCard:
 	var card_scene: UnitCard = UNIT_CARD.instantiate()
-	card_scene.nation_label.text = data.nation.title_short
-	card_scene.type_label.text = data.type
-	card_scene.unit_image.texture = data.texture
-	card_scene.unit = self
+	card_scene.unit_data = data
+	card_scene.selected = selected
+	card_scene.selected_changed.connect(func(card: UnitCard) -> void: selected = card.selected)
+
 	return card_scene

@@ -46,7 +46,6 @@ func _post_import(scene: Node) -> Object:
 func get_nation_map() -> Dictionary:
 	var nations_map := {}
 	for nation: Nation in Nation.get_all_nations():
-		print(nation)
 		nations_map[nation.id] = nation
 
 	return nations_map
@@ -113,6 +112,7 @@ func color_mountains(scene: Node) -> void:
 		var material: StandardMaterial3D = StandardMaterial3D.new()
 		material.albedo_color = Color.DIM_GRAY
 		mesh.set_surface_override_material(0, material)
+
 
 func mountain_filter(node: Node) -> bool:
 	return node.name.begins_with(MAP_DATA.MOUNTAIN) && node is MeshInstance3D

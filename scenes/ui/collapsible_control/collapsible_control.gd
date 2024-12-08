@@ -1,8 +1,10 @@
 class_name CollapsibleControl
-extends Control
+extends PanelContainer
 
-@export var title: String = "default name"
+@export var title: StringName = "default name"
 @export var initialy_visible: bool = true
+@export var collapse_char: StringName
+@export var expand_char: StringName
 
 @onready var collapsible_container := %Collapsible
 @onready var button := %Button
@@ -17,9 +19,12 @@ func _ready() -> void:
 	for i: int in range(1, children.size()):
 		children[i].reparent(collapsible_container)
 
-	button.text = title
 	collapsible_container.visible = initialy_visible
+	var required_char := collapse_char if collapsible_container.visible else expand_char
+	button.text = "%s %s" % [title, required_char]
 
 
 func _on_button_pressed() -> void:
 	collapsible_container.visible = !collapsible_container.visible
+	var required_char := collapse_char if collapsible_container.visible else expand_char
+	button.text = "%s %s" % [title, required_char]

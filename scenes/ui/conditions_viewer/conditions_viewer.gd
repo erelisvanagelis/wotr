@@ -1,19 +1,17 @@
 class_name ConditionsViewer
 extends Control
 
-@export var army_manager: ArmyManager
 var root: TreeItem
 @onready var tree: Tree = %Tree
 
 
-func _on_map_focused_region_changed(region: Region) -> void:
-	if !army_manager.selected_army || !region:
+func _on_condition_changed(condition: ConditionComponent) -> void:
+	tree.clear()
+	if !condition:
 		visible = false
 		return
 
 	visible = true
-	tree.clear()
-	var condition: ConditionComponent = region.army_entry_conditions(army_manager.selected_army)
 	root = generate_tree(condition, null)
 	TreeItemUtils.adjust_container_size(self, root)
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Nation" load_steps=3 format=3 uid="uid://corojpbmffdv6"]
+[gd_resource type="Resource" script_class="Nation" load_steps=6 format=3 uid="uid://corojpbmffdv6"]
 
 [ext_resource type="Resource" uid="uid://8roir1ghffmp" path="res://scripts/resources/factions/shadow.tres" id="1_hm21f"]
 [ext_resource type="Script" path="res://scripts/resources/nation.gd" id="1_m71r7"]
@@ -15,3 +15,4 @@ at_war = false
 regulars = 6
 elites = 5
 leaders = 0
+nazgul = 0

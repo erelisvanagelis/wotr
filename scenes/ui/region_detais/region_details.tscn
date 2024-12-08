@@ -26,7 +26,7 @@ text = "adsasd"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
-text = "Region Title:
+text = "Title:
 "
 
 [node name="region" type="Label" parent="."]
@@ -36,7 +36,7 @@ text = "Morgul"
 
 [node name="Label4" type="Label" parent="."]
 layout_mode = 2
-text = "Region Type:
+text = "Type:
 "
 
 [node name="type" type="Label" parent="."]
@@ -58,44 +58,3 @@ text = "Defensive Bonus:"
 [node name="defensive_bonus" type="Label" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="Label7" type="Label" parent="."]
-layout_mode = 2
-text = "Allows Recruitements:"
-
-[node name="allows_recruitements" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Label11" type="Label" parent="."]
-layout_mode = 2
-text = "Leaders In Reserves:"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 2
-
-[node name="leader_count" type="Label" parent="HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="leader_recruit" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-text = "Rectruit"
-
-[node name="Label13" type="Label" parent="."]
-layout_mode = 2
-text = "Elites In Reserves:"
-
-[node name="elite_count" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Label15" type="Label" parent="."]
-layout_mode = 2
-text = "Regulars In Reserves:"
-
-[node name="regular_count" type="Label" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-
-[connection signal="pressed" from="HBoxContainer/leader_recruit" to="." method="_on_leader_recruit_pressed"]

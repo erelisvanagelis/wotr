@@ -9,34 +9,19 @@ extends GridContainer
 @onready var type_label := %type
 @onready var capture_points_label := %capture_points
 @onready var defensive_bonus_label := %defensive_bonus
-@onready var allows_recruitment_label := %allows_recruitements
-@onready var leader_count_label := %leader_count
-@onready var elite_count_label := %elite_count
-@onready var regular_count_label := %regular_count
 
 
-func _on_map_focused_region_changed(focused_hovered: Region) -> void:
-	if focused_hovered == null:
-		visible = false
+func _on_map_focused_region_changed(focused_region: Region) -> void:
+	if focused_region == null:
 		return
 
-	visible = true
+	nation_label.text = focused_region.nation.title
+	faction_label.text = focused_region.nation.faction.title
+	region_label.text = focused_region.title
 
-	region_label.text = focused_hovered.title
-	var type := focused_hovered.type
-	if type:
-		type_label.text = type.title
-		capture_points_label.text = str(type.victory_points)
-		defensive_bonus_label.text = str(type.defensive_bonus)
-		allows_recruitment_label.text = str(type.allows_recruitment)
-
-	var nation := focused_hovered.nation
-	nation_label.text = nation.title
-	leader_count_label.text = str(nation.leaders)
-	elite_count_label.text = str(nation.elites)
-	regular_count_label.text = str(nation.regulars)
-
-	faction_label.text = nation.faction.title
+	type_label.text = focused_region.type.title
+	capture_points_label.text = str(focused_region.type.victory_points)
+	defensive_bonus_label.text = str(focused_region.type.defensive_bonus)
 
 
 func _on_leader_recruit_pressed() -> void:

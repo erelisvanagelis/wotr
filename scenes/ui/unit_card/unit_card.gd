@@ -1,17 +1,32 @@
 class_name UnitCard
 extends Control
 
-signal selected(unit: UnitCard)
-signal deselected(unit: UnitCard)
+signal selected_changed(unit: UnitCard)
 
-@export var unit_image: TextureRect
-@export var nation_label: Label
-@export var type_label: Label
-@export var color_rect: ColorRect
+@export var unit_data: UnitData
+@export var selected: bool:
+	set(value):
+		var old_value := selected
+		selected = value
+		_on_selected_changed(value)
+		if old_value != selected:
+			selected_changed.emit(self)
 
-var unit: Unit
+
 var select_color: Color = Color.AQUA
 var basic_color: Color = Color.DIM_GRAY
+
+@onready var _unit_image: TextureRect = %TextureRect
+@onready var _nation_label: Label = %Nation
+@onready var _type_label: Label = %Type
+@onready var _color_rect: ColorRect = %ColorRect
+
+
+func _ready() -> void:
+	_nation_label.text = unit_data.nation.title_short
+	_type_label.text = unit_data.type
+	_unit_image.texture = unit_data.texture
+	_on_selected_changed(selected)
 
 
 func _on_gui_input(event: InputEvent) -> void:
@@ -20,18 +35,16 @@ func _on_gui_input(event: InputEvent) -> void:
 
 	match event.button_index:
 		MOUSE_BUTTON_LEFT:
-			on_select()
+			selected = true
 		MOUSE_BUTTON_RIGHT:
-			on_deselect()
+			selected = false
 
 
-func on_select() -> void:
-	color_rect.color = select_color
-	unit.selected = true
-	selected.emit(self)
+func _on_selected_changed(p_selected: bool) -> void:
+	if !_color_rect:
+		return
 
-
-func on_deselect() -> void:
-	color_rect.color = basic_color
-	unit.selected = false
-	deselected.emit(self)
+	if p_selected:
+		_color_rect.color = select_color
+	else:
+		_color_rect.color = basic_color

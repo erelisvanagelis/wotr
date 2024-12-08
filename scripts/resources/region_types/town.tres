@@ -7,4 +7,4 @@ script = ExtResource("1_83503")
 title = &"Town"
 victory_points = 0
 defensive_bonus = 0
-allows_recruitment = false
+allows_recruitment = true

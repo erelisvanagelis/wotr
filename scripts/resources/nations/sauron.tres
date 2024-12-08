@@ -14,4 +14,5 @@ readyness = 1
 at_war = false
 regulars = 8
 elites = 4
-leaders = 4
+leaders = 0
+nazguls = 4

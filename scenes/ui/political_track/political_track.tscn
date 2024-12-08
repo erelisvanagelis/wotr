@@ -20,6 +20,7 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 2
+mouse_filter = 1
 hide_root = true
 
 [connection signal="button_clicked" from="Tree" to="." method="_on_button_clicked"]

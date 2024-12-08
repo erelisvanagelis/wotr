@@ -7,4 +7,3 @@ extends Resource
 @export var health: int = 1
 @export var texture: Texture
 @export var weight: int = 1
-var selected: bool = false
