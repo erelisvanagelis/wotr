@@ -1,16 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx2odvhc7n356"]
+[gd_scene load_steps=13 format=3 uid="uid://dx2odvhc7n356"]
 
 [ext_resource type="PackedScene" uid="uid://csmytryt1j8kv" path="res://scenes/map/map.tscn" id="1_kfiqy"]
 [ext_resource type="PackedScene" uid="uid://calltnxtcy4wq" path="res://scenes/ui/political_track/political_track.tscn" id="2_t8xwi"]
 [ext_resource type="PackedScene" uid="uid://cjkgaxb0r3x07" path="res://scenes/ui/unit_selector/unit_selector.tscn" id="3_nj5v3"]
 [ext_resource type="PackedScene" uid="uid://3bgraje62f1o" path="res://scenes/ui/collapsible_control/collapsible_control.tscn" id="3_trukk"]
-[ext_resource type="PackedScene" uid="uid://diulbg4ol7res" path="res://scenes/ui/legend_container/legend_container.tscn" id="4_8hgb6"]
 [ext_resource type="PackedScene" uid="uid://cjpfgeg13pch2" path="res://scenes/army_manager/army_manager.tscn" id="4_v0rq6"]
 [ext_resource type="PackedScene" uid="uid://dxj5rw56jmf76" path="res://scenes/ui/conditions_viewer/conditions_viewer.tscn" id="5_qtnsr"]
-[ext_resource type="Script" path="res://scripts/resources/legend.gd" id="5_yhsto"]
-[ext_resource type="Resource" uid="uid://bs4v7r4exmtv1" path="res://scripts/resources/legend/incative.tres" id="6_t1psj"]
-[ext_resource type="Resource" uid="uid://wv4cvid7o60q" path="res://scripts/resources/legend/free_people_active.tres" id="7_62x7v"]
-[ext_resource type="Resource" uid="uid://d17eb2dhsstxm" path="res://scripts/resources/legend/shadow_active.tres" id="8_jrtt5"]
 [ext_resource type="PackedScene" uid="uid://1mhoydql7n4w" path="res://scenes/ui/search_bar/search_bar.tscn" id="11_e2p5p"]
 [ext_resource type="PackedScene" uid="uid://c0mepbo80e3x3" path="res://scenes/ui/recruitment_pool/recruitement_pool.tscn" id="12_cftwn"]
 [ext_resource type="PackedScene" uid="uid://cofscfaehy0oc" path="res://scenes/ui/region_detais/region_details.tscn" id="12_t4ski"]
@@ -62,16 +57,12 @@ size_flags_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 1
 title = &"Political Track"
 initialy_visible = false
 
-[node name="LegendContainer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl" instance=ExtResource("4_8hgb6")]
-layout_mode = 2
-legend_entries = Array[ExtResource("5_yhsto")]([ExtResource("6_t1psj"), ExtResource("7_62x7v"), ExtResource("8_jrtt5")])
-
 [node name="PoliticalTrack" parent="UI/ScrollContainer/Sidebar/CollapsibleControl" instance=ExtResource("2_t8xwi")]
 layout_mode = 2
-mouse_filter = 1
 
 [node name="CollapsibleControl6" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
 layout_mode = 2
@@ -127,9 +118,6 @@ layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 title = &"Movement Conditions"
-
-[node name="LegendContainer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl2" instance=ExtResource("4_8hgb6")]
-layout_mode = 2
 
 [node name="ConditionViewer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl2" instance=ExtResource("5_qtnsr")]
 layout_mode = 2

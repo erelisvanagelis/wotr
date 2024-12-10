@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="Legend" load_steps=2 format=3 uid="uid://yf1s10a1k882"]
+[gd_resource type="Resource" script_class="Legend" load_steps=3 format=3 uid="uid://yf1s10a1k882"]
 
+[ext_resource type="Resource" uid="uid://dvxgssxj0k52m" path="res://scripts/resources/color_pallete/positive.tres" id="1_jjug4"]
 [ext_resource type="Script" path="res://scripts/resources/legend.gd" id="1_k4dgg"]
 
 [resource]
 script = ExtResource("1_k4dgg")
 title = "Passed"
-color = Color(0.678431, 0.847059, 0.901961, 1)
+description = ""
+color = ExtResource("1_jjug4")

@@ -20,11 +20,16 @@ func _ready() -> void:
 		children[i].reparent(collapsible_container)
 
 	collapsible_container.visible = initialy_visible
+	for child in collapsible_container.get_children():
+		child.visible = collapsible_container.visible
 	var required_char := collapse_char if collapsible_container.visible else expand_char
 	button.text = "%s %s" % [title, required_char]
 
 
 func _on_button_pressed() -> void:
 	collapsible_container.visible = !collapsible_container.visible
+	for child in collapsible_container.get_children():
+		child.visible = collapsible_container.visible
+
 	var required_char := collapse_char if collapsible_container.visible else expand_char
 	button.text = "%s %s" % [title, required_char]

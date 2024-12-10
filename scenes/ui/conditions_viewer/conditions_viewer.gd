@@ -4,6 +4,12 @@ extends Control
 var root: TreeItem
 @onready var tree: Tree = %Tree
 
+func _ready() -> void:
+	var preview_condition := CompositeCondition.all("Deskription", [
+		SingleCondition.new("I'm a negative", func() -> bool: return false),
+		SingleCondition.new("I'm a positive", func() -> bool: return true)
+	])
+	_on_condition_changed(preview_condition)
 
 func _on_condition_changed(condition: ConditionComponent) -> void:
 	tree.clear()
@@ -13,7 +19,6 @@ func _on_condition_changed(condition: ConditionComponent) -> void:
 
 	visible = true
 	root = generate_tree(condition, null)
-	TreeItemUtils.adjust_container_size(self, root)
 
 
 func generate_tree(condition: ConditionComponent, parent: TreeItem) -> TreeItem:
@@ -34,13 +39,9 @@ func condition_to_tree_item(condition: ConditionComponent, parent: TreeItem) -> 
 	#new_item.set_text(0, condition._description + " - " + str(condition.is_satisfied()))
 	if condition.is_satisfied():
 		#new_item.collapsed = true
-		new_item.set_custom_color(0, Color.LIGHT_BLUE)
+		new_item.set_custom_color(0, ColorPalette.positive().color)
 	else:
 		#new_item.collapsed = false
-		new_item.set_custom_color(0, Color.RED)
+		new_item.set_custom_color(0, ColorPalette.negative().color)
 
 	return new_item
-
-
-func _on_tree_item_collapsed(_item: TreeItem) -> void:
-	TreeItemUtils.adjust_container_size(self, root)

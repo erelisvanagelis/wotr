@@ -13,7 +13,6 @@ signal region_unhovered(emmiter: Region)
 @export var reachable_neighbours: Array[Region] = []
 @export var unreachable_neighbours: Array[Region] = []
 @export var default_material: StandardMaterial3D = null
-#FIXME army split removes ownership
 @export var army: Army:
 	set(new_army):
 		if army && new_army && army.faction == new_army.faction:
@@ -25,7 +24,7 @@ signal region_unhovered(emmiter: Region)
 		if !army:
 			return
 
-		if army.region != null:
+		if army.region != null && army.region.army == army:
 			army.region.army = null
 		army.region = self
 		army.move_to_parent_center(position)

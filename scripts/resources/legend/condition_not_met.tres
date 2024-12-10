@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Legend" load_steps=2 format=3 uid="uid://diw1xg1sby342"]
+[gd_resource type="Resource" script_class="Legend" load_steps=3 format=3 uid="uid://diw1xg1sby342"]
 
 [ext_resource type="Script" path="res://scripts/resources/legend.gd" id="1_k7bln"]
+[ext_resource type="Resource" uid="uid://d3u3pavi2nwea" path="res://scripts/resources/color_pallete/negative.tres" id="1_vt6sp"]
 
 [resource]
 script = ExtResource("1_k7bln")
 title = "Failed"
-color = Color(1, 0, 0, 1)
+color = ExtResource("1_vt6sp")

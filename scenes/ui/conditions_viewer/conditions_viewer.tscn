@@ -1,27 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxj5rw56jmf76"]
+[gd_scene load_steps=4 format=3 uid="uid://dxj5rw56jmf76"]
 
 [ext_resource type="Script" path="res://scenes/ui/conditions_viewer/conditions_viewer.gd" id="1_bhl4g"]
+[ext_resource type="PackedScene" uid="uid://diulbg4ol7res" path="res://scenes/ui/legend_container/legend_container.tscn" id="2_7shgm"]
+[ext_resource type="PackedScene" uid="uid://d3sxjdy80yjr7" path="res://scenes/ui/tree_size_handler/tree_size_handler.tscn" id="3_hcwvq"]
 
-[node name="ConditionsViewer" type="Control"]
-layout_mode = 3
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-size_flags_horizontal = 8
-size_flags_vertical = 10
-mouse_filter = 1
-script = ExtResource("1_bhl4g")
-
-[node name="Tree" type="Tree" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
+[node name="ConditionsViewer" type="VBoxContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+script = ExtResource("1_bhl4g")
+
+[node name="LegendContainer" parent="." instance=ExtResource("2_7shgm")]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TreeSizeHandler" parent="." instance=ExtResource("3_hcwvq")]
+layout_mode = 2
+size_flags_vertical = 2
+
+[node name="Tree" type="Tree" parent="TreeSizeHandler"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 17.0
+grow_horizontal = 2
+size_flags_vertical = 3
 focus_mode = 0
 mouse_filter = 1
-
-[connection signal="item_collapsed" from="Tree" to="." method="_on_tree_item_collapsed"]
+theme_override_constants/inner_item_margin_top = 0

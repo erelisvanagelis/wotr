@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmepatcxykcqd"]
 
 [ext_resource type="Script" path="res://scenes/ui/legend_container/legend_entry.gd" id="1_3opap"]
-[ext_resource type="Resource" uid="uid://bs4v7r4exmtv1" path="res://scripts/resources/legend/incative.tres" id="2_k176r"]
+[ext_resource type="Resource" uid="uid://bs4v7r4exmtv1" path="res://scripts/resources/legend/incative_nation.tres" id="2_k176r"]
 
 [node name="LegendEntry" type="BoxContainer"]
 anchors_preset = 10

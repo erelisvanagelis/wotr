@@ -9,10 +9,18 @@ var ready_1: TreeItem
 var ready_0: TreeItem
 var nation_item_map: Dictionary
 
+
+@export var shadow_legend: Legend
+@export var free_people_legend: Legend
+@export var inactive_legend: Legend
+
 @onready var tree := %Tree
+@onready var legend_container := %LegendContainer
 
 
 func _ready() -> void:
+	var correct_array_type: Array[Legend] = [inactive_legend, shadow_legend, free_people_legend]
+	legend_container.legend_entries = correct_array_type
 	root = tree.create_item()
 
 	ready_3 = tree.create_item(root)
@@ -37,8 +45,6 @@ func _ready() -> void:
 		var a_texture: Texture = load("res://assets/images/placeholders/icon32.svg")
 		child.add_button(0, a_texture, -1, false, "more ready")
 		nation_item_map[nation.id] = child
-
-	TreeItemUtils.adjust_container_size(self, root)
 
 
 func _on_button_clicked(item: TreeItem, _column: int, _id: int, mouse_button_index: int) -> void:
@@ -67,10 +73,12 @@ func get_branch_by_readyness(readynes: int) -> TreeItem:
 
 
 func color_item_text(item: TreeItem, nation: Nation) -> TreeItem:
-	if nation.active && nation.faction == free_people:
-		item.set_custom_color(0, Color.LIGHT_BLUE)
-	elif nation.active && nation.faction == shadow:
-		item.set_custom_color(0, Color.LIGHT_CORAL)
+	if nation.active && nation.faction == Faction.free_people():
+		item.set_custom_color(0, free_people_legend.color.color)
+	elif nation.active && nation.faction == Faction.shadow():
+		item.set_custom_color(0, shadow_legend.color.color)
+	else:
+		item.set_custom_color(0, inactive_legend.color.color)
 
 	return item
 
@@ -84,7 +92,3 @@ func readyness_changed(nation: Nation, readyness: int) -> void:
 
 func activated(nation: Nation) -> void:
 	color_item_text(nation_item_map[nation.id] as TreeItem, nation)
-
-
-func _on_tree_item_collapsed(_item: TreeItem) -> void:
-	TreeItemUtils.adjust_container_size(self, root)

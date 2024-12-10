@@ -99,29 +99,37 @@ func _on_focus_armies_changed(_army: Army) -> void:
 
 func can_region_recruit_conditions(region: Region) -> ConditionComponent:
 	return CompositeCondition.all(
-		"Unit recruitment requirements:",
+		"All requirements need to be met:",
 		[
 			SingleCondition.new(
-				"Region is a Town/City/Stronghold",
-				func() -> bool: return region.type.allows_recruitment
+				"Region is a Town/City/Stronghold", func() -> bool: return region.type.allows_recruitment
 			),
 			SingleCondition.new("Nation is at War", func() -> bool: return region.nation.at_war),
-			SingleCondition.new(
-				"Army Weight is less <= 10",
-				func() -> bool: return region.army == null || region.army.get_army_weight() < 10
-			),
+			CompositeCondition.any(
+				"Any condition needs to be met:",
+				[
+					SingleCondition.new(
+						"Army Weight is less <= 10",
+						func() -> bool: return region.army == null || region.army.get_army_weight() < 10
+					),
+					SingleCondition.new(
+						"Has recruitable units with 0 weight",
+						func() -> bool: return any_weigtless_units(region)
+					),
+				]
+			)
 		]
 	)
 
+func any_weigtless_units(region: Region) -> bool:
+	return get_rectuitable_units(region).any(func (unit: UnitData) -> bool: return unit.weight == 0)
 
 func get_rectuitable_units(region: Region) -> Array[UnitData]:
 	var base_path: String = "res://scripts/resources/units/%s_%s.tres"
 
 	var units: Array[UnitData] = []
 	for unit_type: StringName in Constants.UNIT_TYPE.values():
-		var actual_path: String = (
-			(base_path % [region.nation.title.replace(" ", "_"), unit_type]).to_lower()
-		)
+		var actual_path: String = (base_path % [region.nation.title.replace(" ", "_"), unit_type]).to_lower()
 		if ResourceLoader.exists(actual_path) && can_unit_be_recruited(unit_type, region.nation):
 			units.append(load(actual_path))
 

@@ -13,6 +13,13 @@ signal unhovered(emmiter: Army)
 var units: Array[Unit]
 var target_position: Vector3
 
+@onready var _shape := %Shape
+
+
+func _ready() -> void:
+	var material := StandardMaterial3D.new()
+	material.albedo_color = faction.color.color
+	_shape.material = material
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

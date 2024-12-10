@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3sxjdy80yjr7"]
+
+[ext_resource type="Script" path="res://scenes/ui/tree_size_handler/tree_size_handler.gd" id="1_lxtm2"]
+
+[node name="TreeSizeHandler" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_lxtm2")

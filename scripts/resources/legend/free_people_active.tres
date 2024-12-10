@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="Legend" load_steps=2 format=3 uid="uid://wv4cvid7o60q"]
+[gd_resource type="Resource" script_class="Legend" load_steps=3 format=3 uid="uid://wv4cvid7o60q"]
 
 [ext_resource type="Script" path="res://scripts/resources/legend.gd" id="1_7sc7d"]
+[ext_resource type="Resource" uid="uid://c22mnrueswndh" path="res://scripts/resources/color_pallete/free_people.tres" id="1_iiiif"]
 
 [resource]
 script = ExtResource("1_7sc7d")
 title = "Free People active"
-color = Color(0.678431, 0.847059, 0.901961, 1)
+description = "> Active nation can enter war
+> Nations at war can rectruit units, move armies into other nations and atack opponent armies"
+color = ExtResource("1_iiiif")

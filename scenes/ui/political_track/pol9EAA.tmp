@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://calltnxtcy4wq"]
+[gd_scene load_steps=7 format=3 uid="uid://calltnxtcy4wq"]
 
 [ext_resource type="Script" path="res://scenes/ui/political_track/political_track.gd" id="1_7n2gj"]
 [ext_resource type="Resource" uid="uid://d17eb2dhsstxm" path="res://scripts/resources/legend/shadow_active.tres" id="2_yxnud"]
@@ -6,12 +6,11 @@
 [ext_resource type="Resource" uid="uid://bs4v7r4exmtv1" path="res://scripts/resources/legend/incative_nation.tres" id="4_p7jwv"]
 [ext_resource type="PackedScene" uid="uid://diulbg4ol7res" path="res://scenes/ui/legend_container/legend_container.tscn" id="5_mtfbo"]
 [ext_resource type="Script" path="res://scripts/resources/legend.gd" id="6_b8p7n"]
-[ext_resource type="PackedScene" uid="uid://d3sxjdy80yjr7" path="res://scenes/ui/tree_size_handler/tree_size_handler.tscn" id="7_7ygls"]
 
-[node name="PoliticalTrack" type="VBoxContainer"]
+[node name="PoliticalTrack" type="Control"]
+layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 4.0
 grow_horizontal = 2
 size_flags_vertical = 2
 script = ExtResource("1_7n2gj")
@@ -20,24 +19,21 @@ free_people_legend = ExtResource("3_pmmlm")
 inactive_legend = ExtResource("4_p7jwv")
 
 [node name="LegendContainer" parent="." instance=ExtResource("5_mtfbo")]
-unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
 legend_entries = Array[ExtResource("6_b8p7n")]([ExtResource("4_p7jwv"), ExtResource("3_pmmlm"), ExtResource("2_yxnud")])
 
-[node name="TreeSizeHandler" parent="." instance=ExtResource("7_7ygls")]
-layout_mode = 2
-
-[node name="Tree" type="Tree" parent="TreeSizeHandler"]
+[node name="Tree" type="Tree" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
+anchor_bottom = 1.0
 offset_bottom = 17.0
 grow_horizontal = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+grow_vertical = 2
+size_flags_vertical = 2
 mouse_filter = 1
 hide_root = true
 
-[connection signal="button_clicked" from="TreeSizeHandler/Tree" to="." method="_on_button_clicked"]
-[connection signal="item_collapsed" from="TreeSizeHandler/Tree" to="." method="_on_tree_item_collapsed"]
+[connection signal="button_clicked" from="Tree" to="." method="_on_button_clicked"]
+[connection signal="item_collapsed" from="Tree" to="." method="_on_tree_item_collapsed"]
