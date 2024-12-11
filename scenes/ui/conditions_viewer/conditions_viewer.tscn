@@ -21,6 +21,7 @@ size_flags_vertical = 0
 [node name="TreeSizeHandler" parent="." instance=ExtResource("3_hcwvq")]
 layout_mode = 2
 size_flags_vertical = 2
+mouse_filter = 1
 
 [node name="Tree" type="Tree" parent="TreeSizeHandler"]
 unique_name_in_owner = true

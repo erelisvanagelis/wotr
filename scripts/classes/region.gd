@@ -98,8 +98,28 @@ func can_army_enter(incoming_army: Army) -> bool:
 
 
 func army_entry_conditions(incoming_army: Army) -> CompositeCondition:
+	var distict_unit_types: Dictionary = {}
+	for unit in incoming_army.get_selected_units():
+		distict_unit_types[unit.data] = unit
+
+	var unit_conditions: Array[ConditionComponent] = []
+	for unit_data: UnitData in distict_unit_types.keys():
+		var units: Array[Unit] = [distict_unit_types[unit_data]]
+		unit_conditions.append(
+			CompositeCondition.any(
+				"%s %s - can enter" % [unit_data.nation.title, unit_data.type],
+				[
+					SingleCondition.new(
+						"Unit belongs to the target region nation",
+						func() -> bool: return are_units_from_the_same_nation(units, nation)
+					),
+					SingleCondition.new("Unit nation is at war", func() -> bool: return are_units_at_war(units)),
+				]
+			)
+		)
+
 	return CompositeCondition.all(
-		"All need to be met:",
+		"All need to be true:",
 		[
 			SingleCondition.new(
 				"Not a mountainous border", func() -> bool: return reachable_neighbours.has(incoming_army.region)
@@ -108,22 +128,12 @@ func army_entry_conditions(incoming_army: Army) -> CompositeCondition:
 				"Not attacking another army", func() -> bool: return !army || army.faction == incoming_army.faction
 			),
 			SingleCondition.new(
-				"Number of army units <= 10 after the merge",
-				func() -> bool: return can_units_fit(incoming_army.get_selected_units())
+				"Number of army weight <= 10 after the merge", func() -> bool: return can_units_fit(incoming_army.get_selected_units())
 			),
-			CompositeCondition.any(
-				"Any need to be met:",
-				[
-					SingleCondition.new(
-						"Units belong to the target region nation",
-						func() -> bool: return are_units_from_the_same_nation(incoming_army.units, nation)
-					),
-					SingleCondition.new(
-						"Units are at war", func() -> bool: return are_units_at_war(incoming_army.units)
-					),
-					SingleCondition.new("Target region is a free region", func() -> bool: return nation == free_regions)
-				]
-			)
+			CompositeCondition.any("Any need to be true:", [
+				SingleCondition.new("Target region is unaligned", func() -> bool: return nation == free_regions),
+				CompositeCondition.all("All need to be true:", unit_conditions),
+			])
 		]
 	)
 

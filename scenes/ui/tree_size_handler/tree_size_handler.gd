@@ -36,4 +36,3 @@ func _process(_delta: float) -> void:
 
 func _on_tree_item_collapsed(_item: TreeItem) -> void:
 	_tree.custom_minimum_size = Vector2(_tree.size.x, 0)
-	_tree.size = Vector2(_tree.size.x, 0)

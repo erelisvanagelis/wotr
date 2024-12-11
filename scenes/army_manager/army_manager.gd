@@ -131,7 +131,10 @@ func get_rectuitable_units(region: Region) -> Array[UnitData]:
 	for unit_type: StringName in Constants.UNIT_TYPE.values():
 		var actual_path: String = (base_path % [region.nation.title.replace(" ", "_"), unit_type]).to_lower()
 		if ResourceLoader.exists(actual_path) && can_unit_be_recruited(unit_type, region.nation):
-			units.append(load(actual_path))
+			var unit: UnitData = load(actual_path)
+			var current_army_size: int = 0 if !region.army else region.army.get_army_weight()
+			if current_army_size + unit.weight <= 10:
+				units.append(load(actual_path))
 
 	if region.nation == Nations.SAURON && region.type != RegionTypes.STRONGHOLD:
 		units.erase(_nazgul)

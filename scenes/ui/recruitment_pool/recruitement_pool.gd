@@ -13,6 +13,12 @@ var unit_card_scene: PackedScene = load("res://scenes/ui/unit_card/unit_card.tsc
 
 func _ready() -> void:
 	_map.focused_region_changed.connect(_on_focused_region_changed)
+	_army_manager.focused_army_changed.connect(_on_focused_army_changed)
+
+
+func _on_focused_army_changed(army: Army) -> void:
+	var region: Region = null if !army else army.region
+	_on_focused_region_changed(region)
 
 
 func _on_focused_region_changed(region: Region) -> void:

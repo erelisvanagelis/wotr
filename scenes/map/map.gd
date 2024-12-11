@@ -95,6 +95,7 @@ func highlight_neighbours(region: Region, army: Army) -> void:
 	if !region || !army:
 		return
 
+	region.reset_neigbour_materials()
 	for neighbour in region.neighbours:
 		if neighbour.can_army_enter(army):
 			neighbour.set_surface_override_material(0, selected_neigbour_material)

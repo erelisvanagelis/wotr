@@ -10,9 +10,9 @@ var selected_units: Array[UnitCard] = []
 var units: Array[Unit]:
 	set(value):
 		selected_units = []
+		value.sort_custom(func(a: Unit, b: Unit) -> bool: return unit_name(a) < unit_name(b))
 		units = value
 		update_ui(value)
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -44,3 +44,7 @@ func update_ui(p_units: Array[Unit]) -> void:
 
 func on_unit_selected_deselected(_unit_card: UnitCard) -> void:
 	unit_selection_changed.emit()
+
+
+func unit_name(unit: Unit) -> String:
+	return "%s %s" %[unit.data.type, unit.data.nation.title]
