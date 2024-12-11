@@ -9,8 +9,9 @@ const UNIT_TYPE := Constants.UNIT_TYPE
 
 var selected_army: Army:
 	set(value):
+		var old_value := selected_army
 		selected_army = value
-		if selected_army:
+		if selected_army != old_value:
 			for unit: Unit in selected_army.units:
 				unit.selected = true
 		selected_army_changed.emit(value)

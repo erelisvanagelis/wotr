@@ -9,6 +9,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 80.0
 offset_bottom = 120.0
+tooltip_text = "Top Level Tooltip"
 mouse_filter = 1
 script = ExtResource("1_napsn")
 
@@ -24,8 +25,6 @@ mouse_filter = 1
 [node name="ColorRect" type="ColorRect" parent="PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip_text = "color rect
-"
 mouse_filter = 1
 color = Color(0.390248, 0.395159, 0.923599, 1)
 
@@ -36,8 +35,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-tooltip_text = "panel
-"
 theme_override_constants/margin_left = 6
 theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6

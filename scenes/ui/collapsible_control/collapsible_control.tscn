@@ -41,6 +41,7 @@ size_flags_horizontal = 3
 mouse_filter = 1
 text = "Default Title
 "
+alignment = 0
 
 [node name="Collapsible" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true

@@ -12,7 +12,6 @@ signal selected_changed(unit: UnitCard)
 		if old_value != selected:
 			selected_changed.emit(self)
 
-
 var select_color: Color = Color.AQUA
 var basic_color: Color = Color.DIM_GRAY
 
@@ -26,6 +25,7 @@ func _ready() -> void:
 	_nation_label.text = unit_data.nation.title_short
 	_type_label.text = unit_data.type
 	_unit_image.texture = unit_data.texture
+	self.tooltip_text = "Weight %s" % [unit_data.weight,]
 	_on_selected_changed(selected)
 
 

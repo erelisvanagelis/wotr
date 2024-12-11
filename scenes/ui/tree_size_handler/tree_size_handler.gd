@@ -26,13 +26,15 @@ func _process(_delta: float) -> void:
 	if !_is_ready || !_parent.visible || !_tree_scrollbar.visible:
 		return
 
-	var size_of_others: int = _other_children.reduce(
-		func(accum: float, control: Control) -> float: return accum + control.size.y, 0
+	var size_of_others: Vector2 = _other_children.reduce(
+		func(accum: Vector2, control: Control) -> Vector2: return accum + control.size, Vector2.ZERO
 	)
 
-	_tree.size = Vector2(_tree.size.x, _tree_scrollbar.max_value + 9)
-	_parent.custom_minimum_size = Vector2(0, _tree.size.y + size_of_others)
+	_tree.position = Vector2.ZERO
+	_tree.size = Vector2(size_of_others.x, _tree_scrollbar.max_value + 9)
+	_parent.custom_minimum_size = Vector2(0, _tree.size.y + size_of_others.y)
 
 
 func _on_tree_item_collapsed(_item: TreeItem) -> void:
-	_tree.custom_minimum_size = Vector2(_tree.size.x, 0)
+	_tree.custom_minimum_size = Vector2.ZERO
+	_tree.set_deferred("size", Vector2.ZERO)

@@ -19,6 +19,7 @@ size_flags_vertical = 0
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
 
 [node name="VSeparator" type="VSeparator" parent="HSplitContainer"]
 layout_mode = 2

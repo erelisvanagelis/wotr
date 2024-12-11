@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dx2odvhc7n356"]
+[gd_scene load_steps=10 format=3 uid="uid://dx2odvhc7n356"]
 
 [ext_resource type="PackedScene" uid="uid://csmytryt1j8kv" path="res://scenes/map/map.tscn" id="1_kfiqy"]
 [ext_resource type="PackedScene" uid="uid://calltnxtcy4wq" path="res://scenes/ui/political_track/political_track.tscn" id="2_t8xwi"]
@@ -10,19 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://c0mepbo80e3x3" path="res://scenes/ui/recruitment_pool/recruitement_pool.tscn" id="12_cftwn"]
 [ext_resource type="PackedScene" uid="uid://cofscfaehy0oc" path="res://scenes/ui/region_detais/region_details.tscn" id="12_t4ski"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tv1we"]
-bg_color = Color(0.187176, 0.187176, 0.187176, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_mfkfx"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6y6to"]
-albedo_color = Color(0.230596, 0.412103, 0.467468, 1)
-
 [node name="Main" type="Node"]
 
 [node name="Map" parent="." node_paths=PackedStringArray("army_manager", "army_selector") instance=ExtResource("1_kfiqy")]
 army_manager = NodePath("../ArmyManager")
-army_selector = NodePath("../UI/ScrollContainer/Sidebar/CollapsibleControl4/UnitSelector")
+army_selector = NodePath("../UI/ScrollContainer/Control/Sidebar/CollapsibleControl4/UnitSelector")
 
 [node name="ArmyManager" parent="." instance=ExtResource("4_v0rq6")]
 
@@ -38,120 +30,105 @@ size_flags_vertical = 4
 mouse_filter = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI"]
-layout_mode = 2
-offset_right = 8.0
-offset_bottom = 8.0
-grow_horizontal = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_tv1we")
+horizontal_scroll_mode = 0
 
-[node name="Sidebar" type="VBoxContainer" parent="UI/ScrollContainer"]
+[node name="Control" type="HBoxContainer" parent="UI/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="UI/ScrollContainer/Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.71
+mouse_filter = 2
+
+[node name="Sidebar" type="VBoxContainer" parent="UI/ScrollContainer/Control"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 
-[node name="CollapsibleControl" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
+[node name="CollapsibleControl" parent="UI/ScrollContainer/Control/Sidebar" instance=ExtResource("3_trukk")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 title = &"Political Track"
-initialy_visible = false
 
-[node name="PoliticalTrack" parent="UI/ScrollContainer/Sidebar/CollapsibleControl" instance=ExtResource("2_t8xwi")]
+[node name="PoliticalTrack" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl" instance=ExtResource("2_t8xwi")]
 layout_mode = 2
 
-[node name="CollapsibleControl6" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
+[node name="CollapsibleControl6" parent="UI/ScrollContainer/Control/Sidebar" instance=ExtResource("3_trukk")]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 title = &"Region Search & Details"
+initialy_collapsed = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl6"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl6"]
 layout_mode = 2
 
-[node name="SearchBar" parent="UI/ScrollContainer/Sidebar/CollapsibleControl6/HBoxContainer" node_paths=PackedStringArray("_map") instance=ExtResource("11_e2p5p")]
+[node name="SearchBar" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl6/HBoxContainer" node_paths=PackedStringArray("_map") instance=ExtResource("11_e2p5p")]
 layout_mode = 2
 size_flags_horizontal = 3
-_map = NodePath("../../../../../../Map")
+_map = NodePath("../../../../../../../Map")
 
-[node name="VSeparator" type="VSeparator" parent="UI/ScrollContainer/Sidebar/CollapsibleControl6/HBoxContainer"]
+[node name="VSeparator" type="VSeparator" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl6/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="RegionDetails" parent="UI/ScrollContainer/Sidebar/CollapsibleControl6/HBoxContainer" node_paths=PackedStringArray("army_manager", "map") instance=ExtResource("12_t4ski")]
+[node name="RegionDetails" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl6/HBoxContainer" node_paths=PackedStringArray("army_manager", "map") instance=ExtResource("12_t4ski")]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-army_manager = NodePath("../../../../../../ArmyManager")
-map = NodePath("../../../../../../Map")
+size_flags_stretch_ratio = 2.1
+army_manager = NodePath("../../../../../../../ArmyManager")
+map = NodePath("../../../../../../../Map")
 
-[node name="CollapsibleControl5" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
+[node name="CollapsibleControl5" parent="UI/ScrollContainer/Control/Sidebar" instance=ExtResource("3_trukk")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 title = &"Recruitment Pool"
 
-[node name="RecruitementPool" parent="UI/ScrollContainer/Sidebar/CollapsibleControl5" node_paths=PackedStringArray("_army_manager", "_map") instance=ExtResource("12_cftwn")]
+[node name="RecruitementPool" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl5" node_paths=PackedStringArray("_army_manager", "_map") instance=ExtResource("12_cftwn")]
 layout_mode = 2
-_army_manager = NodePath("../../../../../ArmyManager")
-_map = NodePath("../../../../../Map")
+_army_manager = NodePath("../../../../../../ArmyManager")
+_map = NodePath("../../../../../../Map")
 
-[node name="CollapsibleControl4" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
+[node name="CollapsibleControl4" parent="UI/ScrollContainer/Control/Sidebar" instance=ExtResource("3_trukk")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 title = &"Army Details"
+initialy_collapsed = false
 
-[node name="UnitSelector" parent="UI/ScrollContainer/Sidebar/CollapsibleControl4" node_paths=PackedStringArray("army_manager") instance=ExtResource("3_nj5v3")]
+[node name="UnitSelector" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl4" node_paths=PackedStringArray("army_manager") instance=ExtResource("3_nj5v3")]
 layout_mode = 2
 size_flags_horizontal = 3
-army_manager = NodePath("../../../../../ArmyManager")
+army_manager = NodePath("../../../../../../ArmyManager")
 
-[node name="CollapsibleControl2" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
+[node name="CollapsibleControl2" parent="UI/ScrollContainer/Control/Sidebar" instance=ExtResource("3_trukk")]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
 title = &"Movement Conditions"
+initialy_collapsed = false
 
-[node name="ConditionViewer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl2" instance=ExtResource("5_qtnsr")]
+[node name="ConditionViewer" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl2" instance=ExtResource("5_qtnsr")]
 layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 0
 
-[node name="CollapsibleControl3" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 1
-title = &"Movement & Army"
-
-[node name="HSplitContainer" type="HSplitContainer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl3"]
-layout_mode = 2
-
-[node name="ConditionViewer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl3/HSplitContainer" instance=ExtResource("5_qtnsr")]
-layout_mode = 2
-size_flags_vertical = 1
-
-[node name="UnitSelector" parent="UI/ScrollContainer/Sidebar/CollapsibleControl3/HSplitContainer" node_paths=PackedStringArray("army_manager") instance=ExtResource("3_nj5v3")]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-army_manager = NodePath("../../../../../../ArmyManager")
-
-[node name="BG" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.001, 0)
-visible = false
-mesh = SubResource("PlaneMesh_mfkfx")
-material = SubResource("StandardMaterial3D_6y6to")
-
-[node name="SubViewport" type="SubViewport" parent="."]
-
-[connection signal="focused_region_changed" from="Map" to="UI/ScrollContainer/Sidebar/CollapsibleControl6/HBoxContainer/RegionDetails" method="_on_map_focused_region_changed"]
-[connection signal="movemenet_condition_changed" from="Map" to="UI/ScrollContainer/Sidebar/CollapsibleControl2/ConditionViewer" method="_on_condition_changed"]
-[connection signal="movemenet_condition_changed" from="Map" to="UI/ScrollContainer/Sidebar/CollapsibleControl3/HSplitContainer/ConditionViewer" method="_on_condition_changed"]
-[connection signal="focused_army_changed" from="ArmyManager" to="UI/ScrollContainer/Sidebar/CollapsibleControl4/UnitSelector" method="_on_army_manager_focused_army_changed"]
-[connection signal="focused_army_changed" from="ArmyManager" to="UI/ScrollContainer/Sidebar/CollapsibleControl3/HSplitContainer/UnitSelector" method="_on_army_manager_focused_army_changed"]
+[connection signal="focused_region_changed" from="Map" to="UI/ScrollContainer/Control/Sidebar/CollapsibleControl6/HBoxContainer/RegionDetails" method="_on_map_focused_region_changed"]
+[connection signal="movemenet_condition_changed" from="Map" to="UI/ScrollContainer/Control/Sidebar/CollapsibleControl2/ConditionViewer" method="_on_condition_changed"]
+[connection signal="focused_army_changed" from="ArmyManager" to="UI/ScrollContainer/Control/Sidebar/CollapsibleControl4/UnitSelector" method="_on_army_manager_focused_army_changed"]
 [connection signal="selected_army_changed" from="ArmyManager" to="Map" method="_on_army_manager_selected_army_changed"]
+[connection signal="composition_changed" from="UI/ScrollContainer/Control/Sidebar/CollapsibleControl4/UnitSelector" to="UI/ScrollContainer/Control/Sidebar/CollapsibleControl4" method="_on_updatable_text_changed"]
