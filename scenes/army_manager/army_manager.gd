@@ -109,7 +109,7 @@ func can_region_recruit_conditions(region: Region) -> ConditionComponent:
 				"Any condition needs to be met:",
 				[
 					SingleCondition.new(
-						"Army Weight is less <= 10",
+						"Army weight is less <= 10",
 						func() -> bool: return region.army == null || region.army.get_army_weight() < 10
 					),
 					SingleCondition.new(

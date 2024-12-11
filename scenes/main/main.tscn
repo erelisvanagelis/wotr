@@ -38,12 +38,9 @@ size_flags_vertical = 4
 mouse_filter = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -567.0
+layout_mode = 2
+offset_right = 8.0
+offset_bottom = 8.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tv1we")
@@ -124,6 +121,26 @@ layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 0
 
+[node name="CollapsibleControl3" parent="UI/ScrollContainer/Sidebar" instance=ExtResource("3_trukk")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+title = &"Movement & Army"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl3"]
+layout_mode = 2
+
+[node name="ConditionViewer" parent="UI/ScrollContainer/Sidebar/CollapsibleControl3/HSplitContainer" instance=ExtResource("5_qtnsr")]
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="UnitSelector" parent="UI/ScrollContainer/Sidebar/CollapsibleControl3/HSplitContainer" node_paths=PackedStringArray("army_manager") instance=ExtResource("3_nj5v3")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+army_manager = NodePath("../../../../../../ArmyManager")
+
 [node name="BG" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.001, 0)
 visible = false
@@ -134,5 +151,7 @@ material = SubResource("StandardMaterial3D_6y6to")
 
 [connection signal="focused_region_changed" from="Map" to="UI/ScrollContainer/Sidebar/CollapsibleControl6/HBoxContainer/RegionDetails" method="_on_map_focused_region_changed"]
 [connection signal="movemenet_condition_changed" from="Map" to="UI/ScrollContainer/Sidebar/CollapsibleControl2/ConditionViewer" method="_on_condition_changed"]
+[connection signal="movemenet_condition_changed" from="Map" to="UI/ScrollContainer/Sidebar/CollapsibleControl3/HSplitContainer/ConditionViewer" method="_on_condition_changed"]
 [connection signal="focused_army_changed" from="ArmyManager" to="UI/ScrollContainer/Sidebar/CollapsibleControl4/UnitSelector" method="_on_army_manager_focused_army_changed"]
+[connection signal="focused_army_changed" from="ArmyManager" to="UI/ScrollContainer/Sidebar/CollapsibleControl3/HSplitContainer/UnitSelector" method="_on_army_manager_focused_army_changed"]
 [connection signal="selected_army_changed" from="ArmyManager" to="Map" method="_on_army_manager_selected_army_changed"]

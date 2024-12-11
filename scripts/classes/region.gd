@@ -107,10 +107,10 @@ func army_entry_conditions(incoming_army: Army) -> CompositeCondition:
 		var units: Array[Unit] = [distict_unit_types[unit_data]]
 		unit_conditions.append(
 			CompositeCondition.any(
-				"%s %s - can enter" % [unit_data.nation.title, unit_data.type],
+				"%s %s - can enter:" % [unit_data.nation.title, unit_data.type],
 				[
 					SingleCondition.new(
-						"Unit belongs to the target region nation",
+						"Unit belongs to the nation",
 						func() -> bool: return are_units_from_the_same_nation(units, nation)
 					),
 					SingleCondition.new("Unit nation is at war", func() -> bool: return are_units_at_war(units)),
@@ -128,11 +128,11 @@ func army_entry_conditions(incoming_army: Army) -> CompositeCondition:
 				"Not attacking another army", func() -> bool: return !army || army.faction == incoming_army.faction
 			),
 			SingleCondition.new(
-				"Number of army weight <= 10 after the merge", func() -> bool: return can_units_fit(incoming_army.get_selected_units())
+				"Merge army weight <= 10", func() -> bool: return can_units_fit(incoming_army.get_selected_units())
 			),
-			CompositeCondition.any("Any need to be true:", [
-				SingleCondition.new("Target region is unaligned", func() -> bool: return nation == free_regions),
-				CompositeCondition.all("All need to be true:", unit_conditions),
+			CompositeCondition.any("Any must be true:", [
+				SingleCondition.new("Region is unaligned", func() -> bool: return nation == free_regions),
+				CompositeCondition.all("All must be true:", unit_conditions),
 			])
 		]
 	)
