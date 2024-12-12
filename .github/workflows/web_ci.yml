@@ -1,4 +1,4 @@
-
+name: "Godot 4.3 Web CI/CD"
 env:
   GODOT_VERSION: 4.3
 
