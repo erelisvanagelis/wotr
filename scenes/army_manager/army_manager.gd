@@ -324,16 +324,32 @@ func any_solo_leaders_after_move(army: Army, target_region: Region) -> bool:
 func _get_leaders(army: Army, selected: bool)-> Array[Unit]:
 	return army.units.filter(func(unit: Unit)-> bool: return unit.selected == selected && unit.data.type == UNIT_TYPE.LEADER)
 
-func move_army_into_region(incomoning_army: Army, target_region: Region) -> void:
+func move_army_into_region(incoming_army: Army, target_region: Region) -> void:
+	update_political_track(incoming_army, target_region)
 	var present_army: Army = target_region.army
-	if incomoning_army && present_army && incomoning_army.faction == present_army.faction:
-		incomoning_army.merge_armies(present_army)
-	elif (present_army && incomoning_army) && present_army != incomoning_army:
+	if incoming_army && present_army && incoming_army.faction == present_army.faction:
+		incoming_army.merge_armies(present_army)
+	elif (present_army && incoming_army) && present_army != incoming_army:
 		if present_army.faction == Faction.shadow():
 			for unit: Unit in present_army.units:
 				update_nation_reserves(unit.data.type, unit.data.nation, 1)
 		present_army.remove_self()
 
-	if incomoning_army && incomoning_army.region.army == incomoning_army:
-		incomoning_army.region.army = null
-	target_region.army = incomoning_army
+	if incoming_army && incoming_army.region.army == incoming_army:
+		incoming_army.region.army = null
+	target_region.army = incoming_army
+
+
+
+func update_political_track(incoming_army: Army, target_region: Region) -> void:
+	if incoming_army.faction != target_region.nation.faction:
+		target_region.nation.active = true
+		target_region.nation.closer_to_war()
+	if target_region.army != null && incoming_army.faction != target_region.army.faction:
+		var attacked_nations := {}
+		for unit: Unit in target_region.army.units:
+			attacked_nations[unit.data.nation] = unit.data.nation
+
+		for nation: Nation in attacked_nations.keys():
+			nation.active = true
+			nation.closer_to_war()

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/ui/political_track/political_track.gd" id="1_7n2gj"]
 [ext_resource type="Resource" uid="uid://d17eb2dhsstxm" path="res://scripts/resources/legend/shadow_active.tres" id="2_yxnud"]
 [ext_resource type="Resource" uid="uid://wv4cvid7o60q" path="res://scripts/resources/legend/free_people_active.tres" id="3_pmmlm"]
-[ext_resource type="Resource" uid="uid://bs4v7r4exmtv1" path="res://scripts/resources/legend/incative_nation.tres" id="4_p7jwv"]
+[ext_resource type="Resource" uid="uid://bs4v7r4exmtv1" path="res://scripts/resources/legend/passive_nation.tres" id="4_p7jwv"]
 [ext_resource type="PackedScene" uid="uid://diulbg4ol7res" path="res://scenes/ui/legend_container/legend_container.tscn" id="5_mtfbo"]
 [ext_resource type="Script" path="res://scripts/resources/legend.gd" id="6_b8p7n"]
 [ext_resource type="PackedScene" uid="uid://d3sxjdy80yjr7" path="res://scenes/ui/tree_size_handler/tree_size_handler.tscn" id="7_7ygls"]

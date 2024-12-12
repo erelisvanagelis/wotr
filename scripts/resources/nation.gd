@@ -20,7 +20,6 @@ signal activated(nation: Nation)
 @export var elites: int
 @export var leaders: int
 @export var nazguls: int
-#@export var available_units: Array[UnitData]
 
 
 static func get_all_nations() -> Array[Nation]:
@@ -52,7 +51,7 @@ func closer_to_war() -> void:
 			readyness_changed.emit(self, readyness)
 			at_war = true
 		0:
-			push_warning("alread at war")
+			pass
 		_:
 			readyness -= 1
 			readyness_changed.emit(self, readyness)

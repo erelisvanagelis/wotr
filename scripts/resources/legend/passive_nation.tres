@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Legend" load_steps=3 format=3 uid="uid://bs4v7r4exmtv1"]
+
+[ext_resource type="Resource" uid="uid://bve4vukcd0xki" path="res://scripts/resources/color_pallete/passive.tres" id="1_2j423"]
+[ext_resource type="Script" path="res://scripts/resources/legend.gd" id="2_x0g3x"]
+
+[resource]
+script = ExtResource("2_x0g3x")
+title = "Inactive"
+description = "> Passive nation can get closer to war, but cannot enter it
+> Nations \"At War\" can rectruit units, move armies into other nations and atack opponent armies"
+color = ExtResource("1_2j423")
