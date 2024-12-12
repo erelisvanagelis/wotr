@@ -1,9 +1,14 @@
 class_name Unit
 extends RefCounted
 
+signal selected_changed(unit: Unit)
+
 const UNIT_CARD: PackedScene = preload("res://scenes/ui/unit_card/unit_card.tscn")
 var data: UnitData
-var selected: bool = false
+var selected: bool = false:
+	set(value):
+		selected = value
+		selected_changed.emit(self)
 
 
 static func select_unit(unit_nation: Nation, unit_type: String) -> Unit:

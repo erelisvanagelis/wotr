@@ -15,19 +15,13 @@ signal region_unhovered(emmiter: Region)
 @export var default_material: StandardMaterial3D = null
 @export var army: Army:
 	set(new_army):
-		if army && new_army && army.faction == new_army.faction:
-			new_army.merge_armies(army)
-		elif (army && new_army) && army != new_army:
-			army.remove_self()
-
 		army = new_army
 		if !army:
 			return
 
-		if army.region != null && army.region.army == army:
-			army.region.army = null
 		army.region = self
 		army.move_to_parent_center(position)
+@export var secondary_armies: Array[Army]
 
 var free_regions: Nation = load("res://scripts/resources/nations/unaligned.tres")
 var neighbours: Array[Region] = []
@@ -92,66 +86,6 @@ func reset_neigbour_materials() -> void:
 	for neighbour in neighbours:
 		neighbour.reset_material()
 
-
-func can_army_enter(incoming_army: Army) -> bool:
-	return army_entry_conditions(incoming_army).is_satisfied()
-
-
-func army_entry_conditions(incoming_army: Army) -> CompositeCondition:
-	var distict_unit_types: Dictionary = {}
-	for unit in incoming_army.get_selected_units():
-		distict_unit_types[unit.data] = unit
-
-	var unit_conditions: Array[ConditionComponent] = []
-	for unit_data: UnitData in distict_unit_types.keys():
-		var units: Array[Unit] = [distict_unit_types[unit_data]]
-		unit_conditions.append(
-			CompositeCondition.any(
-				"%s %s - can enter:" % [unit_data.nation.title, unit_data.type],
-				[
-					SingleCondition.new(
-						"Unit belongs to the nation",
-						func() -> bool: return are_units_from_the_same_nation(units, nation)
-					),
-					SingleCondition.new("Unit nation is at war", func() -> bool: return are_units_at_war(units)),
-				]
-			)
-		)
-
-	return CompositeCondition.all(
-		"All need to be true:",
-		[
-			SingleCondition.new(
-				"Not a mountainous border", func() -> bool: return reachable_neighbours.has(incoming_army.region)
-			),
-			SingleCondition.new(
-				"Not attacking another army", func() -> bool: return !army || army.faction == incoming_army.faction
-			),
-			SingleCondition.new(
-				"Merge army weight <= 10", func() -> bool: return can_units_fit(incoming_army.get_selected_units())
-			),
-			CompositeCondition.any("Any must be true:", [
-				SingleCondition.new("Region is unaligned", func() -> bool: return nation == free_regions),
-				CompositeCondition.all("All must be true:", unit_conditions),
-			])
-		]
-	)
-
-
-func can_units_fit(units: Array[Unit]) -> bool:
-	if army == null:
-		return true
-
-	return army_size(units) + army_size(army.units) <= 10
-
-
-func army_size(units: Array[Unit]) -> int:
-	return units.reduce(func(accum: int, unit: Unit) -> int: return accum + unit.data.weight, 0)
-
-
-func are_units_at_war(units: Array[Unit]) -> bool:
-	return units.filter(func(x: Unit) -> bool: return x.data.nation.at_war).size() == units.size()
-
-
-func are_units_from_the_same_nation(units: Array[Unit], other_nation: Nation) -> bool:
-	return units.filter(func(x: Unit) -> bool: return x.data.nation == other_nation).size() == units.size()
+func add_to_secondary_armies(secondary: Army) -> void:
+	pass
+	#if army && army.faction == secondary.faction:

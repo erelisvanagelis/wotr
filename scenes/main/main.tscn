@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dx2odvhc7n356"]
+[gd_scene load_steps=11 format=3 uid="uid://dx2odvhc7n356"]
 
 [ext_resource type="PackedScene" uid="uid://csmytryt1j8kv" path="res://scenes/map/map.tscn" id="1_kfiqy"]
 [ext_resource type="PackedScene" uid="uid://calltnxtcy4wq" path="res://scenes/ui/political_track/political_track.tscn" id="2_t8xwi"]
+[ext_resource type="Script" path="res://scenes/nation_manager/nation_manager.gd" id="3_0kqr0"]
 [ext_resource type="PackedScene" uid="uid://cjkgaxb0r3x07" path="res://scenes/ui/unit_selector/unit_selector.tscn" id="3_nj5v3"]
 [ext_resource type="PackedScene" uid="uid://3bgraje62f1o" path="res://scenes/ui/collapsible_control/collapsible_control.tscn" id="3_trukk"]
 [ext_resource type="PackedScene" uid="uid://cjpfgeg13pch2" path="res://scenes/army_manager/army_manager.tscn" id="4_v0rq6"]
@@ -17,6 +18,9 @@ army_manager = NodePath("../ArmyManager")
 army_selector = NodePath("../UI/ScrollContainer/Control/Sidebar/CollapsibleControl4/UnitSelector")
 
 [node name="ArmyManager" parent="." instance=ExtResource("4_v0rq6")]
+
+[node name="NationManager" type="Node" parent="."]
+script = ExtResource("3_0kqr0")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

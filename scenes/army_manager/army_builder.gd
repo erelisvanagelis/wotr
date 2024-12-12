@@ -75,7 +75,7 @@ func build() -> Army:
 	for unit_type: String in _units:
 		var unit_count: int = _units[unit_type]
 		if !_ignore_reserves:
-			_army_manager.decrease_nation_reserves(unit_type, _nation, unit_count)
+			_army_manager.update_nation_reserves(unit_type, _nation, -unit_count)
 
 		new_units.append_array(Unit.select_units(_nation, unit_type, unit_count))
 

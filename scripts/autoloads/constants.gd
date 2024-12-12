@@ -39,3 +39,5 @@ const NATION_NAMES := {
 	EASTERLINGS = "Easterlings",
 	REGIONES_LIBRES = "Regiones Libres"
 }
+
+enum ArmyActionType {MOVE, ATTACK} 

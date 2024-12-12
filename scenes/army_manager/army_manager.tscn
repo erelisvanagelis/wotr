@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scenes/army_manager/army_manager.gd" id="1_75tt0"]
 
-[node name="ArmyManager" type="Node3D"]
+[node name="ArmyManager" type="Node"]
 script = ExtResource("1_75tt0")

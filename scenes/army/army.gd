@@ -53,6 +53,10 @@ func get_selected_units() -> Array[Unit]:
 	return units.filter(func(unit: Unit) -> bool: return unit.selected)
 
 
+func get_not_selected_units() -> Array[Unit]:
+	return units.filter(func(unit: Unit) -> bool: return !unit.selected)
+
+
 func are_units_selected() -> bool:
 	return get_selected_units().size() > 0
 
@@ -76,20 +80,16 @@ func merge_armies(army: Army) -> Army:
 	for unit: Unit in units:
 		unit.selected = true
 
-	remove_army(army)
+	army.remove_self()
 
 	return self
 
 
-func remove_army(army: Army) -> void:
-	if army:
-		if army.region.army == army:
-			army.region.army = null
-		army.queue_free()
-
-
 func remove_self() -> void:
-	remove_army(self)
+	if region.army == self:
+		region.army = null
+	self.queue_free()
+
 
 
 func get_army_weight() -> int:

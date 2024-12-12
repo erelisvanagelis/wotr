@@ -11,7 +11,8 @@ signal movemenet_condition_changed(condition: ConditionComponent)
 @export var army_selector: ArmySelector
 
 var selected_region_material := StandardMaterial3D.new()
-var selected_neigbour_material := StandardMaterial3D.new()
+var move_neigbour_material := StandardMaterial3D.new()
+var attack_neigbour_material := StandardMaterial3D.new()
 var title_to_region_map: Dictionary = {}
 var hovered_region: Region:
 	set(value):
@@ -58,8 +59,9 @@ func _ready() -> void:
 	selected_region_changed.connect(_on_focus_regions_changed)
 	focused_region_changed.connect(_on_focused_region_changed)
 
-	selected_region_material.albedo_color = Color.from_string("FF3131", "ffffff")
-	selected_neigbour_material.albedo_color = Color.from_string("fe019a", "ffffff")
+	selected_region_material.albedo_color = Color.INDIGO
+	move_neigbour_material.albedo_color = Color.GREEN_YELLOW
+	attack_neigbour_material.albedo_color = Color.ORANGE_RED
 
 
 func _on_region_selected(region: Region) -> void:
@@ -75,16 +77,12 @@ func _on_region_targeted(target_region: Region) -> void:
 	if !selected_army:
 		return
 
-	if selected_army.are_units_selected():
-		var split_off_army := army_manager.split_army_by_selected_units(selected_army)
-		if target_region.can_army_enter(split_off_army):
-			selected_army = split_off_army
-		else:
-			selected_army.merge_armies(split_off_army)
+	if selected_army.are_units_selected() && army_manager.can_army_perform_any_action(selected_army, target_region):
+		selected_army = army_manager.split_army_by_selected_units(selected_army)
 
-	if target_region.can_army_enter(selected_army):
-		target_region.army = selected_army
-		army_manager.selected_army = target_region.army
+	if army_manager.can_army_perform_any_action(selected_army, target_region):
+		army_manager.move_army_into_region(selected_army, target_region)
+		army_manager.selected_army = selected_army
 
 
 func _on_focus_regions_changed(_region: Region) -> void:
@@ -97,8 +95,10 @@ func highlight_neighbours(region: Region, army: Army) -> void:
 
 	region.reset_neigbour_materials()
 	for neighbour in region.neighbours:
-		if neighbour.can_army_enter(army):
-			neighbour.set_surface_override_material(0, selected_neigbour_material)
+		if army_manager.can_army_attack(army, neighbour):
+			neighbour.set_surface_override_material(0, attack_neigbour_material)
+		elif army_manager.can_army_move(army, neighbour):
+			neighbour.set_surface_override_material(0, move_neigbour_material)
 
 
 func clear_selections() -> void:
@@ -115,6 +115,14 @@ func _on_army_manager_selected_army_changed(army: Army) -> void:
 
 func _on_focused_region_changed(region: Region) -> void:
 	if army_manager.focused_army:
-		movemenet_condition_changed.emit(region.army_entry_conditions(army_manager.focused_army))
+		var action := army_manager.find_army_action_type(army_manager.focused_army, region)
+		if action == Constants.ArmyActionType.MOVE:
+			movemenet_condition_changed.emit(
+				army_manager.build_army_movement_conditions(army_manager.focused_army, region)
+			)
+		elif action == Constants.ArmyActionType.ATTACK:
+			movemenet_condition_changed.emit(
+				army_manager.build_army_attack_conditions(army_manager.focused_army, region)
+			)
 	else:
 		movemenet_condition_changed.emit(null)
