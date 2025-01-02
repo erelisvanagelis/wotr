@@ -1,26 +1,33 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx2odvhc7n356"]
+[gd_scene load_steps=18 format=3 uid="uid://dx2odvhc7n356"]
 
 [ext_resource type="PackedScene" uid="uid://csmytryt1j8kv" path="res://scenes/map/map.tscn" id="1_kfiqy"]
+[ext_resource type="PackedScene" uid="uid://kda751t3ylrr" path="res://scenes/search_options/search_options.tscn" id="2_phw4h"]
 [ext_resource type="PackedScene" uid="uid://calltnxtcy4wq" path="res://scenes/ui/political_track/political_track.tscn" id="2_t8xwi"]
-[ext_resource type="Script" path="res://scenes/nation_manager/nation_manager.gd" id="3_0kqr0"]
 [ext_resource type="PackedScene" uid="uid://cjkgaxb0r3x07" path="res://scenes/ui/unit_selector/unit_selector.tscn" id="3_nj5v3"]
 [ext_resource type="PackedScene" uid="uid://3bgraje62f1o" path="res://scenes/ui/collapsible_control/collapsible_control.tscn" id="3_trukk"]
+[ext_resource type="PackedScene" uid="uid://f8qxhtwlu1bh" path="res://scenes/ui/fps_counter/fps_counter.tscn" id="4_dlu3h"]
 [ext_resource type="PackedScene" uid="uid://cjpfgeg13pch2" path="res://scenes/army_manager/army_manager.tscn" id="4_v0rq6"]
+[ext_resource type="PackedScene" uid="uid://diulbg4ol7res" path="res://scenes/ui/legend_container/legend_container.tscn" id="5_cas35"]
 [ext_resource type="PackedScene" uid="uid://dxj5rw56jmf76" path="res://scenes/ui/conditions_viewer/conditions_viewer.tscn" id="5_qtnsr"]
+[ext_resource type="PackedScene" uid="uid://bp8i4t6xonn17" path="res://scenes/ui/event_card_manager/event_card_manager.tscn" id="7_hbffo"]
 [ext_resource type="PackedScene" uid="uid://1mhoydql7n4w" path="res://scenes/ui/search_bar/search_bar.tscn" id="11_e2p5p"]
 [ext_resource type="PackedScene" uid="uid://c0mepbo80e3x3" path="res://scenes/ui/recruitment_pool/recruitement_pool.tscn" id="12_cftwn"]
 [ext_resource type="PackedScene" uid="uid://cofscfaehy0oc" path="res://scenes/ui/region_detais/region_details.tscn" id="12_t4ski"]
+[ext_resource type="Resource" uid="uid://l8rgk0xcs684" path="res://scripts/resources/legend/selected_region.tres" id="13_scjla"]
+[ext_resource type="Script" path="res://scripts/resources/legend.gd" id="13_taual"]
+[ext_resource type="Resource" uid="uid://k4c32mrwh36f" path="res://scripts/resources/legend/move_region.tres" id="14_mhaai"]
+[ext_resource type="Resource" uid="uid://cr21bve53xll8" path="res://scripts/resources/legend/attack_region.tres" id="15_mwqay"]
 
 [node name="Main" type="Node"]
 
-[node name="Map" parent="." node_paths=PackedStringArray("army_manager", "army_selector") instance=ExtResource("1_kfiqy")]
+[node name="Map" parent="." node_paths=PackedStringArray("army_manager", "army_selector", "search_options") instance=ExtResource("1_kfiqy")]
 army_manager = NodePath("../ArmyManager")
 army_selector = NodePath("../UI/ScrollContainer/Control/Sidebar/CollapsibleControl4/UnitSelector")
+search_options = NodePath("SearchOptions")
+
+[node name="SearchOptions" parent="Map" instance=ExtResource("2_phw4h")]
 
 [node name="ArmyManager" parent="." instance=ExtResource("4_v0rq6")]
-
-[node name="NationManager" type="Node" parent="."]
-script = ExtResource("3_0kqr0")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -42,7 +49,7 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
 
-[node name="Control" type="HBoxContainer" parent="UI/ScrollContainer"]
+[node name="Control" type="HSplitContainer" parent="UI/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -53,10 +60,34 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.71
 mouse_filter = 2
 
+[node name="FpsCounter" parent="UI/ScrollContainer/Control/Control" instance=ExtResource("4_dlu3h")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 1
+grow_vertical = 1
+
 [node name="Sidebar" type="VBoxContainer" parent="UI/ScrollContainer/Control"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
+
+[node name="CollapsibleControl3" parent="UI/ScrollContainer/Control/Sidebar" instance=ExtResource("3_trukk")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+title = &"Event Cards"
+initialy_collapsed = false
+
+[node name="EventCardManager" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl3" node_paths=PackedStringArray("_map", "_army_manager") instance=ExtResource("7_hbffo")]
+layout_mode = 2
+size_flags_horizontal = 3
+_map = NodePath("../../../../../../Map")
+_army_manager = NodePath("../../../../../../ArmyManager")
 
 [node name="CollapsibleControl" parent="UI/ScrollContainer/Control/Sidebar" instance=ExtResource("3_trukk")]
 layout_mode = 2
@@ -78,10 +109,10 @@ initialy_collapsed = false
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl6"]
 layout_mode = 2
 
-[node name="SearchBar" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl6/HBoxContainer" node_paths=PackedStringArray("_map") instance=ExtResource("11_e2p5p")]
+[node name="SearchBar" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl6/HBoxContainer" node_paths=PackedStringArray("search_options") instance=ExtResource("11_e2p5p")]
 layout_mode = 2
 size_flags_horizontal = 3
-_map = NodePath("../../../../../../../Map")
+search_options = NodePath("../../../../../../../Map/SearchOptions")
 
 [node name="VSeparator" type="VSeparator" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl6/HBoxContainer"]
 layout_mode = 2
@@ -126,6 +157,10 @@ mouse_filter = 1
 title = &"Movement Conditions"
 initialy_collapsed = false
 
+[node name="LegendContainer" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl2" instance=ExtResource("5_cas35")]
+layout_mode = 2
+legend_entries = Array[ExtResource("13_taual")]([ExtResource("13_scjla"), ExtResource("14_mhaai"), ExtResource("15_mwqay")])
+
 [node name="ConditionViewer" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl2" instance=ExtResource("5_qtnsr")]
 layout_mode = 2
 size_flags_horizontal = 1
@@ -135,4 +170,5 @@ size_flags_vertical = 0
 [connection signal="movemenet_condition_changed" from="Map" to="UI/ScrollContainer/Control/Sidebar/CollapsibleControl2/ConditionViewer" method="_on_condition_changed"]
 [connection signal="focused_army_changed" from="ArmyManager" to="UI/ScrollContainer/Control/Sidebar/CollapsibleControl4/UnitSelector" method="_on_army_manager_focused_army_changed"]
 [connection signal="selected_army_changed" from="ArmyManager" to="Map" method="_on_army_manager_selected_army_changed"]
+[connection signal="list_item_changed" from="UI/ScrollContainer/Control/Sidebar/CollapsibleControl6/HBoxContainer/SearchBar" to="Map" method="_on_search_bar_list_item_changed"]
 [connection signal="composition_changed" from="UI/ScrollContainer/Control/Sidebar/CollapsibleControl4/UnitSelector" to="UI/ScrollContainer/Control/Sidebar/CollapsibleControl4" method="_on_updatable_text_changed"]

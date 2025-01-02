@@ -216,7 +216,7 @@ func build_army_movement_conditions(incoming_army: Army, target_region: Region) 
 						"Unit belongs to the nation",
 						func() -> bool: return are_units_from_the_same_nation(units, target_region.nation)
 					),
-					SingleCondition.new("Unit nation is at war", func() -> bool: return are_units_at_war(units)),
+					SingleCondition.new("%s at war" % unit_data.nation.title, func() -> bool: return are_units_at_war(units)),
 				]
 			)
 		)
@@ -232,7 +232,7 @@ func build_army_movement_conditions(incoming_army: Army, target_region: Region) 
 				"Not attacking another army", func() -> bool: return !target_region.army || target_region.army.faction == incoming_army.faction
 			),
 			SingleCondition.new(
-				"Merge army weight <= 10", func() -> bool: return can_armies_fit(incoming_army, target_region.army)
+				"Merged army weight <= 10", func() -> bool: return can_armies_fit(incoming_army, target_region.army)
 			),
 			SingleCondition.new( "Leader units remain with an army", func() -> bool: return !any_solo_leaders_after_move(incoming_army, target_region)
 			),
@@ -263,7 +263,7 @@ func build_army_attack_conditions(incoming_army: Army, target_region: Region) ->
 			CompositeCondition.any(
 				"%s %s - can enter:" % [unit_data.nation.title, unit_data.type],
 				[
-					SingleCondition.new("Unit nation is at war", func() -> bool: return are_units_at_war(units)),
+					SingleCondition.new("%s at war" % unit_data.nation.title, func() -> bool: return are_units_at_war(units)),
 				]
 			)
 		)
@@ -335,9 +335,10 @@ func move_army_into_region(incoming_army: Army, target_region: Region) -> void:
 				update_nation_reserves(unit.data.type, unit.data.nation, 1)
 		present_army.remove_self()
 
-	if incoming_army && incoming_army.region.army == incoming_army:
+	if incoming_army && incoming_army.region && incoming_army.region.army == incoming_army:
 		incoming_army.region.army = null
 	target_region.army = incoming_army
+	# selected_army = incoming_army
 
 
 

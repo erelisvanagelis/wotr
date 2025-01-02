@@ -1,0 +1,139 @@
+[gd_scene load_steps=6 format=3 uid="uid://bp8i4t6xonn17"]
+
+[ext_resource type="Script" path="res://scenes/ui/event_card_manager/event_card_manager.gd" id="1_1o5v5"]
+[ext_resource type="PackedScene" uid="uid://co6iedtkc17me" path="res://scenes/card_loader/card_loader.tscn" id="2_0vamt"]
+[ext_resource type="PackedScene" uid="uid://1mhoydql7n4w" path="res://scenes/ui/search_bar/search_bar.tscn" id="3_3exl7"]
+[ext_resource type="PackedScene" uid="uid://kda751t3ylrr" path="res://scenes/search_options/search_options.tscn" id="4_wgdyq"]
+[ext_resource type="Texture2D" uid="uid://cjwxhge4q4je" path="res://assets/images/card/S_Army.png" id="5_kdkt0"]
+
+[node name="EventCardManager" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 0
+script = ExtResource("1_1o5v5")
+
+[node name="CardLoader" parent="." instance=ExtResource("2_0vamt")]
+unique_name_in_owner = true
+
+[node name="SearchOptions" parent="." instance=ExtResource("4_wgdyq")]
+unique_name_in_owner = true
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+layout_mode = 2
+split_offset = 200
+
+[node name="SearchBar" parent="HSplitContainer" node_paths=PackedStringArray("search_options") instance=ExtResource("3_3exl7")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+mouse_filter = 0
+search_options = NodePath("../../SearchOptions")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HSplitContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="RichTextLabel" parent="HSplitContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Title"
+theme_override_font_sizes/bold_font_size = 19
+bbcode_enabled = true
+text = "Placeholder"
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="HSplitContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="TypeTextureRect" type="TextureRect" parent="HSplitContainer/VBoxContainer/HBoxContainer/AspectRatioContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("5_kdkt0")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PreConditionLabel" type="RichTextLabel" parent="HSplitContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Pre-condition description"
+focus_mode = 2
+theme_override_font_sizes/bold_font_size = 0
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true
+
+[node name="HSeparator2" type="HSeparator" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ActionLabel" type="RichTextLabel" parent="HSplitContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Action description"
+focus_mode = 2
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true
+
+[node name="HSeparator3" type="HSeparator" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="DiscardLabel" type="RichTextLabel" parent="HSplitContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+tooltip_text = "Discard description"
+focus_mode = 2
+bbcode_enabled = true
+fit_content = true
+selection_enabled = true
+
+[node name="ActivateButton" type="Button" parent="HSplitContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Activate"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HSplitContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="FactionLabel" type="Label" parent="HSplitContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Faction"
+mouse_filter = 1
+
+[node name="VSeparator" type="VSeparator" parent="HSplitContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeckLabel" type="Label" parent="HSplitContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Deck"
+mouse_filter = 1
+horizontal_alignment = 2
+
+[node name="VSeparator2" type="VSeparator" parent="HSplitContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NumberLabel" type="Label" parent="HSplitContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Card number"
+mouse_filter = 0
+
+[connection signal="list_item_changed" from="HSplitContainer/SearchBar" to="." method="_on_search_bar_list_item_changed"]
+[connection signal="pressed" from="HSplitContainer/VBoxContainer/ActivateButton" to="." method="_on_button_pressed"]

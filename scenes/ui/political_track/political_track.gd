@@ -43,7 +43,7 @@ func _ready() -> void:
 		color_item_text(child, nation)
 
 		var a_texture: Texture = load("res://assets/images/placeholders/icon32.svg")
-		child.add_button(0, a_texture, -1, false, "more ready")
+		child.add_button(0, a_texture, -1, false, "> Left Click - increase war readyness \n> Right Click - activate nation")
 		nation_item_map[nation.id] = child
 
 

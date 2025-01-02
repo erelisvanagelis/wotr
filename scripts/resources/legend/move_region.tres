@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Legend" load_steps=3 format=3 uid="uid://k4c32mrwh36f"]
+
+[ext_resource type="Script" path="res://scripts/resources/legend.gd" id="1_ajqq1"]
+[ext_resource type="Resource" uid="uid://cs21lrfisxj0i" path="res://scripts/resources/color_pallete/move_region.tres" id="1_hfqfk"]
+
+[resource]
+script = ExtResource("1_ajqq1")
+title = "Movable Region"
+description = "Move into the target region with selected units, merge with existing armies"
+color = ExtResource("1_hfqfk")

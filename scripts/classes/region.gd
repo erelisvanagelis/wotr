@@ -20,17 +20,25 @@ signal region_unhovered(emmiter: Region)
 			return
 
 		army.region = self
-		army.move_to_parent_center(position)
+		army.target_position = position
 @export var secondary_armies: Array[Army]
 
 var free_regions: Nation = load("res://scripts/resources/nations/unaligned.tres")
 var neighbours: Array[Region] = []
+var movement_condition: ConditionComponent
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	neighbours.append_array(reachable_neighbours)
 	neighbours.append_array(unreachable_neighbours)
+
+	#var title_label := Label3D.new()
+	#title_label.text = title
+	#title_label.position += Vector3(0, 0.001, 0)
+	#title_label.rotation = Vector3(-1.5708, 0, 0)
+	#title_label.pixel_size = 0.0005
+	#add_child(title_label)
 
 	var body: StaticBody3D = get_node("StaticBody3D") as StaticBody3D
 	body.input_event.connect(_on_static_body_3d_input_event)
@@ -53,17 +61,20 @@ func _on_static_body_3d_input_event(
 
 
 func _on_mouse_entered() -> void:
+	higlight_region()
+	region_hovered.emit(self)
+
+
+func higlight_region() -> void:
 	var current_collor: StandardMaterial3D = self.get_surface_override_material(0)
 	if !current_collor:
 		return
 
 	var modified_collor := current_collor.duplicate(true)
 	modified_collor.emission_enabled = true
-	modified_collor.emission_energy_multiplier = 0.1
+	modified_collor.emission_energy_multiplier = 0.4
 	modified_collor.emission = Color.GHOST_WHITE
 	self.set_surface_override_material(0, modified_collor)
-
-	region_hovered.emit(self)
 
 
 func _on_mouse_exited() -> void:
@@ -78,14 +89,10 @@ func _on_mouse_exited() -> void:
 	region_unhovered.emit(self)
 
 
-func reset_material() -> void:
+func reset() -> void:
 	self.set_surface_override_material(0, default_material)
 
 
-func reset_neigbour_materials() -> void:
+func reset_neighbours() -> void:
 	for neighbour in neighbours:
-		neighbour.reset_material()
-
-func add_to_secondary_armies(secondary: Army) -> void:
-	pass
-	#if army && army.faction == secondary.faction:
+		neighbour.reset()

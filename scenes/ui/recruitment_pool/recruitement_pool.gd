@@ -3,7 +3,9 @@ extends MarginContainer
 @export var _army_manager: ArmyManager
 @export var _map: Map
 
-var recruitement_unit_card_scene: PackedScene = load("res://scenes/ui/recruitment_unit_card/rectuitment_unit_card.tscn")
+var recruitement_unit_card_scene: PackedScene = load(
+	"res://scenes/ui/recruitment_unit_card/rectuitment_unit_card.tscn"
+)
 var unit_card_scene: PackedScene = load("res://scenes/ui/unit_card/unit_card.tscn")
 
 @onready var container: HBoxContainer = %HBoxContainer
@@ -16,9 +18,10 @@ func _ready() -> void:
 	_army_manager.focused_army_changed.connect(_on_focused_army_changed)
 
 
-func _on_focused_army_changed(army: Army) -> void:
-	var region: Region = null if !army else army.region
-	_on_focused_region_changed(region)
+func _on_focused_army_changed(_army: Army) -> void:
+	pass
+	#var region: Region = null if !army else army.region
+	#_on_focused_region_changed(region)
 
 
 func _on_focused_region_changed(region: Region) -> void:
@@ -38,7 +41,6 @@ func _on_focused_region_changed(region: Region) -> void:
 	if !conditions_met:
 		return
 
-
 	for unit_data: UnitData in _army_manager.get_rectuitable_units(region):
 		var unit_card: UnitCard = unit_card_scene.instantiate()
 		unit_card.unit_data = unit_data
@@ -53,10 +55,21 @@ func _on_focused_region_changed(region: Region) -> void:
 
 
 func _on_card_selected_changed(unit_card: UnitCard) -> void:
-	if !unit_card.selected || !_army_manager.can_unit_be_recruited(unit_card.unit_data.type, unit_card.unit_data.nation):
+	if (
+		!unit_card.selected
+		|| !_army_manager.can_unit_be_recruited(
+			unit_card.unit_data.type, unit_card.unit_data.nation
+		)
+	):
 		return
 
-	var army := _army_manager.new_army_builder().units({unit_card.unit_data.type: 1}).region(_map.focused_region).build_and_assign_to_region()
+	var army := (
+		_army_manager
+		. new_army_builder()
+		. units({unit_card.unit_data.type: 1})
+		. region(_map.focused_region)
+		. build_and_assign_to_region()
+	)
 	_army_manager.selected_army = army
 	unit_card.selected = false
 	_on_focused_region_changed(army.region)

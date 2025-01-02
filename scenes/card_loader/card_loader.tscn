@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://co6iedtkc17me"]
+
+[ext_resource type="Script" path="res://scenes/card_loader/card_loader.gd" id="1_vxei4"]
+
+[node name="CardLoader" type="Node"]
+script = ExtResource("1_vxei4")

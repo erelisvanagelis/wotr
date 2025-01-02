@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Legend" load_steps=3 format=3 uid="uid://cr21bve53xll8"]
+
+[ext_resource type="Script" path="res://scripts/resources/legend.gd" id="1_javbi"]
+[ext_resource type="Resource" uid="uid://c7felw34k5qin" path="res://scripts/resources/color_pallete/attack_region.tres" id="1_kymqr"]
+
+[resource]
+script = ExtResource("1_javbi")
+title = "Attackable Region"
+description = "Attack opposing army and moves into the region"
+color = ExtResource("1_kymqr")

@@ -35,3 +35,15 @@ static func shadow() -> ColorPalette:
 
 static func unaligned() -> ColorPalette:
 	return _loader.get_cached("unaligned")
+
+
+static func attack_region() -> ColorPalette:
+	return _loader.get_cached("attack_region")
+
+
+static func move_region() -> ColorPalette:
+	return _loader.get_cached("move_region")
+
+
+static func selected_region() -> ColorPalette:
+	return _loader.get_cached("selected_region")

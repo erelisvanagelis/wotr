@@ -9,7 +9,7 @@
     {
         "name": "Advantageous Position (3)",
         "type": "Combat",
-        "description": "Play if the defending Army is inside the borders of a Free Peoples Nation.\nSubtract 1 from all dice on the Combat roll of the Shadow player (an unmodified “6” is still consid- ered a hit for him).",
+        "description": "Play if the defending Army is inside the borders of a Free Peoples Nation.\nSubtract 1 from all dice on the Combat roll of the Shadow player (an unmodified “6” is still considered a hit for him).",
         "number": "S3, S4, S20, S21",
         "faction": "Free People"
     },
@@ -30,7 +30,7 @@
     {
         "name": "Axe and Bow",
         "type": "Character",
-        "description": "Play on the table if Gimli or Legolas are in the Fellowship.\nAfter the Shadow player draws a Hunt tile, you may discard “Axe and Bow” to reduce the Hunt damage by one (to a minimum of zero).  Any remaining Hunt damage must be confronted normally. You must discard this card from the table immediately if both Gimli and Legolas leave the Fellow- ship.",
+        "description": "Play on the table if Gimli or Legolas are in the Fellowship.\nAfter the Shadow player draws a Hunt tile, you may discard “Axe and Bow” to reduce the Hunt damage by one (to a minimum of zero).  Any remaining Hunt damage must be confronted normally. You must discard this card from the table immediately if both Gimli and Legolas leave the Fellowship.",
         "number": "C6",
         "faction": "Free People"
     },
@@ -72,7 +72,7 @@
     {
         "name": "Challenge of the King",
         "type": "Character",
-        "description": "Play if Strider\/Aragorn is with a Free Peoples Army in Gondor or Rohan\nDraw three Hunt tiles.  If all three drawn tiles show Eyes, put them back in the Hunt Pool and elimi- nate Strider\/Aragorn.\nOtherwise, discard permanently the drawn tiles bearing an Eye for the remainder of the game. All drawn tiles not bearing an Eye are put back in the Hunt Pool.",
+        "description": "Play if Strider\/Aragorn is with a Free Peoples Army in Gondor or Rohan\nDraw three Hunt tiles.  If all three drawn tiles show Eyes, put them back in the Hunt Pool and eliminate Strider\/Aragorn.\nOtherwise, discard permanently the drawn tiles bearing an Eye for the remainder of the game. All drawn tiles not bearing an Eye are put back in the Hunt Pool.",
         "number": "C14",
         "faction": "Free People"
     },
@@ -198,7 +198,7 @@
     {
         "name": "Help Unlooked For",
         "type": "Army",
-        "description": "Attack a Shadow Army besieging a Stronghold with a Free Peoples Army in an adjacent region.\nFor this entire battle, the Shadow player rolls one die less during the Combat roll for each Free Peo- ples unit in the besieged Stronghold (to a minimum of one).",
+        "description": "Attack a Shadow Army besieging a Stronghold with a Free Peoples Army in an adjacent region.\nFor this entire battle, the Shadow player rolls one die less during the Combat roll for each Free Peoples unit in the besieged Stronghold (to a minimum of one).",
         "number": "S10",
         "faction": "Free People"
     },
@@ -268,7 +268,7 @@
     {
         "name": "Mighty Attack (4)",
         "type": "Combat",
-        "description": "Play if a Companion is in the battle.\nBefore rolling the dice for your Leader re-roll, forfeit the Leadership of one Companion participat- ing in the battle to automatically change one missed die roll to a hit.",
+        "description": "Play if a Companion is in the battle.\nBefore rolling the dice for your Leader re-roll, forfeit the Leadership of one Companion participating in the battle to automatically change one missed die roll to a hit.",
         "number": "C7",
         "faction": "Free People"
     },
@@ -317,7 +317,7 @@
     {
         "name": "Riders of Théoden",
         "type": "Muster",
-        "description": "Recruit one Rohan unit (Regular or Elite) and one Leader in either Edoras or any Rohan region con- taining a Companion.",
+        "description": "Recruit one Rohan unit (Regular or Elite) and one Leader in either Edoras or any Rohan region containing a Companion.",
         "number": "S16",
         "faction": "Free People"
     },
@@ -422,7 +422,7 @@
     {
         "name": "The Spirit of Mordor",
         "type": "Army",
-        "description": "Choose a Shadow Army anywhere on the board that is comprised of units from at least two differ- ent Shadow Nations.\nRoll five dice and score one hit against this army for each result of 5+.",
+        "description": "Choose a Shadow Army anywhere on the board that is comprised of units from at least two different Shadow Nations.\nRoll five dice and score one hit against this army for each result of 5+.",
         "number": "S5",
         "faction": "Free People"
     },
@@ -450,7 +450,7 @@
     {
         "name": "Through a Day and a Night",
         "type": "Army",
-        "description": "Play on a Free Peoples Army containing a Companion.\nMove the Army containing the Companion(s) up to two regions.  The regions must be free for the pur- poses of Army movement, and no Free Peoples units may be picked up or dropped off along the way (other than, possibly, splitting the Army initially).",
+        "description": "Play on a Free Peoples Army containing a Companion.\nMove the Army containing the Companion(s) up to two regions.  The regions must be free for the purposes of Army movement, and no Free Peoples units may be picked up or dropped off along the way (other than, possibly, splitting the Army initially).",
         "number": "S12",
         "faction": "Free People"
     },
@@ -569,14 +569,14 @@
     {
         "name": "Dreadful Spells",
         "type": "Character",
-        "description": "Play if a Shadow Army containing a Nazgûl is adjacent to, or is in the same region as, a Free Peo- ples Army.\nRoll a number of dice equal to the number of Nazgûl in that Army (up to a maximum of 5) and score one hit for each result of 5+.",
+        "description": "Play if a Shadow Army containing a Nazgûl is adjacent to, or is in the same region as, a Free Peoples Army.\nRoll a number of dice equal to the number of Nazgûl in that Army (up to a maximum of 5) and score one hit for each result of 5+.",
         "number": "C19",
         "faction": "Shadow"
     },
     {
         "name": "Durin’s Bane (2)",
         "type": "Combat",
-        "description": "Play if the defending Army is within two regions of Moria\nBefore the Combat roll, roll an additional attack using three combat dice.  Score hits on 4+ and ap- ply the result immediately.",
+        "description": "Play if the defending Army is within two regions of Moria\nBefore the Combat roll, roll an additional attack using three combat dice.  Score hits on 4+ and apply the result immediately.",
         "number": "C17",
         "faction": "Shadow"
     },
@@ -597,7 +597,7 @@
     {
         "name": "Foul Thing from the Deep",
         "type": "Character",
-        "description": "Play if the Fellowship is not in a region containing a Free Peoples Settlement.\nDraw a Hunt tile.\nIf the tile shows an Eye or is a Fellowship special tile, discard it without effect.\nOtherwise, follow the rules for a successful Hunt, with the exception that the Free Peoples player must reduce any Hunt damage by eliminating a random Companion (unless there are no Compan- ions in the Fellowship).",
+        "description": "Play if the Fellowship is not in a region containing a Free Peoples Settlement.\nDraw a Hunt tile.\nIf the tile shows an Eye or is a Fellowship special tile, discard it without effect.\nOtherwise, follow the rules for a successful Hunt, with the exception that the Free Peoples player must reduce any Hunt damage by eliminating a random Companion (unless there are no Companions in the Fellowship).",
         "number": "C7",
         "faction": "Shadow"
     },
@@ -609,9 +609,9 @@
         "faction": "Shadow"
     },
     {
-        "name": "Grond, Hammer of the Under- world",
+        "name": "Grond, Hammer of the Underworld",
         "type": "Character",
-        "description": "Play if the Witch-king is in play and is with a Shadow Army besieging a Free Peoples Stronghold. Attack that Stronghold. The Siege lasts for three Combat rounds instead of one.  During the first round, the Free Peoples player cannot use a Combat card unless a Companion is in the battle.",
+        "description": "Play if the Witch-king is in play and is with a Shadow Army besieging a Free Peoples Stronghold.\nAttack that Stronghold. The Siege lasts for three Combat rounds instead of one.  During the first round, the Free Peoples player cannot use a Combat card unless a Companion is in the battle.",
         "number": "C20",
         "faction": "Shadow"
     },
@@ -737,7 +737,7 @@
     {
         "name": "Orcs Multiplying Again",
         "type": "Muster",
-        "description": "Recruit three Sauron Regular units in Dol Guldur and three Sauron Regular units in Mount Gunda- bad.",
+        "description": "Recruit three Sauron Regular units in Dol Guldur and three Sauron Regular units in Mount Gundabad.",
         "number": "S20",
         "faction": "Shadow"
     },
@@ -779,7 +779,7 @@
     {
         "name": "Shadows Gather",
         "type": "Army",
-        "description": "Move one Shadow Army up to three regions.  The movement must end in a region already occu- pied by another Shadow Army (that must not be under siege).  The regions must be free for the purposes of Army movement, and no Shadow units may be picked up or dropped off along the way (other than, possibly, splitting the Army initially).",
+        "description": "Move one Shadow Army up to three regions.  The movement must end in a region already occupied by another Shadow Army (that must not be under siege).  The regions must be free for the purposes of Army movement, and no Shadow units may be picked up or dropped off along the way (other than, possibly, splitting the Army initially).",
         "number": "S7",
         "faction": "Shadow"
     },
@@ -835,7 +835,7 @@
     {
         "name": "The Fighting Uruk-hai",
         "type": "Army",
-        "description": "Play if Saruman is in play, and if an Army containing an Isengard unit is besieging a Stronghold. Attack that Stronghold. The Siege lasts for three Combat rounds instead of one.  During the first round, the Free Peoples player cannot use a Combat card unless a Companion is in the battle.",
+        "description": "Play if Saruman is in play, and if an Army containing an Isengard unit is besieging a Stronghold.\nAttack that Stronghold. The Siege lasts for three Combat rounds instead of one.  During the first round, the Free Peoples player cannot use a Combat card unless a Companion is in the battle.",
         "number": "S2",
         "faction": "Shadow"
     },
@@ -877,7 +877,7 @@
     {
         "name": "The Ringwraiths Are Abroad",
         "type": "Character",
-        "description": "Move any or all of the Nazgûl.\nThen, you may either move two Armies each containing a Nazgûl, or attack with one Army contain- ing a Nazgûl.",
+        "description": "Move any or all of the Nazgûl.\nThen, you may either move two Armies each containing a Nazgûl, or attack with one Army containing a Nazgûl.",
         "number": "C23",
         "faction": "Shadow"
     },
@@ -891,7 +891,7 @@
     {
         "name": "The Shadow Lengthens",
         "type": "Army",
-        "description": "Move two Shadow Armies up to two regions.  Each movement must end in a region already occu- pied by another Shadow Army (that must not be under siege).  The regions must be free for the purposes of Army movement, and no Shadow units may be picked up or dropped off along the way (other than, possibly, splitting the Army initially).",
+        "description": "Move two Shadow Armies up to two regions.  Each movement must end in a region already occupied by another Shadow Army (that must not be under siege).  The regions must be free for the purposes of Army movement, and no Shadow units may be picked up or dropped off along the way (other than, possibly, splitting the Army initially).",
         "number": "S8",
         "faction": "Shadow"
     },
@@ -926,7 +926,7 @@
     {
         "name": "Worn with Sorrow and Toil",
         "type": "Character",
-        "description": "Play on the table.\nWhen “Worn with Sorrow and Toil” is in play, if a Companion in the Fellowship is taken as a casu- alty you may also discard one of the Free Peoples player’s Character Event cards from his hand (choosing it randomly) or from the table.\nYou must discard this card from the table immediately if the Fellowship is declared in a Free Peoples Stronghold controlled by the Free Peoples.",
+        "description": "Play on the table.\nWhen “Worn with Sorrow and Toil” is in play, if a Companion in the Fellowship is taken as a casualty you may also discard one of the Free Peoples player’s Character Event cards from his hand (choosing it randomly) or from the table.\nYou must discard this card from the table immediately if the Fellowship is declared in a Free Peoples Stronghold controlled by the Free Peoples.",
         "number": "C15",
         "faction": "Shadow"
     },

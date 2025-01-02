@@ -37,10 +37,10 @@ func condition_to_tree_item(condition: ConditionComponent, parent: TreeItem) -> 
 	var new_item := tree.create_item(parent)
 	new_item.set_text(0, condition._description)
 	if condition.is_satisfied():
-		new_item.collapsed = true
+		#new_item.collapsed = true
 		new_item.set_custom_color(0, ColorPalette.positive().color)
 	else:
-		new_item.collapsed = false
+		#new_item.collapsed = false
 		new_item.set_custom_color(0, ColorPalette.negative().color)
 
 	return new_item

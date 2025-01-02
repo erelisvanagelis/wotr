@@ -1,41 +1,56 @@
 extends MarginContainer
 
-@export var _map: Map
+signal list_item_changed(item: StringName)
 
-var all_regions: Array[StringName]
-var filtered_regions: Array[StringName]
+@export var search_options: SearchOptions
+
+var all_entries: Array[StringName]
+var filtered_entries: Array[StringName]
 
 @onready var search_field: LineEdit = %SearchLineEdit
-@onready var region_list: ItemList = %RegionList
+@onready var item_list: ItemList = %ItemList
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	for title: StringName in _map.title_to_region_map.keys():
-		all_regions.append(title)
+func _process(_delta: float) -> void:
+	if all_entries:
+		return
 
-	all_regions.sort_custom(func(a: StringName, b: StringName) -> bool: return String(a) < String(b))
-	filtered_regions = all_regions
-	update_region_list(filtered_regions)
+	all_entries.assign(search_options.option_list)
+	filtered_entries = all_entries
+	update_item_list(filtered_entries)
 
 
 func _on_search_line_edit_text_changed(query: String) -> void:
 	if !query:
-		filtered_regions = all_regions
+		filtered_entries = all_entries
 	else:
-		filtered_regions = all_regions.filter(func(title: StringName) -> bool: return title.containsn(query))
+		filtered_entries = all_entries.filter(func(title: StringName) -> bool: return _filter_entry(title, query))
 
-	update_region_list(filtered_regions)
-
-
-func _on_region_list_item_selected(index: int) -> void:
-	_map.selected_region = _map.title_to_region_map[filtered_regions[index]]
+	update_item_list(filtered_entries)
 
 
-func update_region_list(titles: Array[StringName]) -> void:
-	region_list.clear()
+func _on_list_item_selected(index: int) -> void:
+	list_item_changed.emit(filtered_entries[index])
+
+
+func _extract_filter_value(key: StringName) -> String:
+	return search_options.filter_value_extraction.call(search_options.option_dictionary[key])
+
+
+func _filter_entry(key: StringName, query: String) -> bool:
+	var filtrable: String = search_options.filter_value_extraction.call(search_options.option_dictionary[key])
+	for part: String in query.split(" "):
+		if not filtrable.containsn(part):
+			return false
+
+	return true
+
+
+func update_item_list(titles: Array[StringName]) -> void:
+	item_list.clear()
 	for index: int in range(0, titles.size()):
 		var title: StringName = titles[index]
-		region_list.add_item(title)
-		var region := _map.title_to_region_map[title] as Region
-		region_list.set_item_custom_fg_color(index, Color.from_string(region.nation.id, Color.GRAY))
+		var option: Variant = search_options.option_dictionary[title]
+		item_list.add_item(title)
+		var color: Color = search_options.color_extraction.call(option)
+		item_list.set_item_custom_fg_color(index, color)

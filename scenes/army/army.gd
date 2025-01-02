@@ -22,15 +22,15 @@ func _ready() -> void:
 	_shape.material = material
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	if position.distance_to(target_position) < 0.001:
+		return
+
 	velocity.x = (target_position.x - position.x) * speed
 	velocity.z = (target_position.z - position.z) * speed
 	velocity.y = (target_position.y - position.y) * speed
+
 	move_and_slide()
-
-
-func move_to_parent_center(new_position: Vector3) -> void:
-	target_position = new_position
 
 
 func _on_input_event(

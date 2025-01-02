@@ -12,7 +12,8 @@ extends GridContainer
 
 
 func _on_map_focused_region_changed(focused_region: Region) -> void:
-	if focused_region == null:
+	is_node_ready()
+	if focused_region == null || not is_node_ready():
 		return
 
 	nation_label.text = focused_region.nation.title

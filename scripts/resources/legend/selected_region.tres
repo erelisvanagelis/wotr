@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Legend" load_steps=3 format=3 uid="uid://l8rgk0xcs684"]
+
+[ext_resource type="Resource" uid="uid://cbdihxaf4i5v8" path="res://scripts/resources/color_pallete/selected_region.tres" id="1_grj8q"]
+[ext_resource type="Script" path="res://scripts/resources/legend.gd" id="1_whydm"]
+
+[resource]
+script = ExtResource("1_whydm")
+title = "Selected Region"
+description = "Selected region"
+color = ExtResource("1_grj8q")

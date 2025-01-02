@@ -28,7 +28,7 @@ clear_button_enabled = true
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="RegionList" type="ItemList" parent="SearchBar/ScrollContainer"]
+[node name="ItemList" type="ItemList" parent="SearchBar/ScrollContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -40,6 +40,4 @@ item_0/text = "First Region"
 item_1/text = "Second Region"
 
 [connection signal="text_changed" from="SearchBar/SearchLineEdit" to="." method="_on_search_line_edit_text_changed"]
-[connection signal="item_selected" from="SearchBar/ScrollContainer/RegionList" to="." method="_on_region_list_item_selected"]
-[connection signal="item_selected" from="SearchBar/ScrollContainer/RegionList" to="SearchBar" method="_on_item_list_item_selected"]
-[connection signal="mouse_entered" from="SearchBar/ScrollContainer/RegionList" to="SearchBar" method="_on_item_list_mouse_entered"]
+[connection signal="item_selected" from="SearchBar/ScrollContainer/ItemList" to="." method="_on_list_item_selected"]

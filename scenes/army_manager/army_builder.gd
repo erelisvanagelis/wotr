@@ -74,10 +74,11 @@ func build() -> Army:
 	var new_units: Array[Unit] = []
 	for unit_type: String in _units:
 		var unit_count: int = _units[unit_type]
-		if !_ignore_reserves:
+		if !_ignore_reserves && _army_manager.can_unit_be_recruited(unit_type, _nation):
 			_army_manager.update_nation_reserves(unit_type, _nation, -unit_count)
-
-		new_units.append_array(Unit.select_units(_nation, unit_type, unit_count))
+			new_units.append_array(Unit.select_units(_nation, unit_type, unit_count))
+		elif _ignore_reserves:
+			new_units.append_array(Unit.select_units(_nation, unit_type, unit_count))
 
 	army.units = new_units
 	army.faction = _faction
@@ -100,5 +101,6 @@ func build_and_assign_to_region() -> Army:
 	assert(_region, "Region must be set")
 
 	var army := build()
-	_region.army = army
+	army.region = _region
+	_army_manager.move_army_into_region(army, _region)
 	return army
