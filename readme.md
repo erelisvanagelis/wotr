@@ -1,5 +1,8 @@
 Board game created by Ares - https://www.aresgames.eu/games/war-of-the-ring-line/war-of-the-ring-second-edition
 
+Application is deployed on Itch.io https://erelis-vanagelis.itch.io/war-of-the-ring and "PI21A_BD" is the password
+Godot Editor can be used to launch the application from the source code
+
 Inspirations for map generation:
 
 - @StrategyCorner-bj7zd - https://www.youtube.com/watch?v=OCbVwbSR_3s

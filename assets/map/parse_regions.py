@@ -48,15 +48,10 @@ class Nation:
 file = open('regions.json', encoding="utf8")
 jsonstring = json.load(file)
 
-# # print(jsonstring)
 nations = []
-
 for nation in jsonstring:
     nations.append(Nation.from_dict(nation))
 
-# # print(nations[0])
-# for nation in nations:
-#     nation.
 
 with open("sample.json", "w") as outfile:
     dumped = json.dumps(nations, default=vars)
