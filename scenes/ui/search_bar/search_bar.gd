@@ -24,7 +24,9 @@ func _on_search_line_edit_text_changed(query: String) -> void:
 	if !query:
 		filtered_entries = all_entries
 	else:
-		filtered_entries = all_entries.filter(func(title: StringName) -> bool: return _filter_entry(title, query))
+		filtered_entries = all_entries.filter(
+			func(title: StringName) -> bool: return _filter_entry(title, query)
+		)
 
 	update_item_list(filtered_entries)
 
@@ -38,7 +40,9 @@ func _extract_filter_value(key: StringName) -> String:
 
 
 func _filter_entry(key: StringName, query: String) -> bool:
-	var filtrable: String = search_options.filter_value_extraction.call(search_options.option_dictionary[key])
+	var filtrable: String = search_options.filter_value_extraction.call(
+		search_options.option_dictionary[key]
+	)
 	for part: String in query.split(" "):
 		if not filtrable.containsn(part):
 			return false

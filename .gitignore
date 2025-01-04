@@ -4,3 +4,4 @@ assets/images/components/
 assets/map/backup/
 addons/
 .vscode/
+export/*
