@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx2odvhc7n356"]
+[gd_scene load_steps=19 format=3 uid="uid://dx2odvhc7n356"]
 
 [ext_resource type="PackedScene" uid="uid://csmytryt1j8kv" path="res://scenes/map/map.tscn" id="1_kfiqy"]
 [ext_resource type="PackedScene" uid="uid://kda751t3ylrr" path="res://scenes/search_options/search_options.tscn" id="2_phw4h"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bp8i4t6xonn17" path="res://scenes/ui/event_card_manager/event_card_manager.tscn" id="7_hbffo"]
 [ext_resource type="PackedScene" uid="uid://1mhoydql7n4w" path="res://scenes/ui/search_bar/search_bar.tscn" id="11_e2p5p"]
 [ext_resource type="PackedScene" uid="uid://c0mepbo80e3x3" path="res://scenes/ui/recruitment_pool/recruitement_pool.tscn" id="12_cftwn"]
+[ext_resource type="PackedScene" uid="uid://ggymdugx0f21" path="res://scenes/ui/army_action_consequences/army_action_consequences.tscn" id="12_jh76o"]
 [ext_resource type="PackedScene" uid="uid://cofscfaehy0oc" path="res://scenes/ui/region_detais/region_details.tscn" id="12_t4ski"]
 [ext_resource type="Resource" uid="uid://l8rgk0xcs684" path="res://scripts/resources/legend/selected_region.tres" id="13_scjla"]
 [ext_resource type="Script" path="res://scripts/resources/legend.gd" id="13_taual"]
@@ -150,6 +151,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 army_manager = NodePath("../../../../../../ArmyManager")
 
+[node name="CollapsibleControl7" parent="UI/ScrollContainer/Control/Sidebar" instance=ExtResource("3_trukk")]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+title = &"Army Movement Consequences"
+initialy_collapsed = false
+
+[node name="ArmyActionConsequences" parent="UI/ScrollContainer/Control/Sidebar/CollapsibleControl7" instance=ExtResource("12_jh76o")]
+layout_mode = 2
+size_flags_vertical = 1
+
 [node name="CollapsibleControl2" parent="UI/ScrollContainer/Control/Sidebar" instance=ExtResource("3_trukk")]
 layout_mode = 2
 size_flags_vertical = 3
@@ -166,6 +178,7 @@ layout_mode = 2
 size_flags_horizontal = 1
 size_flags_vertical = 0
 
+[connection signal="consequence_changed" from="Map" to="UI/ScrollContainer/Control/Sidebar/CollapsibleControl7/ArmyActionConsequences" method="on_concequeces_changed"]
 [connection signal="focused_region_changed" from="Map" to="UI/ScrollContainer/Control/Sidebar/CollapsibleControl6/HBoxContainer/RegionDetails" method="_on_map_focused_region_changed"]
 [connection signal="movemenet_condition_changed" from="Map" to="UI/ScrollContainer/Control/Sidebar/CollapsibleControl2/ConditionViewer" method="_on_condition_changed"]
 [connection signal="focused_army_changed" from="ArmyManager" to="UI/ScrollContainer/Control/Sidebar/CollapsibleControl4/UnitSelector" method="_on_army_manager_focused_army_changed"]

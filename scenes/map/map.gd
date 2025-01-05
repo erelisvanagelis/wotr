@@ -6,6 +6,7 @@ signal targeted_region_changed(emmiter: Region)
 signal hovered_region_changed(emmiter: Region)
 signal focused_region_changed(emmiter: Region)
 signal movemenet_condition_changed(condition: ConditionComponent)
+signal consequence_changed(nation_advancement: Dictionary)
 
 @export var army_manager: ArmyManager
 @export var army_selector: ArmySelector
@@ -122,6 +123,8 @@ func _on_focused_region_changed(region: Region) -> void:
 			movemenet_condition_changed.emit(army_manager.build_army_movement_conditions(army_manager.focused_army, region))
 		elif action == Constants.ArmyActionType.ATTACK:
 			movemenet_condition_changed.emit(army_manager.build_army_attack_conditions(army_manager.focused_army, region))
+
+		consequence_changed.emit(army_manager.get_nations_affected_by_move(army_manager.focused_army, region))
 	else:
 		movemenet_condition_changed.emit(null)
 

@@ -354,3 +354,26 @@ func update_political_track(incoming_army: Army, target_region: Region) -> void:
 		for nation: Nation in attacked_nations.keys():
 			nation.active = true
 			nation.closer_to_war()
+
+
+func get_nations_affected_by_move(incoming_army: Army, target_region: Region) -> Dictionary:
+	var affected_nations: Dictionary = {}
+	if incoming_army.faction != target_region.nation.faction:
+		affected_nations[target_region.nation] = 1
+	if target_region.army && incoming_army.faction != target_region.army.faction:
+		var attacked_nations := {}
+		for unit: Unit in target_region.army.units:
+			attacked_nations[unit.data.nation] = unit.data.nation
+
+		for nation: Nation in attacked_nations.keys():
+			if affected_nations.has(nation):
+				affected_nations[nation] = affected_nations[nation] + 1
+			else:
+				affected_nations[nation] = 1
+
+	var filtered_nations: Dictionary = {}
+	for nation: Nation in affected_nations.keys():
+		if not nation.at_war && nation != Nations.UNALIGNED:
+			filtered_nations[nation] = affected_nations[nation]
+
+	return filtered_nations

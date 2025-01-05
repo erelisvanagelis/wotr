@@ -27,11 +27,28 @@ var free_regions: Nation = load("res://scripts/resources/nations/unaligned.tres"
 var neighbours: Array[Region] = []
 var movement_condition: ConditionComponent
 
+var hover_colors: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	neighbours.append_array(reachable_neighbours)
 	neighbours.append_array(unreachable_neighbours)
+
+	var selected_region_material := StandardMaterial3D.new()
+	var move_neigbour_material := StandardMaterial3D.new()
+	var attack_neigbour_material := StandardMaterial3D.new()
+	selected_region_material.albedo_color = ColorPalette.selected_region().color
+	move_neigbour_material.albedo_color = ColorPalette.move_region().color
+	attack_neigbour_material.albedo_color = ColorPalette.attack_region().color
+
+	hover_colors[default_material] = _set_hover_color(default_material)
+	hover_colors[selected_region_material] = _set_hover_color(selected_region_material)
+	hover_colors[move_neigbour_material] = _set_hover_color(move_neigbour_material)
+	hover_colors[attack_neigbour_material] = _set_hover_color(attack_neigbour_material)
+	hover_colors[hover_colors[default_material]] = default_material
+	hover_colors[hover_colors[selected_region_material] ] = selected_region_material
+	hover_colors[hover_colors[move_neigbour_material]] = move_neigbour_material
+	hover_colors[hover_colors[attack_neigbour_material]] = attack_neigbour_material
 
 	#var title_label := Label3D.new()
 	#title_label.text = title
@@ -44,6 +61,15 @@ func _ready() -> void:
 	body.input_event.connect(_on_static_body_3d_input_event)
 	body.mouse_entered.connect(_on_mouse_entered)
 	body.mouse_exited.connect(_on_mouse_exited)
+
+
+func _set_hover_color(p_material: StandardMaterial3D) -> StandardMaterial3D:
+	var material := p_material.duplicate(true)
+	material.emission_enabled = true
+	material.emission_energy_multiplier = 0.4
+	material.emission = Color.GHOST_WHITE
+
+	return material
 
 
 func _on_static_body_3d_input_event(
@@ -67,24 +93,24 @@ func _on_mouse_entered() -> void:
 
 func higlight_region() -> void:
 	var current_collor: StandardMaterial3D = self.get_surface_override_material(0)
-	if !current_collor:
-		return
+	var dict_collor: StandardMaterial3D
+	for material: StandardMaterial3D in hover_colors.keys():
+		if material.albedo_color == current_collor.albedo_color && not material.emission_enabled:
+			dict_collor = material
 
-	var modified_collor := current_collor.duplicate(true)
-	modified_collor.emission_enabled = true
-	modified_collor.emission_energy_multiplier = 0.4
-	modified_collor.emission = Color.GHOST_WHITE
-	self.set_surface_override_material(0, modified_collor)
+	if hover_colors.has(dict_collor):
+		self.set_surface_override_material(0, hover_colors[dict_collor])
 
 
 func _on_mouse_exited() -> void:
 	var current_collor: StandardMaterial3D = self.get_surface_override_material(0)
-	if !current_collor:
-		return
+	var dict_collor: StandardMaterial3D
+	for material: StandardMaterial3D in hover_colors.keys():
+		if material.albedo_color == current_collor.albedo_color && material.emission_enabled:
+			dict_collor = material
 
-	var modified_collor := current_collor.duplicate(true)
-	modified_collor.emission_enabled = false
-	self.set_surface_override_material(0, modified_collor)
+	if hover_colors.has(dict_collor):
+		self.set_surface_override_material(0, hover_colors[dict_collor])
 
 	region_unhovered.emit(self)
 
